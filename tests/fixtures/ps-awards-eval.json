@@ -1,0 +1,34 @@
+[
+  {
+    "label": true,
+    "candidate_id": "eval:positive:y-number",
+    "buyer_name": "Example Borough Council",
+    "supplier_name": "Example Supplier Ltd",
+    "evidence_text": "Contract awarded as a call-off under Procurement Services framework Y23065.",
+    "framework_hints": ["Y23065"]
+  },
+  {
+    "label": true,
+    "candidate_id": "eval:positive:wording",
+    "buyer_name": "Example University",
+    "supplier_name": "Technology Supplier Plc",
+    "evidence_text": "Award made through the KCS Procurement Services framework for technology products.",
+    "framework_hints": []
+  },
+  {
+    "label": false,
+    "candidate_id": "eval:negative:opportunity",
+    "buyer_name": "Example Council",
+    "supplier_name": "",
+    "evidence_text": "Invitation to tender for a future opportunity. No contract has been awarded.",
+    "framework_hints": []
+  },
+  {
+    "label": false,
+    "candidate_id": "eval:negative:other-framework",
+    "buyer_name": "Example Authority",
+    "supplier_name": "Example Supplier",
+    "evidence_text": "Award under CCS framework RM6098 with no Procurement Services connection.",
+    "framework_hints": []
+  }
+]

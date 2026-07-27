@@ -1,0 +1,5903 @@
+{
+  "generated_at": "2026-07-01T17:28:16.143Z",
+  "source_url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks",
+  "approved_supplier_count": 461,
+  "frameworks": [
+    {
+      "id": "TPPLCSKL03",
+      "name": "Vehicle Daily Rental",
+      "source_status": "active",
+      "expiry_date": "2029-06-01",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/fleet/vehicle-daily-rental",
+      "start_date": "2025-06-01",
+      "suppliers": [],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "TPPLPSBUS01",
+      "name": "Bus Framework",
+      "source_status": "active",
+      "expiry_date": "2029-12-16",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/fleet/bus-framework",
+      "start_date": "2025-12-17",
+      "suppliers": [],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y20018",
+      "name": "Books, Downloads & Associated Services",
+      "source_status": "expired",
+      "start_date": null,
+      "expiry_date": "2025-11-30",
+      "url": null,
+      "suppliers": [],
+      "last_seen_at": "2025-11-30T23:59:59.000Z"
+    },
+    {
+      "id": "Y20020",
+      "name": "Courier Services & Specialist Logistics",
+      "source_status": "expiring",
+      "expiry_date": "2026-08-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/courier-services-specialist-logistics",
+      "start_date": "2022-09-01",
+      "suppliers": [
+        {
+          "name": "BHA Couriers Ltd",
+          "normalized_name": "bha couriers",
+          "aliases": [
+            "bha couriers"
+          ],
+          "lots": [
+            "LOT 1 - UK Collection & Delivery"
+          ]
+        },
+        {
+          "name": "Granby Marketing Services Ltd",
+          "normalized_name": "granby marketing services",
+          "aliases": [
+            "granby marketing services"
+          ],
+          "lots": [
+            "LOT 1 - UK Collection & Delivery"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y20023",
+      "name": "Managed Services for Business Solutions",
+      "source_status": "expired",
+      "start_date": null,
+      "expiry_date": null,
+      "url": null,
+      "suppliers": [],
+      "last_seen_at": "2026-06-30T23:59:59.000Z"
+    },
+    {
+      "id": "Y20031",
+      "name": "Multi-Functional Devices and Digital Solutions",
+      "source_status": "expired",
+      "start_date": "2022-04-01",
+      "expiry_date": "2026-05-02",
+      "url": null,
+      "suppliers": [],
+      "last_seen_at": "2026-05-02T23:59:59.000Z"
+    },
+    {
+      "id": "Y21011",
+      "name": "Barrister Services",
+      "source_status": "expired",
+      "start_date": "2021-12-01",
+      "expiry_date": "2025-11-30",
+      "url": null,
+      "suppliers": [],
+      "last_seen_at": "2025-11-30T23:59:59.000Z"
+    },
+    {
+      "id": "Y21012",
+      "name": "Legal Services",
+      "source_status": "expiring",
+      "expiry_date": "2026-07-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/people-professional/legal-services",
+      "start_date": "2022-08-01",
+      "suppliers": [
+        {
+          "name": "Ashfords LLP",
+          "normalized_name": "ashfords",
+          "aliases": [
+            "ashfords"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Broadfield Law UK LLP (BDB Pitmans LLP)",
+          "normalized_name": "broadfield law llp bdb pitmans",
+          "aliases": [
+            "broadfield law llp bdb pitmans",
+            "broadfield law"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Bevan Brittan LLP",
+          "normalized_name": "bevan brittan",
+          "aliases": [
+            "bevan brittan"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Bird & Bird LLP",
+          "normalized_name": "bird and bird",
+          "aliases": [
+            "bird and bird"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Birketts LLP",
+          "normalized_name": "birketts",
+          "aliases": [
+            "birketts"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Browne Jacobson LLP",
+          "normalized_name": "browne jacobson",
+          "aliases": [
+            "browne jacobson"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Burges Salmon LLP",
+          "normalized_name": "burges salmon",
+          "aliases": [
+            "burges salmon"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Davitt Jones Bould",
+          "normalized_name": "davitt jones bould",
+          "aliases": [
+            "davitt jones bould"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Eversheds Sutherland LLP",
+          "normalized_name": "eversheds sutherland",
+          "aliases": [
+            "eversheds sutherland"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Forbes Solicitors",
+          "normalized_name": "forbes solicitors",
+          "aliases": [
+            "forbes solicitors"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Freeths LLP",
+          "normalized_name": "freeths",
+          "aliases": [
+            "freeths"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Geldards LLP",
+          "normalized_name": "geldards",
+          "aliases": [
+            "geldards"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Pinsent Masons LLP",
+          "normalized_name": "pinsent masons",
+          "aliases": [
+            "pinsent masons"
+          ],
+          "lots": []
+        },
+        {
+          "name": "RG Law",
+          "normalized_name": "rg law",
+          "aliases": [
+            "rg law"
+          ],
+          "lots": []
+        },
+        {
+          "name": "TLT LLP",
+          "normalized_name": "tlt",
+          "aliases": [
+            "tlt"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Trowers & Hamlins LLP",
+          "normalized_name": "trowers and hamlins",
+          "aliases": [
+            "trowers and hamlins"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Weightmans LLP",
+          "normalized_name": "weightmans",
+          "aliases": [
+            "weightmans"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Womble Bond Dickinson LLP",
+          "normalized_name": "womble bond dickinson",
+          "aliases": [
+            "womble bond dickinson"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y21018",
+      "name": "Temporary and Semi-permanent Buildings",
+      "source_status": "expiring",
+      "expiry_date": "2026-09-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/property-management/temporary-and-semi-permanent-buildings",
+      "start_date": "2022-10-01",
+      "suppliers": [
+        {
+          "name": "Actiform Ltd",
+          "normalized_name": "actiform",
+          "aliases": [
+            "actiform"
+          ],
+          "lots": [
+            "LOT 1 - Temporary and Semi-Permanent Buildings for Hire",
+            "LOT 2 - Temporary and Semi-Permanent Buildings for Purchase"
+          ]
+        },
+        {
+          "name": "Integra Buildings Ltd",
+          "normalized_name": "integra buildings",
+          "aliases": [
+            "integra buildings"
+          ],
+          "lots": [
+            "LOT 1 - Temporary and Semi-Permanent Buildings for Hire",
+            "LOT 2 - Temporary and Semi-Permanent Buildings for Purchase"
+          ]
+        },
+        {
+          "name": "Maxi Space Ltd",
+          "normalized_name": "maxi space",
+          "aliases": [
+            "maxi space"
+          ],
+          "lots": [
+            "LOT 1 - Temporary and Semi-Permanent Buildings for Hire",
+            "LOT 2 - Temporary and Semi-Permanent Buildings for Purchase"
+          ]
+        },
+        {
+          "name": "P McVey Building Systems",
+          "normalized_name": "p mcvey building systems",
+          "aliases": [
+            "p mcvey building systems"
+          ],
+          "lots": [
+            "LOT 1 - Temporary and Semi-Permanent Buildings for Hire",
+            "LOT 2 - Temporary and Semi-Permanent Buildings for Purchase"
+          ]
+        },
+        {
+          "name": "Pickerings Hire Ltd",
+          "normalized_name": "pickerings hire",
+          "aliases": [
+            "pickerings hire"
+          ],
+          "lots": [
+            "LOT 1 - Temporary and Semi-Permanent Buildings for Hire",
+            "LOT 2 - Temporary and Semi-Permanent Buildings for Purchase"
+          ]
+        },
+        {
+          "name": "Portakabin Ltd",
+          "normalized_name": "portakabin",
+          "aliases": [
+            "portakabin"
+          ],
+          "lots": [
+            "LOT 1 - Temporary and Semi-Permanent Buildings for Hire",
+            "LOT 2 - Temporary and Semi-Permanent Buildings for Purchase"
+          ]
+        },
+        {
+          "name": "The McAvoy Group",
+          "normalized_name": "mcavoy group",
+          "aliases": [
+            "mcavoy group"
+          ],
+          "lots": [
+            "LOT 1 - Temporary and Semi-Permanent Buildings for Hire",
+            "LOT 2 - Temporary and Semi-Permanent Buildings for Purchase"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y21027",
+      "name": "Employee Support Services & Benefits",
+      "source_status": "expired",
+      "start_date": null,
+      "expiry_date": null,
+      "url": null,
+      "suppliers": [],
+      "last_seen_at": "2026-06-30T23:59:59.000Z"
+    },
+    {
+      "id": "Y22007",
+      "name": "Communications Solutions and Associated Telephony Services",
+      "source_status": "expiring",
+      "expiry_date": "2026-08-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/office/communications-solutions-and-associated-telephony-services",
+      "start_date": "2022-09-01",
+      "suppliers": [
+        {
+          "name": "8x8 UK Limited",
+          "normalized_name": "8x8",
+          "aliases": [
+            "8x8"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Abzorb Systems LTD",
+          "normalized_name": "abzorb systems",
+          "aliases": [
+            "abzorb systems"
+          ],
+          "lots": []
+        },
+        {
+          "name": "BDR Group Limited",
+          "normalized_name": "bdr group",
+          "aliases": [
+            "bdr group"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Boxxe Ltd",
+          "normalized_name": "boxxe",
+          "aliases": [
+            "boxxe"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Gamma Network Solutions",
+          "normalized_name": "gamma network solutions",
+          "aliases": [
+            "gamma network solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Gradwell Communication LTD",
+          "normalized_name": "gradwell communication",
+          "aliases": [
+            "gradwell communication"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Insight Direct (UK) LTD",
+          "normalized_name": "insight direct",
+          "aliases": [
+            "insight direct"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Phoenix Software Ltd",
+          "normalized_name": "phoenix software",
+          "aliases": [
+            "phoenix software"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Sota Solutions Ltd",
+          "normalized_name": "sota solutions",
+          "aliases": [
+            "sota solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Tel Group",
+          "normalized_name": "tel group",
+          "aliases": [
+            "tel group"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Trustmarque Solutions Ltd",
+          "normalized_name": "trustmarque solutions",
+          "aliases": [
+            "trustmarque solutions"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y22022",
+      "name": "Frozen, Chilled & Ambient Food Supply",
+      "source_status": "active",
+      "expiry_date": "2026-06-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/frozen-chilled-ambient-food-supply",
+      "start_date": "2022-07-01",
+      "suppliers": [],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y22024",
+      "name": "Vehicle Purchase",
+      "source_status": "active",
+      "expiry_date": "2027-04-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/fleet/vehicle-purchase",
+      "start_date": "2023-05-01",
+      "suppliers": [
+        {
+          "name": "Aebi Schmidt UK Ltd",
+          "normalized_name": "aebi schmidt",
+          "aliases": [
+            "aebi schmidt"
+          ],
+          "lots": [
+            "LOT 3 - Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 4 - Heavy Commercial Vehicles (over 7.5 tonnes up to 12.5 tonnes)"
+          ]
+        },
+        {
+          "name": "Bucher Municipal Ltd",
+          "normalized_name": "bucher municipal",
+          "aliases": [
+            "bucher municipal"
+          ],
+          "lots": [
+            "LOT 3 - Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 4 - Heavy Commercial Vehicles (over 7.5 tonnes up to 12.5 tonnes)"
+          ]
+        },
+        {
+          "name": "Dennis Eagle Ltd",
+          "normalized_name": "dennis eagle",
+          "aliases": [
+            "dennis eagle"
+          ],
+          "lots": [
+            "LOT 3 - Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 4 - Heavy Commercial Vehicles (over 7.5 tonnes up to 12.5 tonnes)",
+            "LOT 7 - Conversion Services for Vehicles"
+          ]
+        },
+        {
+          "name": "NTM-GB Ltd",
+          "normalized_name": "ntm gb",
+          "aliases": [
+            "ntm gb"
+          ],
+          "lots": [
+            "LOT 3 - Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 4 - Heavy Commercial Vehicles (over 7.5 tonnes up to 12.5 tonnes)"
+          ]
+        },
+        {
+          "name": "Optare Group Ltd",
+          "normalized_name": "optare group",
+          "aliases": [
+            "optare group"
+          ],
+          "lots": [
+            "LOT 4 - Heavy Commercial Vehicles (over 7.5 tonnes up to 12.5 tonnes)",
+            "LOT 6 - Emergency Services Light to Medium Commercial Vehicles (up to 7.5 tonnes)"
+          ]
+        },
+        {
+          "name": "Scarab Sweepers Limited",
+          "normalized_name": "scarab sweepers",
+          "aliases": [
+            "scarab sweepers"
+          ],
+          "lots": [
+            "LOT 3 - Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 4 - Heavy Commercial Vehicles (over 7.5 tonnes up to 12.5 tonnes)",
+            "LOT 7 - Conversion Services for Vehicles"
+          ]
+        },
+        {
+          "name": "Terberg DTS UK LTD",
+          "normalized_name": "terberg dts",
+          "aliases": [
+            "terberg dts"
+          ],
+          "lots": [
+            "LOT 3 - Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 4 - Heavy Commercial Vehicles (over 7.5 tonnes up to 12.5 tonnes)",
+            "LOT 6 - Emergency Services Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 7 - Conversion Services for Vehicles"
+          ]
+        },
+        {
+          "name": "Babcock Vehicle Engineering",
+          "normalized_name": "babcock vehicle engineering",
+          "aliases": [
+            "babcock vehicle engineering"
+          ],
+          "lots": [
+            "LOT 6 - Emergency Services Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 7 - Conversion Services for Vehicles"
+          ]
+        },
+        {
+          "name": "Gowrings Mobility Ltd",
+          "normalized_name": "gowrings mobility",
+          "aliases": [
+            "gowrings mobility"
+          ],
+          "lots": [
+            "LOT 7 - Conversion Services for Vehicles"
+          ]
+        },
+        {
+          "name": "James A Cuthbertson Ltd",
+          "normalized_name": "james a cuthbertson",
+          "aliases": [
+            "james a cuthbertson"
+          ],
+          "lots": [
+            "LOT 3 - Light to Medium Commercial Vehicles (up to 7.5 tonnes)",
+            "LOT 7 - Conversion Services for Vehicles"
+          ]
+        },
+        {
+          "name": "Nissan Motor (GB) Limited",
+          "normalized_name": "nissan motor gb",
+          "aliases": [
+            "nissan motor gb",
+            "nissan motor"
+          ],
+          "lots": [
+            "LOT 3 - Light to Medium Commercial Vehicles (up to 7.5 tonnes)"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y22027",
+      "name": "Office Supplies and Equipment",
+      "source_status": "expired",
+      "start_date": null,
+      "expiry_date": "2026-05-31",
+      "url": null,
+      "suppliers": [],
+      "last_seen_at": "2026-05-31T23:59:59.000Z"
+    },
+    {
+      "id": "Y22028",
+      "name": "Total Facilities Management",
+      "source_status": "active",
+      "expiry_date": "2026-08-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/total-facilities-management",
+      "start_date": "2022-09-01",
+      "suppliers": [
+        {
+          "name": "ABM UK",
+          "normalized_name": "abm",
+          "aliases": [
+            "abm"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Amey Highways Limited",
+          "normalized_name": "amey highways",
+          "aliases": [
+            "amey highways"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Bellrock Property & Facilities Management Ltd",
+          "normalized_name": "bellrock property and facilities management",
+          "aliases": [
+            "bellrock property and facilities management"
+          ],
+          "lots": []
+        },
+        {
+          "name": "CBRE Managed Services",
+          "normalized_name": "cbre managed services",
+          "aliases": [
+            "cbre managed services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Compass Contract Services UK Ltd",
+          "normalized_name": "compass contract services",
+          "aliases": [
+            "compass contract services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Pinnacle Housing Ltd",
+          "normalized_name": "pinnacle housing",
+          "aliases": [
+            "pinnacle housing"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y22030",
+      "name": "Bus Shelters, Real Time Passenger Information (RTPI) and Associated Services",
+      "source_status": "active",
+      "expiry_date": "2027-01-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/fleet/bus-shelters-real-time-passenger-information-rtpi-and-associated-services",
+      "start_date": "2023-02-01",
+      "suppliers": [
+        {
+          "name": "Bus Shelters Ltd",
+          "normalized_name": "bus shelters",
+          "aliases": [
+            "bus shelters"
+          ],
+          "lots": [
+            "LOT 1 - Bus Shelters and Associated Services"
+          ]
+        },
+        {
+          "name": "Externiture Ltd",
+          "normalized_name": "externiture",
+          "aliases": [
+            "externiture"
+          ],
+          "lots": [
+            "LOT 1 - Bus Shelters and Associated Services"
+          ]
+        },
+        {
+          "name": "Trueform Engineering LTD",
+          "normalized_name": "trueform engineering",
+          "aliases": [
+            "trueform engineering"
+          ],
+          "lots": [
+            "LOT 1 - Bus Shelters and Associated Services"
+          ]
+        },
+        {
+          "name": "r2p UK Systems Limited",
+          "normalized_name": "r2p systems",
+          "aliases": [
+            "r2p systems"
+          ],
+          "lots": [
+            "LOT 2 - Real Time Passenger Information Systems (RTPI) and Associated Services"
+          ]
+        },
+        {
+          "name": "VIX Technology UK Ltd",
+          "normalized_name": "vix technology",
+          "aliases": [
+            "vix technology"
+          ],
+          "lots": [
+            "LOT 2 - Real Time Passenger Information Systems (RTPI) and Associated Services"
+          ]
+        },
+        {
+          "name": "Whoosh Media",
+          "normalized_name": "whoosh media",
+          "aliases": [
+            "whoosh media"
+          ],
+          "lots": [
+            "LOT 2 - Real Time Passenger Information Systems (RTPI) and Associated Services"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23002",
+      "name": "Records Information Management",
+      "source_status": "active",
+      "expiry_date": "2027-02-28",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/office/records-information-management",
+      "start_date": "2023-03-01",
+      "suppliers": [
+        {
+          "name": "Arvato Connect",
+          "normalized_name": "arvato connect",
+          "aliases": [
+            "arvato connect"
+          ],
+          "lots": [
+            "LOT 4 - Content Services Platform"
+          ]
+        },
+        {
+          "name": "Insight Direct (UK) LTD",
+          "normalized_name": "insight direct",
+          "aliases": [
+            "insight direct"
+          ],
+          "lots": [
+            "LOT 4 - Content Services Platform",
+            "LOT 5 - Cloud Solutions",
+            "LOT 6 - Secure IT Asset Recycling and Disposition"
+          ]
+        },
+        {
+          "name": "Iron Mountain",
+          "normalized_name": "iron mountain",
+          "aliases": [
+            "iron mountain"
+          ],
+          "lots": [
+            "LOT 1 - Asset and Records Storage, Retrieval and Destruction",
+            "LOT 2 - Document Scanning and Digital Storage",
+            "LOT 3 - Information Governance and Advisory Services",
+            "LOT 4 - Content Services Platform",
+            "LOT 5 - Cloud Solutions",
+            "LOT 6 - Secure IT Asset Recycling and Disposition"
+          ]
+        },
+        {
+          "name": "Restore Information Management",
+          "normalized_name": "restore information management",
+          "aliases": [
+            "restore information management"
+          ],
+          "lots": [
+            "LOT 1 - Asset and Records Storage, Retrieval and Destruction",
+            "LOT 2 - Document Scanning and Digital Storage",
+            "LOT 4 - Content Services Platform",
+            "LOT 5 - Cloud Solutions",
+            "LOT 6 - Secure IT Asset Recycling and Disposition"
+          ]
+        },
+        {
+          "name": "Ricoh UK Limited",
+          "normalized_name": "ricoh",
+          "aliases": [
+            "ricoh"
+          ],
+          "lots": [
+            "LOT 1 - Asset and Records Storage, Retrieval and Destruction",
+            "LOT 2 - Document Scanning and Digital Storage",
+            "LOT 3 - Information Governance and Advisory Services",
+            "LOT 4 - Content Services Platform",
+            "LOT 5 - Cloud Solutions",
+            "LOT 6 - Secure IT Asset Recycling and Disposition"
+          ]
+        },
+        {
+          "name": "Storetec",
+          "normalized_name": "storetec",
+          "aliases": [
+            "storetec"
+          ],
+          "lots": [
+            "LOT 1 - Asset and Records Storage, Retrieval and Destruction",
+            "LOT 2 - Document Scanning and Digital Storage",
+            "LOT 3 - Information Governance and Advisory Services",
+            "LOT 4 - Content Services Platform",
+            "LOT 5 - Cloud Solutions"
+          ]
+        },
+        {
+          "name": "Wyser",
+          "normalized_name": "wyser",
+          "aliases": [
+            "wyser"
+          ],
+          "lots": [
+            "LOT 4 - Content Services Platform"
+          ]
+        },
+        {
+          "name": "Vyta",
+          "normalized_name": "vyta",
+          "aliases": [
+            "vyta"
+          ],
+          "lots": [
+            "LOT 6 - Secure IT Asset Recycling and Disposition"
+          ]
+        },
+        {
+          "name": "Black Box",
+          "normalized_name": "black box",
+          "aliases": [
+            "black box"
+          ],
+          "lots": [
+            "LOT 2 - Document Scanning and Digital Storage"
+          ]
+        },
+        {
+          "name": "Hugh Symons Information Management",
+          "normalized_name": "hugh symons information management",
+          "aliases": [
+            "hugh symons information management"
+          ],
+          "lots": [
+            "LOT 2 - Document Scanning and Digital Storage"
+          ]
+        },
+        {
+          "name": "Oasis",
+          "normalized_name": "oasis",
+          "aliases": [
+            "oasis"
+          ],
+          "lots": [
+            "LOT 1 - Asset and Records Storage, Retrieval and Destruction",
+            "LOT 2 - Document Scanning and Digital Storage"
+          ]
+        },
+        {
+          "name": "Pearl Scan",
+          "normalized_name": "pearl scan",
+          "aliases": [
+            "pearl scan"
+          ],
+          "lots": [
+            "LOT 2 - Document Scanning and Digital Storage"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23003",
+      "name": "Electrical Testing Services",
+      "source_status": "active",
+      "expiry_date": "2027-03-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/electrical-testing-services",
+      "start_date": "2023-04-01",
+      "suppliers": [
+        {
+          "name": "AJS Limited",
+          "normalized_name": "ajs",
+          "aliases": [
+            "ajs"
+          ],
+          "lots": [
+            "LOT 1 - Portable Appliance Testing (PAT)",
+            "LOT 2 - Fixed Installation Testing (FIT)"
+          ]
+        },
+        {
+          "name": "Fixatex Ltd",
+          "normalized_name": "fixatex",
+          "aliases": [
+            "fixatex"
+          ],
+          "lots": [
+            "LOT 1 - Portable Appliance Testing (PAT)",
+            "LOT 2 - Fixed Installation Testing (FIT)",
+            "LOT 3 - Electrical Testing of Street Lighting and Street Furniture"
+          ]
+        },
+        {
+          "name": "Niblock Building Contractors",
+          "normalized_name": "niblock building contractors",
+          "aliases": [
+            "niblock building contractors"
+          ],
+          "lots": [
+            "LOT 2 - Fixed Installation Testing (FIT)"
+          ]
+        },
+        {
+          "name": "Openview Security Solutions Ltd",
+          "normalized_name": "openview security solutions",
+          "aliases": [
+            "openview security solutions"
+          ],
+          "lots": [
+            "LOT 1 - Portable Appliance Testing (PAT)",
+            "LOT 2 - Fixed Installation Testing (FIT)"
+          ]
+        },
+        {
+          "name": "PFL Electrical Ltd",
+          "normalized_name": "pfl electrical",
+          "aliases": [
+            "pfl electrical"
+          ],
+          "lots": [
+            "LOT 1 - Portable Appliance Testing (PAT)",
+            "LOT 2 - Fixed Installation Testing (FIT)"
+          ]
+        },
+        {
+          "name": "RGE Services",
+          "normalized_name": "rge services",
+          "aliases": [
+            "rge services"
+          ],
+          "lots": [
+            "LOT 1 - Portable Appliance Testing (PAT)",
+            "LOT 2 - Fixed Installation Testing (FIT)",
+            "LOT 3 - Electrical Testing of Street Lighting and Street Furniture"
+          ]
+        },
+        {
+          "name": "The Wiggett Group Ltd",
+          "normalized_name": "wiggett group",
+          "aliases": [
+            "wiggett group"
+          ],
+          "lots": [
+            "LOT 1 - Portable Appliance Testing (PAT)",
+            "LOT 2 - Fixed Installation Testing (FIT)",
+            "LOT 3 - Electrical Testing of Street Lighting and Street Furniture"
+          ]
+        },
+        {
+          "name": "JR Pat Testing Ltd",
+          "normalized_name": "jr pat testing",
+          "aliases": [
+            "jr pat testing"
+          ],
+          "lots": [
+            "LOT 1 - Portable Appliance Testing (PAT)"
+          ]
+        },
+        {
+          "name": "J McCann Ltd",
+          "normalized_name": "j mccann",
+          "aliases": [
+            "j mccann"
+          ],
+          "lots": [
+            "LOT 3 - Electrical Testing of Street Lighting and Street Furniture"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23004",
+      "name": "Wheelie Bins and Kerbside Recycling Containers",
+      "source_status": "active",
+      "expiry_date": "2027-04-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/wheelie-bins-and-kerbside-recycling-containers",
+      "start_date": "2023-05-01",
+      "suppliers": [
+        {
+          "name": "Craemer UK Limited",
+          "normalized_name": "craemer",
+          "aliases": [
+            "craemer"
+          ],
+          "lots": []
+        },
+        {
+          "name": "ESE World",
+          "normalized_name": "ese world",
+          "aliases": [
+            "ese world"
+          ],
+          "lots": []
+        },
+        {
+          "name": "SSI Schaefer Plastic UK Limited",
+          "normalized_name": "ssi schaefer plastic",
+          "aliases": [
+            "ssi schaefer plastic"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23005",
+      "name": "Cleaning Services",
+      "source_status": "active",
+      "expiry_date": "2027-06-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/cleaning-services",
+      "start_date": "2023-07-01",
+      "suppliers": [
+        {
+          "name": "Birkin Cleaning Services Ltd",
+          "normalized_name": "birkin cleaning services",
+          "aliases": [
+            "birkin cleaning services"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "Churchill Cleaning",
+          "normalized_name": "churchill cleaning",
+          "aliases": [
+            "churchill cleaning"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "CleanEvent Group Ltd",
+          "normalized_name": "cleanevent group",
+          "aliases": [
+            "cleanevent group"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "North Kent Cleaning Services",
+          "normalized_name": "north kent cleaning services",
+          "aliases": [
+            "north kent cleaning services"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "Pinnacle Facilities Management Ltd",
+          "normalized_name": "pinnacle facilities management",
+          "aliases": [
+            "pinnacle facilities management"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "Regency Facilities Management",
+          "normalized_name": "regency facilities management",
+          "aliases": [
+            "regency facilities management"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "Regent Office Care Ltd",
+          "normalized_name": "regent office care",
+          "aliases": [
+            "regent office care"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "Sansum Solutions Group",
+          "normalized_name": "sansum solutions group",
+          "aliases": [
+            "sansum solutions group"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "Seeclear Facilities",
+          "normalized_name": "seeclear facilities",
+          "aliases": [
+            "seeclear facilities"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "Solo Service Group",
+          "normalized_name": "solo service group",
+          "aliases": [
+            "solo service group"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "Tecmaster (Valigroup Ltd)",
+          "normalized_name": "tecmaster valigroup",
+          "aliases": [
+            "tecmaster valigroup",
+            "tecmaster"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services",
+            "LOT 2 - Public Sector Cleaning Services excluding Educational"
+          ]
+        },
+        {
+          "name": "May Harris Multi Services Ltd",
+          "normalized_name": "may harris multi services",
+          "aliases": [
+            "may harris multi services"
+          ],
+          "lots": [
+            "LOT 1 - Educational Cleaning Services"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23009",
+      "name": "Catering, Vending Machines & Water Cooler Solutions",
+      "source_status": "active",
+      "expiry_date": "2027-10-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/catering-vending-machines-water-cooler-solutions",
+      "start_date": "2023-11-01",
+      "suppliers": [
+        {
+          "name": "Culligan",
+          "normalized_name": "culligan",
+          "aliases": [
+            "culligan"
+          ],
+          "lots": [
+            "LOT 4 - Water Cooler Solutions"
+          ]
+        },
+        {
+          "name": "Fairtrade Vending Ltd",
+          "normalized_name": "fairtrade vending",
+          "aliases": [
+            "fairtrade vending"
+          ],
+          "lots": [
+            "LOT 3 - Vending Machines"
+          ]
+        },
+        {
+          "name": "Mix & Vend",
+          "normalized_name": "mix and vend",
+          "aliases": [
+            "mix and vend"
+          ],
+          "lots": [
+            "LOT 3 - Vending Machines"
+          ]
+        },
+        {
+          "name": "Caterlink",
+          "normalized_name": "caterlink",
+          "aliases": [
+            "caterlink"
+          ],
+          "lots": [
+            "LOT 1 - Catering (Education Only)"
+          ]
+        },
+        {
+          "name": "Culinera Limited",
+          "normalized_name": "culinera",
+          "aliases": [
+            "culinera"
+          ],
+          "lots": [
+            "LOT 1 - Catering (Education Only)"
+          ]
+        },
+        {
+          "name": "Nourish Contract Catering",
+          "normalized_name": "nourish contract catering",
+          "aliases": [
+            "nourish contract catering"
+          ],
+          "lots": [
+            "LOT 1 - Catering (Education Only)"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23013",
+      "name": "Pest Control Products & Services",
+      "source_status": "active",
+      "expiry_date": "2029-01-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/pest-control-products-services",
+      "start_date": "2025-02-01",
+      "suppliers": [
+        {
+          "name": "AGS One",
+          "normalized_name": "ags one",
+          "aliases": [
+            "ags one"
+          ],
+          "lots": [
+            "LOT 2 - Pest Control Services"
+          ]
+        },
+        {
+          "name": "Combat Pest Control",
+          "normalized_name": "combat pest control",
+          "aliases": [
+            "combat pest control"
+          ],
+          "lots": [
+            "LOT 2 - Pest Control Services"
+          ]
+        },
+        {
+          "name": "Contego Environmental Services Ltd",
+          "normalized_name": "contego environmental services",
+          "aliases": [
+            "contego environmental services"
+          ],
+          "lots": [
+            "LOT 2 - Pest Control Services"
+          ]
+        },
+        {
+          "name": "John O'Conner Ltd",
+          "normalized_name": "john o conner",
+          "aliases": [
+            "john o conner"
+          ],
+          "lots": [
+            "LOT 2 - Pest Control Services"
+          ]
+        },
+        {
+          "name": "Rentokil Initial T/A Rentokil Pest Control",
+          "normalized_name": "rentokil initial",
+          "aliases": [
+            "rentokil initial",
+            "rentokil pest control"
+          ],
+          "lots": [
+            "LOT 2 - Pest Control Services"
+          ]
+        },
+        {
+          "name": "Wynsdale Waste Management Ltd T/A Wynsdale Environmental",
+          "normalized_name": "wynsdale waste management",
+          "aliases": [
+            "wynsdale waste management",
+            "wynsdale environmental"
+          ],
+          "lots": [
+            "LOT 1 - Pest Control Products",
+            "LOT 2 - Pest Control Services"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23021",
+      "name": "Logistics, Warehousing and Removal Solutions",
+      "source_status": "active",
+      "expiry_date": "2027-11-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/construction/logistics-warehousing-and-removal-solutions",
+      "start_date": "2023-12-01",
+      "suppliers": [
+        {
+          "name": "BHA Couriers Ltd",
+          "normalized_name": "bha couriers",
+          "aliases": [
+            "bha couriers"
+          ],
+          "lots": [
+            "LOT 2 - Logistic Transport Services"
+          ]
+        },
+        {
+          "name": "Central Moves",
+          "normalized_name": "central moves",
+          "aliases": [
+            "central moves"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 2 - Logistic Transport Services",
+            "LOT 3 - Removals, Relocations & Void Clearances",
+            "LOT 4 - Fully Comprehensive Removal Services"
+          ]
+        },
+        {
+          "name": "Crown Workspace Ltd",
+          "normalized_name": "crown workspace",
+          "aliases": [
+            "crown workspace"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 2 - Logistic Transport Services",
+            "LOT 3 - Removals, Relocations & Void Clearances",
+            "LOT 4 - Fully Comprehensive Removal Services"
+          ]
+        },
+        {
+          "name": "Granby Marketing Services Ltd",
+          "normalized_name": "granby marketing services",
+          "aliases": [
+            "granby marketing services"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 2 - Logistic Transport Services"
+          ]
+        },
+        {
+          "name": "GXO Logistics UK Ltd",
+          "normalized_name": "gxo logistics",
+          "aliases": [
+            "gxo logistics"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 2 - Logistic Transport Services"
+          ]
+        },
+        {
+          "name": "Harrow Green Ltd",
+          "normalized_name": "harrow green",
+          "aliases": [
+            "harrow green"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 2 - Logistic Transport Services",
+            "LOT 3 - Removals, Relocations & Void Clearances",
+            "LOT 4 - Fully Comprehensive Removal Services"
+          ]
+        },
+        {
+          "name": "Johnsons UK Services",
+          "normalized_name": "johnsons services",
+          "aliases": [
+            "johnsons services"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 2 - Logistic Transport Services",
+            "LOT 3 - Removals, Relocations & Void Clearances",
+            "LOT 4 - Fully Comprehensive Removal Services"
+          ]
+        },
+        {
+          "name": "Kwikshift",
+          "normalized_name": "kwikshift",
+          "aliases": [
+            "kwikshift"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 2 - Logistic Transport Services",
+            "LOT 4 - Fully Comprehensive Removal Services"
+          ]
+        },
+        {
+          "name": "TPS Global Logistics LTD",
+          "normalized_name": "tps global logistics",
+          "aliases": [
+            "tps global logistics"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 2 - Logistic Transport Services"
+          ]
+        },
+        {
+          "name": "Veo Logistics",
+          "normalized_name": "veo logistics",
+          "aliases": [
+            "veo logistics"
+          ],
+          "lots": [
+            "LOT 2 - Logistic Transport Services"
+          ]
+        },
+        {
+          "name": "Crown Promotions & Removals",
+          "normalized_name": "crown promotions and removals",
+          "aliases": [
+            "crown promotions and removals"
+          ],
+          "lots": [
+            "LOT 1 - Warehousing & Storage",
+            "LOT 4 - Fully Comprehensive Removal Services"
+          ]
+        },
+        {
+          "name": "Regal South East Ltd",
+          "normalized_name": "regal south east",
+          "aliases": [
+            "regal south east"
+          ],
+          "lots": [
+            "LOT 3 - Removals, Relocations & Void Clearances"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23022",
+      "name": "Grounds Maintenance & Associated Services",
+      "source_status": "expiring",
+      "expiry_date": "2026-11-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/property-management/grounds-maintenance-associated-services",
+      "start_date": "2022-12-01",
+      "suppliers": [
+        {
+          "name": "ATM Ltd",
+          "normalized_name": "atm",
+          "aliases": [
+            "atm"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Churchill (Chequers Contracts)",
+          "normalized_name": "churchill chequers contracts",
+          "aliases": [
+            "churchill chequers contracts",
+            "churchill"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Idverde Limited",
+          "normalized_name": "idverde",
+          "aliases": [
+            "idverde"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Landscape Services",
+          "normalized_name": "landscape services",
+          "aliases": [
+            "landscape services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Mark Walker",
+          "normalized_name": "mark walker",
+          "aliases": [
+            "mark walker"
+          ],
+          "lots": []
+        },
+        {
+          "name": "PGSD",
+          "normalized_name": "pgsd",
+          "aliases": [
+            "pgsd"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Twig Group",
+          "normalized_name": "twig group",
+          "aliases": [
+            "twig group"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23023",
+      "name": "Property Refurbishment, Maintenance and Management",
+      "source_status": "active",
+      "expiry_date": "2028-05-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/property-management/property-refurbishment-maintenance-and-management",
+      "start_date": "2024-06-01",
+      "suppliers": [
+        {
+          "name": "A & E Elkins Limited T/A Elkins Construction",
+          "normalized_name": "a and e elkins",
+          "aliases": [
+            "a and e elkins",
+            "elkins construction"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services"
+          ]
+        },
+        {
+          "name": "Clairglow Heating Ltd",
+          "normalized_name": "clairglow heating",
+          "aliases": [
+            "clairglow heating"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services",
+            "LOT 2 - Property Maintenance and Repair Services"
+          ]
+        },
+        {
+          "name": "Ecosafe Heating Ltd T/A Ecosafe Group",
+          "normalized_name": "ecosafe heating",
+          "aliases": [
+            "ecosafe heating",
+            "ecosafe group"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services"
+          ]
+        },
+        {
+          "name": "Ian Williams Limited",
+          "normalized_name": "ian williams",
+          "aliases": [
+            "ian williams"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services"
+          ]
+        },
+        {
+          "name": "M & J Group Ltd",
+          "normalized_name": "m and j group",
+          "aliases": [
+            "m and j group"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services",
+            "LOT 2 - Property Maintenance and Repair Services"
+          ]
+        },
+        {
+          "name": "Milestone South East Limited",
+          "normalized_name": "milestone south east",
+          "aliases": [
+            "milestone south east"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services"
+          ]
+        },
+        {
+          "name": "Mulalley & Company LTD",
+          "normalized_name": "mulalley and",
+          "aliases": [
+            "mulalley and"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services"
+          ]
+        },
+        {
+          "name": "Redec Ltd T/A REDEC refurbishment and Construction",
+          "normalized_name": "redec",
+          "aliases": [
+            "redec",
+            "redec refurbishment and construction"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services"
+          ]
+        },
+        {
+          "name": "TMN Contractors",
+          "normalized_name": "tmn contractors",
+          "aliases": [
+            "tmn contractors"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services",
+            "LOT 2 - Property Maintenance and Repair Services"
+          ]
+        },
+        {
+          "name": "Trail Group Ltd",
+          "normalized_name": "trail group",
+          "aliases": [
+            "trail group"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services",
+            "LOT 2 - Property Maintenance and Repair Services"
+          ]
+        },
+        {
+          "name": "TSG Building Services PLC",
+          "normalized_name": "tsg building services",
+          "aliases": [
+            "tsg building services"
+          ],
+          "lots": [
+            "LOT 1 - Property Refurbishment Services"
+          ]
+        },
+        {
+          "name": "Amalgamated Lifts Limited",
+          "normalized_name": "amalgamated lifts",
+          "aliases": [
+            "amalgamated lifts"
+          ],
+          "lots": [
+            "LOT 2 - Property Maintenance and Repair Services"
+          ]
+        },
+        {
+          "name": "BSW Heating Ltd",
+          "normalized_name": "bsw heating",
+          "aliases": [
+            "bsw heating"
+          ],
+          "lots": [
+            "LOT 2 - Property Maintenance and Repair Services"
+          ]
+        },
+        {
+          "name": "Graham & Sibbald UK LLP",
+          "normalized_name": "graham and sibbald",
+          "aliases": [
+            "graham and sibbald"
+          ],
+          "lots": [
+            "LOT 3 - Property Management and Support Services"
+          ]
+        },
+        {
+          "name": "Pellings LLP",
+          "normalized_name": "pellings",
+          "aliases": [
+            "pellings"
+          ],
+          "lots": [
+            "LOT 3 - Property Management and Support Services"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23024",
+      "name": "Uniform, Clothing and Associated Services",
+      "source_status": "active",
+      "expiry_date": "2026-11-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/emergency/uniform-clothing-and-associated-services",
+      "start_date": "2022-12-01",
+      "suppliers": [
+        {
+          "name": "Clad Safety (HeroQuip)",
+          "normalized_name": "clad safety heroquip",
+          "aliases": [
+            "clad safety heroquip",
+            "clad safety"
+          ],
+          "lots": [
+            "LOT 1 - Uniform and Associated Services",
+            "LOT 2 - Uniform and Clothing Accessories, Kit Bags and Footwear"
+          ]
+        },
+        {
+          "name": "Healthy Bean Ltd",
+          "normalized_name": "healthy bean",
+          "aliases": [
+            "healthy bean"
+          ],
+          "lots": [
+            "LOT 1 - Uniform and Associated Services",
+            "LOT 2 - Uniform and Clothing Accessories, Kit Bags and Footwear"
+          ]
+        },
+        {
+          "name": "Keela",
+          "normalized_name": "keela",
+          "aliases": [
+            "keela"
+          ],
+          "lots": [
+            "LOT 1 - Uniform and Associated Services"
+          ]
+        },
+        {
+          "name": "MLA LTD",
+          "normalized_name": "mla",
+          "aliases": [
+            "mla"
+          ],
+          "lots": [
+            "LOT 2 - Uniform and Clothing Accessories, Kit Bags and Footwear"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23025",
+      "name": "Fire Safety Products & Associated Services",
+      "source_status": "active",
+      "expiry_date": "2026-12-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/emergency/fire-safety-products-associated-services",
+      "start_date": "2023-01-12",
+      "suppliers": [
+        {
+          "name": "Amalgamated LTD",
+          "normalized_name": "amalgamated",
+          "aliases": [
+            "amalgamated"
+          ],
+          "lots": [
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting",
+            "LOT 5 - Wet and Dry Risers"
+          ]
+        },
+        {
+          "name": "Bespoke Detection Services",
+          "normalized_name": "bespoke detection services",
+          "aliases": [
+            "bespoke detection services"
+          ],
+          "lots": [
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting"
+          ]
+        },
+        {
+          "name": "Chubb Fire & Security Ltd",
+          "normalized_name": "chubb fire and security",
+          "aliases": [
+            "chubb fire and security"
+          ],
+          "lots": [
+            "LOT 1 - The Supply of Fire Safety Products",
+            "LOT 2 - Fire Risk Assessment and Fire Awareness Training",
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting",
+            "LOT 5 - Wet and Dry Risers"
+          ]
+        },
+        {
+          "name": "EA-RS",
+          "normalized_name": "ea rs",
+          "aliases": [
+            "ea rs"
+          ],
+          "lots": [
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting",
+            "LOT 5 - Wet and Dry Risers"
+          ]
+        },
+        {
+          "name": "Houghton and Son LTD",
+          "normalized_name": "houghton and son",
+          "aliases": [
+            "houghton and son"
+          ],
+          "lots": [
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting"
+          ]
+        },
+        {
+          "name": "RGE Services",
+          "normalized_name": "rge services",
+          "aliases": [
+            "rge services"
+          ],
+          "lots": [
+            "LOT 1 - The Supply of Fire Safety Products",
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting",
+            "LOT 5 - Wet and Dry Risers"
+          ]
+        },
+        {
+          "name": "Standby Fire Protection",
+          "normalized_name": "standby fire protection",
+          "aliases": [
+            "standby fire protection"
+          ],
+          "lots": [
+            "LOT 1 - The Supply of Fire Safety Products",
+            "LOT 2 - Fire Risk Assessment and Fire Awareness Training",
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting",
+            "LOT 5 - Wet and Dry Risers"
+          ]
+        },
+        {
+          "name": "Sureserve Compliance Fire",
+          "normalized_name": "sureserve compliance fire",
+          "aliases": [
+            "sureserve compliance fire"
+          ],
+          "lots": [
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting",
+            "LOT 5 - Wet and Dry Risers"
+          ]
+        },
+        {
+          "name": "Ventro LTD",
+          "normalized_name": "ventro",
+          "aliases": [
+            "ventro"
+          ],
+          "lots": [
+            "LOT 1 - The Supply of Fire Safety Products",
+            "LOT 2 - Fire Risk Assessment and Fire Awareness Training",
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 4 - Emergency Lighting",
+            "LOT 5 - Wet and Dry Risers"
+          ]
+        },
+        {
+          "name": "Stealth Fire and Security LTD",
+          "normalized_name": "stealth fire and security",
+          "aliases": [
+            "stealth fire and security"
+          ],
+          "lots": [
+            "LOT 3 - Fire Prevention and Detection Systems"
+          ]
+        },
+        {
+          "name": "Triangle Fire Systems",
+          "normalized_name": "triangle fire systems",
+          "aliases": [
+            "triangle fire systems"
+          ],
+          "lots": [
+            "LOT 3 - Fire Prevention and Detection Systems",
+            "LOT 5 - Wet and Dry Risers"
+          ]
+        },
+        {
+          "name": "Allsaved",
+          "normalized_name": "allsaved",
+          "aliases": [
+            "allsaved"
+          ],
+          "lots": [
+            "LOT 1 - The Supply of Fire Safety Products",
+            "LOT 2 - Fire Risk Assessment and Fire Awareness Training"
+          ]
+        },
+        {
+          "name": "Churches Fire",
+          "normalized_name": "churches fire",
+          "aliases": [
+            "churches fire"
+          ],
+          "lots": [
+            "LOT 1 - The Supply of Fire Safety Products"
+          ]
+        },
+        {
+          "name": "DDS (International) Limited",
+          "normalized_name": "dds international",
+          "aliases": [
+            "dds international",
+            "dds"
+          ],
+          "lots": [
+            "LOT 2 - Fire Risk Assessment and Fire Awareness Training"
+          ]
+        },
+        {
+          "name": "Ridge and Partners",
+          "normalized_name": "ridge and partners",
+          "aliases": [
+            "ridge and partners"
+          ],
+          "lots": [
+            "LOT 2 - Fire Risk Assessment and Fire Awareness Training"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23026",
+      "name": "Signs and Associated Services",
+      "source_status": "active",
+      "expiry_date": "2027-01-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/highways/signs-and-associated-services",
+      "start_date": "2023-02-01",
+      "suppliers": [
+        {
+          "name": "All Signs International Ltd",
+          "normalized_name": "all signs international",
+          "aliases": [
+            "all signs international"
+          ],
+          "lots": [
+            "LOT 1 - Signs and Associated Services",
+            "LOT 2 - Electronic, Interactive Signs and Associated Services"
+          ]
+        },
+        {
+          "name": "DMA Signs Limited",
+          "normalized_name": "dma signs",
+          "aliases": [
+            "dma signs"
+          ],
+          "lots": [
+            "LOT 1 - Signs and Associated Services"
+          ]
+        },
+        {
+          "name": "Morgans Consult",
+          "normalized_name": "morgans consult",
+          "aliases": [
+            "morgans consult"
+          ],
+          "lots": [
+            "LOT 1 - Signs and Associated Services"
+          ]
+        },
+        {
+          "name": "Swarco UK LTD",
+          "normalized_name": "swarco",
+          "aliases": [
+            "swarco"
+          ],
+          "lots": [
+            "LOT 2 - Electronic, Interactive Signs and Associated Services"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23029",
+      "name": "Financial Leasing Solutions",
+      "source_status": "active",
+      "expiry_date": "2029-02-28",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/banking-and-finance/financial-leasing-solutions",
+      "start_date": "2025-03-01",
+      "suppliers": [
+        {
+          "name": "CHG-MERIDIAN UK Ltd",
+          "normalized_name": "chg meridian",
+          "aliases": [
+            "chg meridian"
+          ],
+          "lots": [
+            "LOT 1 - Catering and Domestic Services Equipment",
+            "LOT 2 - Courier and Logistics Equipment",
+            "LOT 3 - Education Services Equipment",
+            "LOT 6 - ICT and Telecommunications Equipment and Software",
+            "LOT 7 - Laboratory and Pathology Equipment",
+            "LOT 8 - General Medical Equipment (CRACOE and non-CRACOE)",
+            "LOT 9 - Temporary and Semi-Permanent Buildings"
+          ]
+        },
+        {
+          "name": "TP Leasing Ltd",
+          "normalized_name": "tp leasing",
+          "aliases": [
+            "tp leasing"
+          ],
+          "lots": [
+            "LOT 1 - Catering and Domestic Services Equipment",
+            "LOT 10 - Vehicles",
+            "LOT 2 - Courier and Logistics Equipment",
+            "LOT 3 - Education Services Equipment",
+            "LOT 4 - Estates and Facilities / Ground Maintenance Equipment",
+            "LOT 5 - Green Technology Equipment (Renewable Energy and Energy Efficiency)",
+            "LOT 6 - ICT and Telecommunications Equipment and Software",
+            "LOT 7 - Laboratory and Pathology Equipment",
+            "LOT 8 - General Medical Equipment (CRACOE and non-CRACOE)",
+            "LOT 9 - Temporary and Semi-Permanent Buildings"
+          ]
+        },
+        {
+          "name": "Triple Point Lease Partners",
+          "normalized_name": "triple point lease partners",
+          "aliases": [
+            "triple point lease partners"
+          ],
+          "lots": [
+            "LOT 1 - Catering and Domestic Services Equipment",
+            "LOT 10 - Vehicles",
+            "LOT 2 - Courier and Logistics Equipment",
+            "LOT 3 - Education Services Equipment",
+            "LOT 4 - Estates and Facilities / Ground Maintenance Equipment",
+            "LOT 5 - Green Technology Equipment (Renewable Energy and Energy Efficiency)",
+            "LOT 6 - ICT and Telecommunications Equipment and Software",
+            "LOT 7 - Laboratory and Pathology Equipment",
+            "LOT 8 - General Medical Equipment (CRACOE and non-CRACOE)",
+            "LOT 9 - Temporary and Semi-Permanent Buildings"
+          ]
+        },
+        {
+          "name": "BPCE Equipment Solutions UK",
+          "normalized_name": "bpce equipment solutions",
+          "aliases": [
+            "bpce equipment solutions"
+          ],
+          "lots": [
+            "LOT 10 - Vehicles",
+            "LOT 5 - Green Technology Equipment (Renewable Energy and Energy Efficiency)",
+            "LOT 6 - ICT and Telecommunications Equipment and Software",
+            "LOT 7 - Laboratory and Pathology Equipment",
+            "LOT 8 - General Medical Equipment (CRACOE and non-CRACOE)",
+            "LOT 9 - Temporary and Semi-Permanent Buildings"
+          ]
+        },
+        {
+          "name": "Modality Group Ltd (previously AUE Ltd)",
+          "normalized_name": "modality group ltd previously aue",
+          "aliases": [
+            "modality group ltd previously aue",
+            "modality group"
+          ],
+          "lots": [
+            "LOT 7 - Laboratory and Pathology Equipment",
+            "LOT 8 - General Medical Equipment (CRACOE and non-CRACOE)",
+            "LOT 9 - Temporary and Semi-Permanent Buildings"
+          ]
+        },
+        {
+          "name": "GE Healthcare Financial Services Ltd",
+          "normalized_name": "ge healthcare financial services",
+          "aliases": [
+            "ge healthcare financial services"
+          ],
+          "lots": [
+            "LOT 6 - ICT and Telecommunications Equipment and Software",
+            "LOT 7 - Laboratory and Pathology Equipment",
+            "LOT 8 - General Medical Equipment (CRACOE and non-CRACOE)"
+          ]
+        },
+        {
+          "name": "Trio Leasing",
+          "normalized_name": "trio leasing",
+          "aliases": [
+            "trio leasing"
+          ],
+          "lots": [
+            "LOT 10 - Vehicles"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23030",
+      "name": "Audit and Assurance Services",
+      "source_status": "active",
+      "expiry_date": "2027-04-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/banking-and-finance/audit-and-assurance-services",
+      "start_date": "2023-05-01",
+      "suppliers": [
+        {
+          "name": "Azets Holdings Limited",
+          "normalized_name": "azets holdings",
+          "aliases": [
+            "azets holdings"
+          ],
+          "lots": [
+            "LOT 2 - Counter Fraud and Investigation"
+          ]
+        },
+        {
+          "name": "BDO LLP",
+          "normalized_name": "bdo",
+          "aliases": [
+            "bdo"
+          ],
+          "lots": [
+            "LOT 1 - Internal Audit and Assurance",
+            "LOT 2 - Counter Fraud and Investigation"
+          ]
+        },
+        {
+          "name": "FRP Advisory Trading Limited",
+          "normalized_name": "frp advisory trading",
+          "aliases": [
+            "frp advisory trading"
+          ],
+          "lots": [
+            "LOT 2 - Counter Fraud and Investigation"
+          ]
+        },
+        {
+          "name": "Tiaa LTD",
+          "normalized_name": "tiaa",
+          "aliases": [
+            "tiaa"
+          ],
+          "lots": [
+            "LOT 1 - Internal Audit and Assurance",
+            "LOT 2 - Counter Fraud and Investigation"
+          ]
+        },
+        {
+          "name": "Azets Technology Solutions LTD",
+          "normalized_name": "azets technology solutions",
+          "aliases": [
+            "azets technology solutions"
+          ],
+          "lots": [
+            "LOT 1 - Internal Audit and Assurance"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23031",
+      "name": "Language Services Framework",
+      "source_status": "active",
+      "expiry_date": "2028-01-01",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/people-professional/language-services-framework",
+      "start_date": "2024-02-01",
+      "suppliers": [
+        {
+          "name": "AA Global Language Services",
+          "normalized_name": "aa global language services",
+          "aliases": [
+            "aa global language services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Clear Voice Interpreting Services",
+          "normalized_name": "clear voice interpreting services",
+          "aliases": [
+            "clear voice interpreting services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Global Voices Limited",
+          "normalized_name": "global voices",
+          "aliases": [
+            "global voices"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Herts Interpreting & Translating Service",
+          "normalized_name": "herts interpreting and translating service",
+          "aliases": [
+            "herts interpreting and translating service"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Intertranslations SA",
+          "normalized_name": "intertranslations sa",
+          "aliases": [
+            "intertranslations sa"
+          ],
+          "lots": []
+        },
+        {
+          "name": "LanguageLine Solutions",
+          "normalized_name": "languageline solutions",
+          "aliases": [
+            "languageline solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "ONCALL Interpreters Ltd",
+          "normalized_name": "oncall interpreters",
+          "aliases": [
+            "oncall interpreters"
+          ],
+          "lots": []
+        },
+        {
+          "name": "PAB Languages Centre Ltd",
+          "normalized_name": "pab languages centre",
+          "aliases": [
+            "pab languages centre"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Papillon Translations Ltd",
+          "normalized_name": "papillon translations",
+          "aliases": [
+            "papillon translations"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Transcription City Ltd",
+          "normalized_name": "transcription city",
+          "aliases": [
+            "transcription city"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Translate UK Limited",
+          "normalized_name": "translate",
+          "aliases": [
+            "translate"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23033",
+      "name": "Personal Protective Equipment (PPE) & Safety Workwear",
+      "source_status": "active",
+      "expiry_date": "2027-01-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/emergency/personal-protective-equipment-ppe-safety-workwear",
+      "start_date": "2023-02-01",
+      "suppliers": [
+        {
+          "name": "Healthy Bean Ltd",
+          "normalized_name": "healthy bean",
+          "aliases": [
+            "healthy bean"
+          ],
+          "lots": [
+            "LOT 1 - PPE",
+            "LOT 2 - Safety Workwear",
+            "LOT 3 - One Stop Shop"
+          ]
+        },
+        {
+          "name": "Protective Wear Supplies",
+          "normalized_name": "protective wear supplies",
+          "aliases": [
+            "protective wear supplies"
+          ],
+          "lots": [
+            "LOT 3 - One Stop Shop"
+          ]
+        },
+        {
+          "name": "Sunbelt Rentals LTD",
+          "normalized_name": "sunbelt rentals",
+          "aliases": [
+            "sunbelt rentals"
+          ],
+          "lots": [
+            "LOT 1 - PPE",
+            "LOT 2 - Safety Workwear",
+            "LOT 3 - One Stop Shop"
+          ]
+        },
+        {
+          "name": "Global Health and Safety LTD",
+          "normalized_name": "global health and safety",
+          "aliases": [
+            "global health and safety"
+          ],
+          "lots": [
+            "LOT 1 - PPE"
+          ]
+        },
+        {
+          "name": "Reliance Medical LTD",
+          "normalized_name": "reliance medical",
+          "aliases": [
+            "reliance medical"
+          ],
+          "lots": [
+            "LOT 1 - PPE"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23034",
+      "name": "Promotional Merchandise",
+      "source_status": "active",
+      "expiry_date": "2027-02-28",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/office/promotional-merchandise",
+      "start_date": "2023-03-01",
+      "suppliers": [
+        {
+          "name": "Allwag",
+          "normalized_name": "allwag",
+          "aliases": [
+            "allwag"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Extravaganza",
+          "normalized_name": "extravaganza",
+          "aliases": [
+            "extravaganza"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Navillus",
+          "normalized_name": "navillus",
+          "aliases": [
+            "navillus"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23038",
+      "name": "ICT Managed Services & Consultancy",
+      "source_status": "active",
+      "expiry_date": "2027-04-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/technology/ict-managed-services-consultancy",
+      "start_date": "2023-05-01",
+      "suppliers": [
+        {
+          "name": "Bechtle Direct UK",
+          "normalized_name": "bechtle direct",
+          "aliases": [
+            "bechtle direct"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services"
+          ]
+        },
+        {
+          "name": "Boxxe Ltd",
+          "normalized_name": "boxxe",
+          "aliases": [
+            "boxxe"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services"
+          ]
+        },
+        {
+          "name": "Bunker48 Ltd",
+          "normalized_name": "bunker48",
+          "aliases": [
+            "bunker48"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services"
+          ]
+        },
+        {
+          "name": "Bytes Software Services",
+          "normalized_name": "bytes software services",
+          "aliases": [
+            "bytes software services"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "CDW Ltd",
+          "normalized_name": "cdw",
+          "aliases": [
+            "cdw"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "CGI IT UK Ltd",
+          "normalized_name": "cgi it",
+          "aliases": [
+            "cgi it"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "Centerprise International Ltd",
+          "normalized_name": "centerprise international",
+          "aliases": [
+            "centerprise international"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services"
+          ]
+        },
+        {
+          "name": "EIS the trading arm of Cantium",
+          "normalized_name": "eis trading arm of cantium",
+          "aliases": [
+            "eis trading arm of cantium"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "Insight Direct (UK) LTD",
+          "normalized_name": "insight direct",
+          "aliases": [
+            "insight direct"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "IOMART Group PLC",
+          "normalized_name": "iomart group",
+          "aliases": [
+            "iomart group"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "Phoenix Software Ltd",
+          "normalized_name": "phoenix software",
+          "aliases": [
+            "phoenix software"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "Six Degrees Technology Group",
+          "normalized_name": "six degrees technology group",
+          "aliases": [
+            "six degrees technology group"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services"
+          ]
+        },
+        {
+          "name": "Stone Technologies Ltd, trading as Converge Technology Solutions",
+          "normalized_name": "stone technologies",
+          "aliases": [
+            "stone technologies",
+            "converge technology solutions"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "Trustmarque Solutions Ltd",
+          "normalized_name": "trustmarque solutions",
+          "aliases": [
+            "trustmarque solutions"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "UBDS IT Consulting Ltd",
+          "normalized_name": "ubds it consulting",
+          "aliases": [
+            "ubds it consulting"
+          ],
+          "lots": [
+            "LOT 1 - ICT Managed Services",
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "Advanced IT Services",
+          "normalized_name": "advanced it services",
+          "aliases": [
+            "advanced it services"
+          ],
+          "lots": [
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "TPXimpact Ltd",
+          "normalized_name": "tpximpact",
+          "aliases": [
+            "tpximpact"
+          ],
+          "lots": [
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "Ultima Business Solutions",
+          "normalized_name": "ultima business solutions",
+          "aliases": [
+            "ultima business solutions"
+          ],
+          "lots": [
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        },
+        {
+          "name": "Zest Consult Ltd",
+          "normalized_name": "zest consult",
+          "aliases": [
+            "zest consult"
+          ],
+          "lots": [
+            "LOT 2 - ICT Consultancy Services"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23044",
+      "name": "Street and External Lighting Solutions & Associated Services",
+      "source_status": "active",
+      "expiry_date": "2029-09-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/highways/street-and-external-lighting-solutions-associated-services",
+      "start_date": "2025-10-01",
+      "suppliers": [
+        {
+          "name": "4Way Consulting",
+          "normalized_name": "4way consulting",
+          "aliases": [
+            "4way consulting"
+          ],
+          "lots": [
+            "LOT 3 – Professional Services"
+          ]
+        },
+        {
+          "name": "Electrical Testing",
+          "normalized_name": "electrical testing",
+          "aliases": [
+            "electrical testing"
+          ],
+          "lots": [
+            "LOT 1 – Street and External Lighting Solutions and Associated Services",
+            "LOT 2 - Street Lighting Lamp Posts, Columns and Bollards with built in Electric Vehicle Charge Points and Associated Services",
+            "LOT 3 – Professional Services"
+          ]
+        },
+        {
+          "name": "Mason Street Furniture",
+          "normalized_name": "mason street furniture",
+          "aliases": [
+            "mason street furniture"
+          ],
+          "lots": [
+            "LOT 1 – Street and External Lighting Solutions and Associated Services",
+            "LOT 2 - Street Lighting Lamp Posts, Columns and Bollards with built in Electric Vehicle Charge Points and Associated Services"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23046",
+      "name": "Emergency Response, Rescue Equipment and Associated Services",
+      "source_status": "active",
+      "expiry_date": "2027-07-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/emergency/emergency-response-rescue-equipment-and-associated-services",
+      "start_date": "2023-08-01",
+      "suppliers": [
+        {
+          "name": "Angloco",
+          "normalized_name": "angloco",
+          "aliases": [
+            "angloco"
+          ],
+          "lots": [
+            "LOT 5 - Cutting Equipment and Tools",
+            "LOT 7 - Emergency Shelters"
+          ]
+        },
+        {
+          "name": "IONIC Rescue Ltd (formerly Safequip Ltd)",
+          "normalized_name": "ionic rescue ltd formerly safequip",
+          "aliases": [
+            "ionic rescue ltd formerly safequip",
+            "ionic rescue"
+          ],
+          "lots": [
+            "LOT 1 - Working at Heights",
+            "LOT 3 - Water Rescue",
+            "LOT 7 - Emergency Shelters"
+          ]
+        },
+        {
+          "name": "Abaris International LTD",
+          "normalized_name": "abaris international",
+          "aliases": [
+            "abaris international"
+          ],
+          "lots": [
+            "LOT 1 - Working at Heights",
+            "LOT 2 - Restricted and Confined Spaces",
+            "LOT 3 - Water Rescue"
+          ]
+        },
+        {
+          "name": "GAP Group LTD",
+          "normalized_name": "gap group",
+          "aliases": [
+            "gap group"
+          ],
+          "lots": [
+            "LOT 1 - Working at Heights",
+            "LOT 2 - Restricted and Confined Spaces"
+          ]
+        },
+        {
+          "name": "Vimpex",
+          "normalized_name": "vimpex",
+          "aliases": [
+            "vimpex"
+          ],
+          "lots": [
+            "LOT 2 - Restricted and Confined Spaces",
+            "LOT 5 - Cutting Equipment and Tools"
+          ]
+        },
+        {
+          "name": "Beechwood Equipment LTD",
+          "normalized_name": "beechwood equipment",
+          "aliases": [
+            "beechwood equipment"
+          ],
+          "lots": [
+            "LOT 4 - Drones and Thermal Camera Imaging"
+          ]
+        },
+        {
+          "name": "ired Limited",
+          "normalized_name": "ired",
+          "aliases": [
+            "ired"
+          ],
+          "lots": [
+            "LOT 4 - Drones and Thermal Camera Imaging"
+          ]
+        },
+        {
+          "name": "Rosenbauer UK LTD",
+          "normalized_name": "rosenbauer",
+          "aliases": [
+            "rosenbauer"
+          ],
+          "lots": [
+            "LOT 4 - Drones and Thermal Camera Imaging"
+          ]
+        },
+        {
+          "name": "Terberg DTS UK LTD",
+          "normalized_name": "terberg dts",
+          "aliases": [
+            "terberg dts"
+          ],
+          "lots": [
+            "LOT 4 - Drones and Thermal Camera Imaging",
+            "LOT 5 - Cutting Equipment and Tools"
+          ]
+        },
+        {
+          "name": "Data Southern Enterprises DS Medical",
+          "normalized_name": "data southern enterprises ds medical",
+          "aliases": [
+            "data southern enterprises ds medical"
+          ],
+          "lots": [
+            "LOT 6 - Medical Response Equipment including Defibrillators"
+          ]
+        },
+        {
+          "name": "Reliance Medical LTD",
+          "normalized_name": "reliance medical",
+          "aliases": [
+            "reliance medical"
+          ],
+          "lots": [
+            "LOT 6 - Medical Response Equipment including Defibrillators"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23049",
+      "name": "Electric Vehicle Infrastructure & Associated Solutions",
+      "source_status": "active",
+      "expiry_date": "2029-04-29",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/fleet/electric-vehicle-infrastructure-associated-solutions",
+      "start_date": "2025-05-01",
+      "suppliers": [
+        {
+          "name": "Amey Highways Limited",
+          "normalized_name": "amey highways",
+          "aliases": [
+            "amey highways"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 3 - Consultancy Services",
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        },
+        {
+          "name": "Believ",
+          "normalized_name": "believ",
+          "aliases": [
+            "believ"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance"
+          ]
+        },
+        {
+          "name": "Blink Charging Limited UK",
+          "normalized_name": "blink charging",
+          "aliases": [
+            "blink charging"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 3 - Consultancy Services"
+          ]
+        },
+        {
+          "name": "Char.gy Limited",
+          "normalized_name": "char gy",
+          "aliases": [
+            "char gy"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance"
+          ]
+        },
+        {
+          "name": "Connected Kerb Ltd",
+          "normalized_name": "connected kerb",
+          "aliases": [
+            "connected kerb"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance"
+          ]
+        },
+        {
+          "name": "Evolt Charging (part of SWARCO Smart Charging)",
+          "normalized_name": "evolt charging part of swarco smart charging",
+          "aliases": [
+            "evolt charging part of swarco smart charging",
+            "evolt charging"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        },
+        {
+          "name": "Gilbarco Veeder-Root Ltd",
+          "normalized_name": "gilbarco veeder root",
+          "aliases": [
+            "gilbarco veeder root"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 3 - Consultancy Services",
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        },
+        {
+          "name": "Hangar19 t/a ParkRecharge",
+          "normalized_name": "hangar19",
+          "aliases": [
+            "hangar19",
+            "parkrecharge"
+          ],
+          "lots": [
+            "LOT 2 - Back Office Solutions, Service and Maintenance"
+          ]
+        },
+        {
+          "name": "Mer Charging Ltd",
+          "normalized_name": "mer charging",
+          "aliases": [
+            "mer charging"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 3 - Consultancy Services",
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        },
+        {
+          "name": "SEE Services Ltd",
+          "normalized_name": "see services",
+          "aliases": [
+            "see services"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 3 - Consultancy Services",
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        },
+        {
+          "name": "Ubitricity Distributed Energy Systems UK Ltd",
+          "normalized_name": "ubitricity distributed energy systems",
+          "aliases": [
+            "ubitricity distributed energy systems"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance"
+          ]
+        },
+        {
+          "name": "UK Power Networks Services",
+          "normalized_name": "power networks services",
+          "aliases": [
+            "power networks services"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 3 - Consultancy Services",
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        },
+        {
+          "name": "Urban Foresight Limited",
+          "normalized_name": "urban foresight",
+          "aliases": [
+            "urban foresight"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 3 - Consultancy Services"
+          ]
+        },
+        {
+          "name": "VEV Services Limited",
+          "normalized_name": "vev services",
+          "aliases": [
+            "vev services"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance",
+            "LOT 3 - Consultancy Services",
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        },
+        {
+          "name": "Zest Eco Limited",
+          "normalized_name": "zest eco",
+          "aliases": [
+            "zest eco"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points",
+            "LOT 2 - Back Office Solutions, Service and Maintenance"
+          ]
+        },
+        {
+          "name": "Heatforce",
+          "normalized_name": "heatforce",
+          "aliases": [
+            "heatforce"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points"
+          ]
+        },
+        {
+          "name": "Qwello Uk Ltd",
+          "normalized_name": "qwello",
+          "aliases": [
+            "qwello"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points"
+          ]
+        },
+        {
+          "name": "Wenea Services UK Limited",
+          "normalized_name": "wenea services",
+          "aliases": [
+            "wenea services"
+          ],
+          "lots": [
+            "LOT 1 - Electric Vehicle Charging Points"
+          ]
+        },
+        {
+          "name": "AECOM Limited",
+          "normalized_name": "aecom",
+          "aliases": [
+            "aecom"
+          ],
+          "lots": [
+            "LOT 3 - Consultancy Services"
+          ]
+        },
+        {
+          "name": "KPMG LLP",
+          "normalized_name": "kpmg",
+          "aliases": [
+            "kpmg"
+          ],
+          "lots": [
+            "LOT 3 - Consultancy Services"
+          ]
+        },
+        {
+          "name": "SYSTRA Limited",
+          "normalized_name": "systra",
+          "aliases": [
+            "systra"
+          ],
+          "lots": [
+            "LOT 3 - Consultancy Services"
+          ]
+        },
+        {
+          "name": "M & M Contractors",
+          "normalized_name": "m and m contractors",
+          "aliases": [
+            "m and m contractors"
+          ],
+          "lots": [
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        },
+        {
+          "name": "SBRS GmbH",
+          "normalized_name": "sbrs gmbh",
+          "aliases": [
+            "sbrs gmbh"
+          ],
+          "lots": [
+            "LOT 4 - Heavy Goods Vehicle and Bus Charging"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23051",
+      "name": "Vehicle Telematics and Associated Services",
+      "source_status": "active",
+      "expiry_date": "2027-07-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/fleet/vehicle-telematics-and-associated-services",
+      "start_date": "2023-08-01",
+      "suppliers": [
+        {
+          "name": "Affini Technology Limited",
+          "normalized_name": "affini technology",
+          "aliases": [
+            "affini technology"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Contel Limited",
+          "normalized_name": "contel",
+          "aliases": [
+            "contel"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Inseego Limited",
+          "normalized_name": "inseego",
+          "aliases": [
+            "inseego"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Lightbulb Analytics Limited",
+          "normalized_name": "lightbulb analytics",
+          "aliases": [
+            "lightbulb analytics"
+          ],
+          "lots": []
+        },
+        {
+          "name": "MiX Telematics Ltd",
+          "normalized_name": "mix telematics",
+          "aliases": [
+            "mix telematics"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Samsara Networks Limited",
+          "normalized_name": "samsara networks",
+          "aliases": [
+            "samsara networks"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Teletrac Navman (UK) Limited",
+          "normalized_name": "teletrac navman",
+          "aliases": [
+            "teletrac navman"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Trakm8 Limited",
+          "normalized_name": "trakm8",
+          "aliases": [
+            "trakm8"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23057",
+      "name": "Plant Machinery, Grounds Maintenance and Site Equipment and Handheld Tools",
+      "source_status": "active",
+      "expiry_date": "2028-01-28",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/fleet/plant-machinery-grounds-maintenance-and-site-equipment-and-handheld-tools",
+      "start_date": "2024-02-01",
+      "suppliers": [
+        {
+          "name": "Ernest Doe & Sons Ltd",
+          "normalized_name": "ernest doe and sons",
+          "aliases": [
+            "ernest doe and sons"
+          ],
+          "lots": [
+            "LOT 1 - Purchase of Grounds Maintenance Equipment",
+            "LOT 2 - Purchase of Plant Machinery and Equipment",
+            "LOT 3 - Purchase of Attachments for Plant Machinery",
+            "LOT 4 - Purchase of Site Accommodation and Equipment",
+            "LOT 5 - Purchase of Handheld Tools",
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "Lister Wilder Ltd",
+          "normalized_name": "lister wilder",
+          "aliases": [
+            "lister wilder"
+          ],
+          "lots": [
+            "LOT 1 - Purchase of Grounds Maintenance Equipment",
+            "LOT 2 - Purchase of Plant Machinery and Equipment",
+            "LOT 3 - Purchase of Attachments for Plant Machinery",
+            "LOT 4 - Purchase of Site Accommodation and Equipment",
+            "LOT 5 - Purchase of Handheld Tools",
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "P Flannery Plant Hire (Oval) Ltd",
+          "normalized_name": "p flannery plant hire oval",
+          "aliases": [
+            "p flannery plant hire oval",
+            "p flannery plant hire"
+          ],
+          "lots": [
+            "LOT 2 - Purchase of Plant Machinery and Equipment",
+            "LOT 3 - Purchase of Attachments for Plant Machinery",
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "P Tuckwells Ltd",
+          "normalized_name": "p tuckwells",
+          "aliases": [
+            "p tuckwells"
+          ],
+          "lots": [
+            "LOT 1 - Purchase of Grounds Maintenance Equipment",
+            "LOT 2 - Purchase of Plant Machinery and Equipment",
+            "LOT 3 - Purchase of Attachments for Plant Machinery",
+            "LOT 4 - Purchase of Site Accommodation and Equipment",
+            "LOT 5 - Purchase of Handheld Tools",
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "Speedy Asset Services",
+          "normalized_name": "speedy asset services",
+          "aliases": [
+            "speedy asset services"
+          ],
+          "lots": [
+            "LOT 1 - Purchase of Grounds Maintenance Equipment",
+            "LOT 2 - Purchase of Plant Machinery and Equipment",
+            "LOT 3 - Purchase of Attachments for Plant Machinery",
+            "LOT 4 - Purchase of Site Accommodation and Equipment",
+            "LOT 5 - Purchase of Handheld Tools",
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "Versatile Equipment Ltd",
+          "normalized_name": "versatile equipment",
+          "aliases": [
+            "versatile equipment"
+          ],
+          "lots": [
+            "LOT 1 - Purchase of Grounds Maintenance Equipment",
+            "LOT 2 - Purchase of Plant Machinery and Equipment",
+            "LOT 3 - Purchase of Attachments for Plant Machinery",
+            "LOT 4 - Purchase of Site Accommodation and Equipment",
+            "LOT 5 - Purchase of Handheld Tools",
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "Sunbelt Rentals LTD",
+          "normalized_name": "sunbelt rentals",
+          "aliases": [
+            "sunbelt rentals"
+          ],
+          "lots": [
+            "LOT 4 - Purchase of Site Accommodation and Equipment",
+            "LOT 5 - Purchase of Handheld Tools"
+          ]
+        },
+        {
+          "name": "Cleveland Containers Ltd",
+          "normalized_name": "cleveland containers",
+          "aliases": [
+            "cleveland containers"
+          ],
+          "lots": [
+            "LOT 4 - Purchase of Site Accommodation and Equipment"
+          ]
+        },
+        {
+          "name": "James A Cuthbertson Ltd",
+          "normalized_name": "james a cuthbertson",
+          "aliases": [
+            "james a cuthbertson"
+          ],
+          "lots": [
+            "LOT 1 - Purchase of Grounds Maintenance Equipment",
+            "LOT 2 - Purchase of Plant Machinery and Equipment",
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "Wirtgen Ltd",
+          "normalized_name": "wirtgen",
+          "aliases": [
+            "wirtgen"
+          ],
+          "lots": [
+            "LOT 1 - Purchase of Grounds Maintenance Equipment",
+            "LOT 2 - Purchase of Plant Machinery and Equipment"
+          ]
+        },
+        {
+          "name": "BOMAG (Great Britain Ltd)",
+          "normalized_name": "bomag great britain",
+          "aliases": [
+            "bomag great britain",
+            "bomag"
+          ],
+          "lots": [
+            "LOT 2 - Purchase of Plant Machinery and Equipment"
+          ]
+        },
+        {
+          "name": "Sany Heavy Machinery UK Ltd",
+          "normalized_name": "sany heavy machinery",
+          "aliases": [
+            "sany heavy machinery"
+          ],
+          "lots": [
+            "LOT 2 - Purchase of Plant Machinery and Equipment"
+          ]
+        },
+        {
+          "name": "Clee Hill Plant",
+          "normalized_name": "clee hill plant",
+          "aliases": [
+            "clee hill plant"
+          ],
+          "lots": [
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "Dawsongroup Environmental Municipal Civil Ltd",
+          "normalized_name": "dawsongroup environmental municipal civil",
+          "aliases": [
+            "dawsongroup environmental municipal civil"
+          ],
+          "lots": [
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "FGS Agri limited",
+          "normalized_name": "fgs agri",
+          "aliases": [
+            "fgs agri"
+          ],
+          "lots": [
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        },
+        {
+          "name": "GAP Group LTD",
+          "normalized_name": "gap group",
+          "aliases": [
+            "gap group"
+          ],
+          "lots": [
+            "LOT 6 - Contract Hire for all Plant/Machinery/Tools/Equipment for LOTs 1-5"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23060",
+      "name": "Sensory Equipment and Associated Services",
+      "source_status": "active",
+      "expiry_date": "2029-09-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/health-social-care/sensory-equipment-and-associated-services",
+      "start_date": "2025-10-01",
+      "suppliers": [
+        {
+          "name": "Creative Activity Group Ltd",
+          "normalized_name": "creative activity group",
+          "aliases": [
+            "creative activity group"
+          ],
+          "lots": [
+            "LOT 1 - Sensory Rooms and Spaces",
+            "LOT 2 - Sensory Pools",
+            "LOT 3 - Sensory Gardens"
+          ]
+        },
+        {
+          "name": "Sensory Technology Ltd",
+          "normalized_name": "sensory technology",
+          "aliases": [
+            "sensory technology"
+          ],
+          "lots": [
+            "LOT 1 - Sensory Rooms and Spaces",
+            "LOT 2 - Sensory Pools",
+            "LOT 3 - Sensory Gardens"
+          ]
+        },
+        {
+          "name": "SpaceKraft Ltd",
+          "normalized_name": "spacekraft",
+          "aliases": [
+            "spacekraft"
+          ],
+          "lots": [
+            "LOT 1 - Sensory Rooms and Spaces",
+            "LOT 2 - Sensory Pools",
+            "LOT 3 - Sensory Gardens"
+          ]
+        },
+        {
+          "name": "Ustigate Ltd",
+          "normalized_name": "ustigate",
+          "aliases": [
+            "ustigate"
+          ],
+          "lots": [
+            "LOT 1 - Sensory Rooms and Spaces",
+            "LOT 2 - Sensory Pools",
+            "LOT 3 - Sensory Gardens"
+          ]
+        },
+        {
+          "name": "Learning SPACE Belfast Ltd",
+          "normalized_name": "learning space belfast",
+          "aliases": [
+            "learning space belfast"
+          ],
+          "lots": [
+            "LOT 1 - Sensory Rooms and Spaces",
+            "LOT 3 - Sensory Gardens"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23061",
+      "name": "Asbestos Inspection & Removal Services",
+      "source_status": "active",
+      "expiry_date": "2029-08-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/property-management/asbestos-inspection-removal-services",
+      "start_date": "2025-09-01",
+      "suppliers": [
+        {
+          "name": "Arg Europe Ltd",
+          "normalized_name": "arg europe",
+          "aliases": [
+            "arg europe"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Aspect Contracts Ltd",
+          "normalized_name": "aspect contracts",
+          "aliases": [
+            "aspect contracts"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Ayerst Environmental Ltd",
+          "normalized_name": "ayerst environmental",
+          "aliases": [
+            "ayerst environmental"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Bradley Environmental Consultants Limited",
+          "normalized_name": "bradley environmental consultants",
+          "aliases": [
+            "bradley environmental consultants"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Capstan Group Services Limited",
+          "normalized_name": "capstan group services",
+          "aliases": [
+            "capstan group services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Decontaminate (UK) Limited",
+          "normalized_name": "decontaminate",
+          "aliases": [
+            "decontaminate"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Environtec Limited",
+          "normalized_name": "environtec",
+          "aliases": [
+            "environtec"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Full Circle Compliance Ltd",
+          "normalized_name": "full circle compliance",
+          "aliases": [
+            "full circle compliance"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Life Environmental Services Ltd",
+          "normalized_name": "life environmental services",
+          "aliases": [
+            "life environmental services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Lucion Services Limited",
+          "normalized_name": "lucion services",
+          "aliases": [
+            "lucion services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "OC Consulting (UK) Limited T/A Manestream",
+          "normalized_name": "oc consulting",
+          "aliases": [
+            "oc consulting",
+            "manestream"
+          ],
+          "lots": []
+        },
+        {
+          "name": "PA Group (UK) Limited",
+          "normalized_name": "pa group",
+          "aliases": [
+            "pa group"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23063",
+      "name": "Winter Maintenance & Associated Services",
+      "source_status": "active",
+      "expiry_date": "2027-08-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/highways/winter-maintenance-associated-services",
+      "start_date": "2023-09-01",
+      "suppliers": [
+        {
+          "name": "Accugrit Limited",
+          "normalized_name": "accugrit",
+          "aliases": [
+            "accugrit"
+          ],
+          "lots": [
+            "LOT 1 - Winter Maintenance Bulk Salt",
+            "LOT 2 - Winter Maintenance Products",
+            "LOT 3 - Winter Maintenance Gritting Services"
+          ]
+        },
+        {
+          "name": "FGS Agri limited",
+          "normalized_name": "fgs agri",
+          "aliases": [
+            "fgs agri"
+          ],
+          "lots": [
+            "LOT 1 - Winter Maintenance Bulk Salt",
+            "LOT 2 - Winter Maintenance Products",
+            "LOT 3 - Winter Maintenance Gritting Services"
+          ]
+        },
+        {
+          "name": "Ground Control LTD",
+          "normalized_name": "ground control",
+          "aliases": [
+            "ground control"
+          ],
+          "lots": [
+            "LOT 3 - Winter Maintenance Gritting Services"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23064",
+      "name": "Playground, Fitness and Sports Equipment and Leisure Facilities",
+      "source_status": "active",
+      "expiry_date": "2028-02-29",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/education/playground-fitness-and-sports-equipment-and-leisure-facilities",
+      "start_date": "2024-03-01",
+      "suppliers": [
+        {
+          "name": "Eibe Play Ltd",
+          "normalized_name": "eibe play",
+          "aliases": [
+            "eibe play"
+          ],
+          "lots": [
+            "LOT 1 - Playground Equipment (Indoor and Outdoor)"
+          ]
+        },
+        {
+          "name": "HAGS - SMP Ltd",
+          "normalized_name": "hags smp",
+          "aliases": [
+            "hags smp"
+          ],
+          "lots": [
+            "LOT 1 - Playground Equipment (Indoor and Outdoor)",
+            "LOT 3 - Leisure and Play Equipment and Surfaces",
+            "LOT 4 - Urban Play Equipment and Surfaces"
+          ]
+        },
+        {
+          "name": "KOMPAN Limited",
+          "normalized_name": "kompan",
+          "aliases": [
+            "kompan"
+          ],
+          "lots": [
+            "LOT 1 - Playground Equipment (Indoor and Outdoor)",
+            "LOT 3 - Leisure and Play Equipment and Surfaces",
+            "LOT 4 - Urban Play Equipment and Surfaces"
+          ]
+        },
+        {
+          "name": "Playcubed Ltd",
+          "normalized_name": "playcubed",
+          "aliases": [
+            "playcubed"
+          ],
+          "lots": [
+            "LOT 1 - Playground Equipment (Indoor and Outdoor)",
+            "LOT 3 - Leisure and Play Equipment and Surfaces"
+          ]
+        },
+        {
+          "name": "Proludic Ltd",
+          "normalized_name": "proludic",
+          "aliases": [
+            "proludic"
+          ],
+          "lots": [
+            "LOT 1 - Playground Equipment (Indoor and Outdoor)",
+            "LOT 3 - Leisure and Play Equipment and Surfaces",
+            "LOT 4 - Urban Play Equipment and Surfaces"
+          ]
+        },
+        {
+          "name": "Wicksteed Leisure Ltd",
+          "normalized_name": "wicksteed leisure",
+          "aliases": [
+            "wicksteed leisure"
+          ],
+          "lots": [
+            "LOT 1 - Playground Equipment (Indoor and Outdoor)",
+            "LOT 3 - Leisure and Play Equipment and Surfaces",
+            "LOT 4 - Urban Play Equipment and Surfaces"
+          ]
+        },
+        {
+          "name": "Bendcrete Leisure Ltd",
+          "normalized_name": "bendcrete leisure",
+          "aliases": [
+            "bendcrete leisure"
+          ],
+          "lots": [
+            "LOT 4 - Urban Play Equipment and Surfaces"
+          ]
+        },
+        {
+          "name": "The Great Outdoor Gym Company Ltd",
+          "normalized_name": "great outdoor gym",
+          "aliases": [
+            "great outdoor gym"
+          ],
+          "lots": [
+            "LOT 4 - Urban Play Equipment and Surfaces"
+          ]
+        },
+        {
+          "name": "Ustigate Ltd",
+          "normalized_name": "ustigate",
+          "aliases": [
+            "ustigate"
+          ],
+          "lots": [
+            "LOT 5 - Waterplay (Indoor and Outdoor)"
+          ]
+        },
+        {
+          "name": "Technogym Ltd",
+          "normalized_name": "technogym",
+          "aliases": [
+            "technogym"
+          ],
+          "lots": [
+            "LOT 2 - Gym Equipment and Surfaces"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y23065",
+      "name": "Software Products and Associated Services",
+      "source_status": "active",
+      "expiry_date": "2028-02-29",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/technology/software-products-and-associated-services",
+      "start_date": "2024-03-01",
+      "suppliers": [
+        {
+          "name": "Academia LTD",
+          "normalized_name": "academia",
+          "aliases": [
+            "academia"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Advania UK",
+          "normalized_name": "advania",
+          "aliases": [
+            "advania"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Boxxe Ltd",
+          "normalized_name": "boxxe",
+          "aliases": [
+            "boxxe"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Bromcom Computers Plc",
+          "normalized_name": "bromcom computers",
+          "aliases": [
+            "bromcom computers"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Bytes Software Services",
+          "normalized_name": "bytes software services",
+          "aliases": [
+            "bytes software services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "CDW Ltd",
+          "normalized_name": "cdw",
+          "aliases": [
+            "cdw"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Crayon Limited",
+          "normalized_name": "crayon",
+          "aliases": [
+            "crayon"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Education Software Solutions Ltd",
+          "normalized_name": "education software solutions",
+          "aliases": [
+            "education software solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "EIS the trading arm of Cantium",
+          "normalized_name": "eis trading arm of cantium",
+          "aliases": [
+            "eis trading arm of cantium"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Hitachi Solutions Europe Ltd",
+          "normalized_name": "hitachi solutions europe",
+          "aliases": [
+            "hitachi solutions europe"
+          ],
+          "lots": []
+        },
+        {
+          "name": "IDNS LTD",
+          "normalized_name": "idns",
+          "aliases": [
+            "idns"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Insight Direct (UK) LTD",
+          "normalized_name": "insight direct",
+          "aliases": [
+            "insight direct"
+          ],
+          "lots": []
+        },
+        {
+          "name": "IRIS Ltd",
+          "normalized_name": "iris",
+          "aliases": [
+            "iris"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Kingsfield Computer Products Limited",
+          "normalized_name": "kingsfield computer products",
+          "aliases": [
+            "kingsfield computer products"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Phoenix Software Ltd",
+          "normalized_name": "phoenix software",
+          "aliases": [
+            "phoenix software"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Softcat PLC",
+          "normalized_name": "softcat",
+          "aliases": [
+            "softcat"
+          ],
+          "lots": []
+        },
+        {
+          "name": "SoftwareOne UK Ltd",
+          "normalized_name": "softwareone",
+          "aliases": [
+            "softwareone"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Specialist Computer Centres PLC",
+          "normalized_name": "specialist computer centres",
+          "aliases": [
+            "specialist computer centres"
+          ],
+          "lots": []
+        },
+        {
+          "name": "StyleTech Solutions Ltd",
+          "normalized_name": "styletech solutions",
+          "aliases": [
+            "styletech solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Trustmarque Solutions Ltd",
+          "normalized_name": "trustmarque solutions",
+          "aliases": [
+            "trustmarque solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Ultima Business Solutions",
+          "normalized_name": "ultima business solutions",
+          "aliases": [
+            "ultima business solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "VE3 Global Ltd",
+          "normalized_name": "ve3 global",
+          "aliases": [
+            "ve3 global"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Verylocals Ltd",
+          "normalized_name": "verylocals",
+          "aliases": [
+            "verylocals"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Waymark Ltd",
+          "normalized_name": "waymark",
+          "aliases": [
+            "waymark"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y24003",
+      "name": "Audio Visual Solutions",
+      "source_status": "active",
+      "expiry_date": "2028-07-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/office/audio-visual-solutions",
+      "start_date": "2024-08-01",
+      "suppliers": [
+        {
+          "name": "Akhter Computers LTD",
+          "normalized_name": "akhter computers",
+          "aliases": [
+            "akhter computers"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Ashdown Audio Visual",
+          "normalized_name": "ashdown audio visual",
+          "aliases": [
+            "ashdown audio visual"
+          ],
+          "lots": []
+        },
+        {
+          "name": "AV Partsmaster LTD",
+          "normalized_name": "av partsmaster",
+          "aliases": [
+            "av partsmaster"
+          ],
+          "lots": []
+        },
+        {
+          "name": "AVMI Kinly Ltd",
+          "normalized_name": "avmi kinly",
+          "aliases": [
+            "avmi kinly"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Central AV Limited t/a Video Conferencing London",
+          "normalized_name": "central av",
+          "aliases": [
+            "central av",
+            "video conferencing london"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Charterhouse Voice & Data Ltd",
+          "normalized_name": "charterhouse voice and data",
+          "aliases": [
+            "charterhouse voice and data"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Hugh Symons Audio Visual Ltd",
+          "normalized_name": "hugh symons audio visual",
+          "aliases": [
+            "hugh symons audio visual"
+          ],
+          "lots": []
+        },
+        {
+          "name": "IDNS LTD",
+          "normalized_name": "idns",
+          "aliases": [
+            "idns"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Media Powerhouse Limited",
+          "normalized_name": "media powerhouse",
+          "aliases": [
+            "media powerhouse"
+          ],
+          "lots": []
+        },
+        {
+          "name": "NCS Technology Ltd",
+          "normalized_name": "ncs technology",
+          "aliases": [
+            "ncs technology"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Pacific Computers Limited",
+          "normalized_name": "pacific computers",
+          "aliases": [
+            "pacific computers"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Proactive AV",
+          "normalized_name": "proactive av",
+          "aliases": [
+            "proactive av"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Ricoh UK Limited",
+          "normalized_name": "ricoh",
+          "aliases": [
+            "ricoh"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Sharp Business Solutions UK Plc",
+          "normalized_name": "sharp business solutions",
+          "aliases": [
+            "sharp business solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Simply AVS",
+          "normalized_name": "simply avs",
+          "aliases": [
+            "simply avs"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Snelling Business Systems",
+          "normalized_name": "snelling business systems",
+          "aliases": [
+            "snelling business systems"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Stone Technologies Ltd, trading as Converge Technology Solutions",
+          "normalized_name": "stone technologies",
+          "aliases": [
+            "stone technologies",
+            "converge technology solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Strive AV Ltd",
+          "normalized_name": "strive av",
+          "aliases": [
+            "strive av"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Sudlows Enterprise Services Ltd",
+          "normalized_name": "sudlows enterprise services",
+          "aliases": [
+            "sudlows enterprise services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "The DMS Digital Group",
+          "normalized_name": "dms digital group",
+          "aliases": [
+            "dms digital group"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y24007",
+      "name": "CCTV, Access Solutions & Security Services",
+      "source_status": "active",
+      "expiry_date": "2029-09-14",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/cctv-access-solutions-security-services",
+      "start_date": "2025-09-15",
+      "suppliers": [
+        {
+          "name": "Fleetville Security Ltd",
+          "normalized_name": "fleetville security",
+          "aliases": [
+            "fleetville security"
+          ],
+          "lots": [
+            "LOT 3 - Total Security Solutions"
+          ]
+        },
+        {
+          "name": "Kestrel Guards Limited",
+          "normalized_name": "kestrel guards",
+          "aliases": [
+            "kestrel guards"
+          ],
+          "lots": [
+            "LOT 3 - Total Security Solutions"
+          ]
+        },
+        {
+          "name": "Mitie Security Limited",
+          "normalized_name": "mitie security",
+          "aliases": [
+            "mitie security"
+          ],
+          "lots": [
+            "LOT 3 - Total Security Solutions"
+          ]
+        },
+        {
+          "name": "Prime Secure",
+          "normalized_name": "prime secure",
+          "aliases": [
+            "prime secure"
+          ],
+          "lots": [
+            "LOT 3 - Total Security Solutions"
+          ]
+        },
+        {
+          "name": "Samson Security Limited",
+          "normalized_name": "samson security",
+          "aliases": [
+            "samson security"
+          ],
+          "lots": [
+            "LOT 3 - Total Security Solutions"
+          ]
+        },
+        {
+          "name": "The DMS Digital Group",
+          "normalized_name": "dms digital group",
+          "aliases": [
+            "dms digital group"
+          ],
+          "lots": [
+            "LOT 3 - Total Security Solutions"
+          ]
+        },
+        {
+          "name": "The Keyholding Company Limited",
+          "normalized_name": "keyholding",
+          "aliases": [
+            "keyholding"
+          ],
+          "lots": [
+            "LOT 3 - Total Security Solutions"
+          ]
+        },
+        {
+          "name": "TMS Protection Ltd",
+          "normalized_name": "tms protection",
+          "aliases": [
+            "tms protection"
+          ],
+          "lots": [
+            "LOT 3 - Total Security Solutions"
+          ]
+        },
+        {
+          "name": "360 Security and Support Services Ltd",
+          "normalized_name": "360 security and support services",
+          "aliases": [
+            "360 security and support services"
+          ],
+          "lots": [
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "Akon Security Services Ltd",
+          "normalized_name": "akon security services",
+          "aliases": [
+            "akon security services"
+          ],
+          "lots": [
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "Chase Services Group",
+          "normalized_name": "chase services group",
+          "aliases": [
+            "chase services group"
+          ],
+          "lots": [
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "City Group Security Ltd",
+          "normalized_name": "city group security",
+          "aliases": [
+            "city group security"
+          ],
+          "lots": [
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "Krypton FM Group Limited",
+          "normalized_name": "krypton fm group",
+          "aliases": [
+            "krypton fm group"
+          ],
+          "lots": [
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "MPD FM Limited",
+          "normalized_name": "mpd fm",
+          "aliases": [
+            "mpd fm"
+          ],
+          "lots": [
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "Pro Sentry Ltd",
+          "normalized_name": "pro sentry",
+          "aliases": [
+            "pro sentry"
+          ],
+          "lots": [
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "Rock Security Solutions LTD",
+          "normalized_name": "rock security solutions",
+          "aliases": [
+            "rock security solutions"
+          ],
+          "lots": [
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "Secom Plc",
+          "normalized_name": "secom",
+          "aliases": [
+            "secom"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions",
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "Tyco Fire & Integrated Solutions (UK) Ltd",
+          "normalized_name": "tyco fire and integrated solutions",
+          "aliases": [
+            "tyco fire and integrated solutions"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions",
+            "LOT 2 - Security Services"
+          ]
+        },
+        {
+          "name": "Dennis Johns Service Group LTD",
+          "normalized_name": "dennis johns service group",
+          "aliases": [
+            "dennis johns service group"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions"
+          ]
+        },
+        {
+          "name": "Hunter Communication Services (South) Ltd",
+          "normalized_name": "hunter communication services south",
+          "aliases": [
+            "hunter communication services south",
+            "hunter communication services"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions"
+          ]
+        },
+        {
+          "name": "North PB Limited",
+          "normalized_name": "north pb",
+          "aliases": [
+            "north pb"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions"
+          ]
+        },
+        {
+          "name": "Now Wireless Ltd",
+          "normalized_name": "now wireless",
+          "aliases": [
+            "now wireless"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions"
+          ]
+        },
+        {
+          "name": "Openview Security Solutions Ltd",
+          "normalized_name": "openview security solutions",
+          "aliases": [
+            "openview security solutions"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions"
+          ]
+        },
+        {
+          "name": "Phoenix Software Ltd",
+          "normalized_name": "phoenix software",
+          "aliases": [
+            "phoenix software"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions"
+          ]
+        },
+        {
+          "name": "Reliance High-Tech Ltd",
+          "normalized_name": "reliance high tech",
+          "aliases": [
+            "reliance high tech"
+          ],
+          "lots": [
+            "LOT 1 - CCTV, Security & Access Solutions"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y24008",
+      "name": "Integrated Community Care Equipment and Associated Services",
+      "source_status": "active",
+      "expiry_date": "2028-11-17",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/health-social-care/integrated-community-care-equipment-and-associated-services",
+      "start_date": "2024-11-18",
+      "suppliers": [
+        {
+          "name": "AJ Mobility Ltd",
+          "normalized_name": "aj mobility",
+          "aliases": [
+            "aj mobility"
+          ],
+          "lots": [
+            "LOT 3 - Wheelchairs, Motorised Mobility Products and Services"
+          ]
+        },
+        {
+          "name": "Inspire Community Trust Ltd",
+          "normalized_name": "inspire community trust",
+          "aliases": [
+            "inspire community trust"
+          ],
+          "lots": [
+            "LOT 1 - Integrated Community Care Equipment and Associated Services",
+            "LOT 3 - Wheelchairs, Motorised Mobility Products and Services"
+          ]
+        },
+        {
+          "name": "Ross Auto Engineering Limited T/A Ross Care",
+          "normalized_name": "ross auto engineering",
+          "aliases": [
+            "ross auto engineering",
+            "ross care"
+          ],
+          "lots": [
+            "LOT 3 - Wheelchairs, Motorised Mobility Products and Services"
+          ]
+        },
+        {
+          "name": "Five Mobility Ltd",
+          "normalized_name": "five mobility",
+          "aliases": [
+            "five mobility"
+          ],
+          "lots": [
+            "LOT 1 - Integrated Community Care Equipment and Associated Services"
+          ]
+        },
+        {
+          "name": "Integrity Mobility Solutions Ltd",
+          "normalized_name": "integrity mobility solutions",
+          "aliases": [
+            "integrity mobility solutions"
+          ],
+          "lots": [
+            "LOT 1 - Integrated Community Care Equipment and Associated Services"
+          ]
+        },
+        {
+          "name": "Medequip Assistive Technology Limited",
+          "normalized_name": "medequip assistive technology",
+          "aliases": [
+            "medequip assistive technology"
+          ],
+          "lots": [
+            "LOT 1 - Integrated Community Care Equipment and Associated Services",
+            "LOT 2 - Technology Enabled Care Products and Services (TEC)"
+          ]
+        },
+        {
+          "name": "Millbrook Healthcare Group",
+          "normalized_name": "millbrook healthcare group",
+          "aliases": [
+            "millbrook healthcare group"
+          ],
+          "lots": [
+            "LOT 1 - Integrated Community Care Equipment and Associated Services"
+          ]
+        },
+        {
+          "name": "Access UK Ltd",
+          "normalized_name": "access",
+          "aliases": [
+            "access"
+          ],
+          "lots": [
+            "LOT 2 - Technology Enabled Care Products and Services (TEC)"
+          ]
+        },
+        {
+          "name": "Chubb Fire & Security Ltd",
+          "normalized_name": "chubb fire and security",
+          "aliases": [
+            "chubb fire and security"
+          ],
+          "lots": [
+            "LOT 2 - Technology Enabled Care Products and Services (TEC)"
+          ]
+        },
+        {
+          "name": "Legrand Care Ltd",
+          "normalized_name": "legrand care",
+          "aliases": [
+            "legrand care"
+          ],
+          "lots": [
+            "LOT 2 - Technology Enabled Care Products and Services (TEC)"
+          ]
+        },
+        {
+          "name": "Livity Life Ltd",
+          "normalized_name": "livity life",
+          "aliases": [
+            "livity life"
+          ],
+          "lots": [
+            "LOT 2 - Technology Enabled Care Products and Services (TEC)"
+          ]
+        },
+        {
+          "name": "Ventro LTD",
+          "normalized_name": "ventro",
+          "aliases": [
+            "ventro"
+          ],
+          "lots": [
+            "LOT 2 - Technology Enabled Care Products and Services (TEC)"
+          ]
+        },
+        {
+          "name": "We Are Group Holdings Limited",
+          "normalized_name": "we are group holdings",
+          "aliases": [
+            "we are group holdings"
+          ],
+          "lots": [
+            "LOT 2 - Technology Enabled Care Products and Services (TEC)"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y24012",
+      "name": "Waste Management Services",
+      "source_status": "active",
+      "expiry_date": "2029-04-09",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/facilities/waste-management-services",
+      "start_date": "2025-04-10",
+      "suppliers": [
+        {
+          "name": "Biffa LTD",
+          "normalized_name": "biffa",
+          "aliases": [
+            "biffa"
+          ],
+          "lots": [
+            "LOT 1 - General Waste & Recycling",
+            "LOT 2 - Clinical Waste Services",
+            "LOT 3 - Confidential and high security waste",
+            "LOT 4 - Textile Waste Recycling",
+            "LOT 5 - Hazardous Waste, Chemical and Radioactive (non-clinical)",
+            "LOT 6a - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services",
+            "LOT 6b - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services",
+            "LOT 7 - Total Waste Management Service"
+          ]
+        },
+        {
+          "name": "Bywaters (Leyton) Ltd",
+          "normalized_name": "bywaters leyton",
+          "aliases": [
+            "bywaters leyton",
+            "bywaters"
+          ],
+          "lots": [
+            "LOT 1 - General Waste & Recycling",
+            "LOT 2 - Clinical Waste Services",
+            "LOT 3 - Confidential and high security waste",
+            "LOT 4 - Textile Waste Recycling",
+            "LOT 5 - Hazardous Waste, Chemical and Radioactive (non-clinical)",
+            "LOT 6a - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services",
+            "LOT 6b - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services",
+            "LOT 7 - Total Waste Management Service"
+          ]
+        },
+        {
+          "name": "Countrystyle Recycling Limited",
+          "normalized_name": "countrystyle recycling",
+          "aliases": [
+            "countrystyle recycling"
+          ],
+          "lots": [
+            "LOT 1 - General Waste & Recycling",
+            "LOT 2 - Clinical Waste Services",
+            "LOT 3 - Confidential and high security waste",
+            "LOT 5 - Hazardous Waste, Chemical and Radioactive (non-clinical)",
+            "LOT 6a - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services",
+            "LOT 6b - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services"
+          ]
+        },
+        {
+          "name": "GoGreen",
+          "normalized_name": "gogreen",
+          "aliases": [
+            "gogreen"
+          ],
+          "lots": [
+            "LOT 1 - General Waste & Recycling",
+            "LOT 2 - Clinical Waste Services",
+            "LOT 3 - Confidential and high security waste",
+            "LOT 4 - Textile Waste Recycling",
+            "LOT 5 - Hazardous Waste, Chemical and Radioactive (non-clinical)",
+            "LOT 7 - Total Waste Management Service"
+          ]
+        },
+        {
+          "name": "Medisort Limited",
+          "normalized_name": "medisort",
+          "aliases": [
+            "medisort"
+          ],
+          "lots": [
+            "LOT 2 - Clinical Waste Services"
+          ]
+        },
+        {
+          "name": "Recorra",
+          "normalized_name": "recorra",
+          "aliases": [
+            "recorra"
+          ],
+          "lots": [
+            "LOT 1 - General Waste & Recycling",
+            "LOT 2 - Clinical Waste Services",
+            "LOT 3 - Confidential and high security waste",
+            "LOT 4 - Textile Waste Recycling",
+            "LOT 5 - Hazardous Waste, Chemical and Radioactive (non-clinical)",
+            "LOT 7 - Total Waste Management Service"
+          ]
+        },
+        {
+          "name": "Veolia",
+          "normalized_name": "veolia",
+          "aliases": [
+            "veolia"
+          ],
+          "lots": [
+            "LOT 1 - General Waste & Recycling",
+            "LOT 2 - Clinical Waste Services",
+            "LOT 3 - Confidential and high security waste",
+            "LOT 4 - Textile Waste Recycling",
+            "LOT 5 - Hazardous Waste, Chemical and Radioactive (non-clinical)",
+            "LOT 6a - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services",
+            "LOT 6b - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services",
+            "LOT 7 - Total Waste Management Service"
+          ]
+        },
+        {
+          "name": "N&P",
+          "normalized_name": "n and p",
+          "aliases": [
+            "n and p"
+          ],
+          "lots": [
+            "LOT 6b - Waste Disposal Authority (WDA) Household and Commercial Waste Processing Services"
+          ]
+        },
+        {
+          "name": "Restore Datashred Limited",
+          "normalized_name": "restore datashred",
+          "aliases": [
+            "restore datashred"
+          ],
+          "lots": [
+            "LOT 3 - Confidential and high security waste",
+            "LOT 4 - Textile Waste Recycling"
+          ]
+        },
+        {
+          "name": "Shred Station Ltd",
+          "normalized_name": "shred station",
+          "aliases": [
+            "shred station"
+          ],
+          "lots": [
+            "LOT 3 - Confidential and high security waste"
+          ]
+        },
+        {
+          "name": "Suez Recycling & Recover UK Ltd",
+          "normalized_name": "suez recycling and recover",
+          "aliases": [
+            "suez recycling and recover"
+          ],
+          "lots": [
+            "LOT 1 - General Waste & Recycling"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y25001",
+      "name": "Education Services",
+      "source_status": "active",
+      "expiry_date": "2028-12-01",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/education/education-services",
+      "start_date": "2024-12-02",
+      "suppliers": [
+        {
+          "name": "Capita Entrust",
+          "normalized_name": "capita entrust",
+          "aliases": [
+            "capita entrust"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Juniper Education Services Ltd",
+          "normalized_name": "juniper education services",
+          "aliases": [
+            "juniper education services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Place Group Ltd",
+          "normalized_name": "place group",
+          "aliases": [
+            "place group"
+          ],
+          "lots": []
+        },
+        {
+          "name": "The Education People",
+          "normalized_name": "education people",
+          "aliases": [
+            "education people"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y25003",
+      "name": "Training, Learning and Development Solutions",
+      "source_status": "active",
+      "expiry_date": "2029-02-28",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/people-professional/training-learning-and-development-solutions",
+      "start_date": "2025-03-01",
+      "suppliers": [
+        {
+          "name": "Astutis Ltd",
+          "normalized_name": "astutis",
+          "aliases": [
+            "astutis"
+          ],
+          "lots": []
+        },
+        {
+          "name": "BIP Solutions",
+          "normalized_name": "bip solutions",
+          "aliases": [
+            "bip solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Focus Games Ltd T/A Focus Active Learning",
+          "normalized_name": "focus games",
+          "aliases": [
+            "focus games",
+            "focus active learning"
+          ],
+          "lots": []
+        },
+        {
+          "name": "KPMG LLP",
+          "normalized_name": "kpmg",
+          "aliases": [
+            "kpmg"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Institute of Directors",
+          "normalized_name": "institute of directors",
+          "aliases": [
+            "institute of directors"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Me Learning Ltd",
+          "normalized_name": "me learning",
+          "aliases": [
+            "me learning"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Open eLMS Ltd",
+          "normalized_name": "open elms",
+          "aliases": [
+            "open elms"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Optima Training and Consultancy",
+          "normalized_name": "optima training and consultancy",
+          "aliases": [
+            "optima training and consultancy"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Premier People Solutions Ltd T/A Premier Partnership",
+          "normalized_name": "premier people solutions",
+          "aliases": [
+            "premier people solutions",
+            "premier partnership"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Real Group Ltd",
+          "normalized_name": "real group",
+          "aliases": [
+            "real group"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Reed Learning Ltd",
+          "normalized_name": "reed learning",
+          "aliases": [
+            "reed learning"
+          ],
+          "lots": []
+        },
+        {
+          "name": "The Human Edge",
+          "normalized_name": "human edge",
+          "aliases": [
+            "human edge"
+          ],
+          "lots": []
+        },
+        {
+          "name": "The University of Kent",
+          "normalized_name": "university of kent",
+          "aliases": [
+            "university of kent"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y25005",
+      "name": "Business Support Services",
+      "source_status": "active",
+      "expiry_date": "2029-05-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/people-professional/business-support-services",
+      "start_date": "2025-06-01",
+      "suppliers": [
+        {
+          "name": "Capita Business Services Ltd",
+          "normalized_name": "capita business services",
+          "aliases": [
+            "capita business services"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Commercial Services Kent Ltd",
+          "normalized_name": "commercial services kent",
+          "aliases": [
+            "commercial services kent"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Investigo Limited",
+          "normalized_name": "investigo",
+          "aliases": [
+            "investigo"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Issured",
+          "normalized_name": "issured",
+          "aliases": [
+            "issured"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Liberata",
+          "normalized_name": "liberata",
+          "aliases": [
+            "liberata"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Posterity Global",
+          "normalized_name": "posterity global",
+          "aliases": [
+            "posterity global"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Sailotech",
+          "normalized_name": "sailotech",
+          "aliases": [
+            "sailotech"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Serco",
+          "normalized_name": "serco",
+          "aliases": [
+            "serco"
+          ],
+          "lots": []
+        },
+        {
+          "name": "The PEGroup",
+          "normalized_name": "pegroup",
+          "aliases": [
+            "pegroup"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Tiaa LTD",
+          "normalized_name": "tiaa",
+          "aliases": [
+            "tiaa"
+          ],
+          "lots": []
+        },
+        {
+          "name": "UHY",
+          "normalized_name": "uhy",
+          "aliases": [
+            "uhy"
+          ],
+          "lots": []
+        },
+        {
+          "name": "VE3 Global Ltd",
+          "normalized_name": "ve3 global",
+          "aliases": [
+            "ve3 global"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y25006",
+      "name": "HR Support Services",
+      "source_status": "active",
+      "expiry_date": "2029-05-09",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/people-professional/hr-support-services",
+      "start_date": "2025-05-10",
+      "suppliers": [
+        {
+          "name": "Commercial Services Kent Ltd - Employment Check",
+          "normalized_name": "commercial services kent ltd employment check",
+          "aliases": [
+            "commercial services kent ltd employment check"
+          ],
+          "lots": [
+            "LOT 3 - Employee Screening"
+          ]
+        },
+        {
+          "name": "Juniper Education Services Ltd",
+          "normalized_name": "juniper education services",
+          "aliases": [
+            "juniper education services"
+          ],
+          "lots": [
+            "LOT 1 - HR Administration and Payroll Service",
+            "LOT 2 - HR Advisory Services",
+            "LOT 3 - Employee Screening",
+            "LOT 4 - Staff Health and Wellbeing",
+            "LOT 5 - Total HR Management Service"
+          ]
+        },
+        {
+          "name": "Morson Human Resources Ltd",
+          "normalized_name": "morson human resources",
+          "aliases": [
+            "morson human resources"
+          ],
+          "lots": [
+            "LOT 1 - HR Administration and Payroll Service",
+            "LOT 2 - HR Advisory Services",
+            "LOT 3 - Employee Screening",
+            "LOT 4 - Staff Health and Wellbeing",
+            "LOT 5 - Total HR Management Service"
+          ]
+        },
+        {
+          "name": "NHS Arden & Greater East Midlands AGCSU",
+          "normalized_name": "nhs arden and greater east midlands agcsu",
+          "aliases": [
+            "nhs arden and greater east midlands agcsu"
+          ],
+          "lots": [
+            "LOT 1 - HR Administration and Payroll Service",
+            "LOT 2 - HR Advisory Services",
+            "LOT 3 - Employee Screening"
+          ]
+        },
+        {
+          "name": "Commercial Services Kent Ltd",
+          "normalized_name": "commercial services kent",
+          "aliases": [
+            "commercial services kent"
+          ],
+          "lots": [
+            "LOT 5 - Total HR Management Service"
+          ]
+        },
+        {
+          "name": "Capita Entrust",
+          "normalized_name": "capita entrust",
+          "aliases": [
+            "capita entrust"
+          ],
+          "lots": [
+            "LOT 1 - HR Administration and Payroll Service",
+            "LOT 2 - HR Advisory Services"
+          ]
+        },
+        {
+          "name": "Commercial Services Kent Ltd – HR Connect",
+          "normalized_name": "commercial services kent ltd hr connect",
+          "aliases": [
+            "commercial services kent ltd hr connect"
+          ],
+          "lots": [
+            "LOT 1 - HR Administration and Payroll Service",
+            "LOT 2 - HR Advisory Services"
+          ]
+        },
+        {
+          "name": "High Performance Consultancy",
+          "normalized_name": "high performance consultancy",
+          "aliases": [
+            "high performance consultancy"
+          ],
+          "lots": [
+            "LOT 2 - HR Advisory Services"
+          ]
+        },
+        {
+          "name": "Innecto Reward Consulting Ltd",
+          "normalized_name": "innecto reward consulting",
+          "aliases": [
+            "innecto reward consulting"
+          ],
+          "lots": [
+            "LOT 2 - HR Advisory Services"
+          ]
+        },
+        {
+          "name": "Peninsula Business Services Ltd",
+          "normalized_name": "peninsula business services",
+          "aliases": [
+            "peninsula business services"
+          ],
+          "lots": [
+            "LOT 2 - HR Advisory Services"
+          ]
+        },
+        {
+          "name": "Commercial Services Kent Ltd - Staff Care Services",
+          "normalized_name": "commercial services kent ltd staff care services",
+          "aliases": [
+            "commercial services kent ltd staff care services"
+          ],
+          "lots": [
+            "LOT 4 - Staff Health and Wellbeing"
+          ]
+        },
+        {
+          "name": "Deo Wellbeing Clinic",
+          "normalized_name": "deo wellbeing clinic",
+          "aliases": [
+            "deo wellbeing clinic"
+          ],
+          "lots": [
+            "LOT 4 - Staff Health and Wellbeing"
+          ]
+        },
+        {
+          "name": "Health Assured Ltd",
+          "normalized_name": "health assured",
+          "aliases": [
+            "health assured"
+          ],
+          "lots": [
+            "LOT 4 - Staff Health and Wellbeing"
+          ]
+        },
+        {
+          "name": "Reward Gateway (UK) Limited",
+          "normalized_name": "reward gateway",
+          "aliases": [
+            "reward gateway"
+          ],
+          "lots": [
+            "LOT 4 - Staff Health and Wellbeing"
+          ]
+        },
+        {
+          "name": "Syrona Ltd",
+          "normalized_name": "syrona",
+          "aliases": [
+            "syrona"
+          ],
+          "lots": [
+            "LOT 4 - Staff Health and Wellbeing"
+          ]
+        },
+        {
+          "name": "de Novo Solutions",
+          "normalized_name": "de novo solutions",
+          "aliases": [
+            "de novo solutions"
+          ],
+          "lots": [
+            "LOT 1 - HR Administration and Payroll Service"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y25007",
+      "name": "Recruitment Services",
+      "source_status": "active",
+      "expiry_date": "2029-08-31",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/people-professional/recruitment-services",
+      "start_date": "2025-08-01",
+      "suppliers": [
+        {
+          "name": "Allen Lane Limited",
+          "normalized_name": "allen lane",
+          "aliases": [
+            "allen lane"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Eden Brown Synergy",
+          "normalized_name": "eden brown synergy",
+          "aliases": [
+            "eden brown synergy"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "GatenbySanderson Limited",
+          "normalized_name": "gatenbysanderson",
+          "aliases": [
+            "gatenbysanderson"
+          ],
+          "lots": [
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Harvey Nash Limited",
+          "normalized_name": "harvey nash",
+          "aliases": [
+            "harvey nash"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Hays Specialist Recruitment Limited",
+          "normalized_name": "hays specialist recruitment",
+          "aliases": [
+            "hays specialist recruitment"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "HR String Limited",
+          "normalized_name": "hr string",
+          "aliases": [
+            "hr string"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Mainstream Careers Limited",
+          "normalized_name": "mainstream careers",
+          "aliases": [
+            "mainstream careers"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "MLC Partners Limited",
+          "normalized_name": "mlc partners",
+          "aliases": [
+            "mlc partners"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "RGH Global Ltd",
+          "normalized_name": "rgh global",
+          "aliases": [
+            "rgh global"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Robertson Bell Ltd",
+          "normalized_name": "robertson bell",
+          "aliases": [
+            "robertson bell"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Sanctuary Personnel Ltd",
+          "normalized_name": "sanctuary personnel",
+          "aliases": [
+            "sanctuary personnel"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Sellick Partnership Limited",
+          "normalized_name": "sellick partnership",
+          "aliases": [
+            "sellick partnership"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Tate Recruitment Limited",
+          "normalized_name": "tate recruitment",
+          "aliases": [
+            "tate recruitment"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment",
+            "LOT 3 - Retained/Executive Recruitment"
+          ]
+        },
+        {
+          "name": "Blue Arrow Ltd",
+          "normalized_name": "blue arrow",
+          "aliases": [
+            "blue arrow"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment"
+          ]
+        },
+        {
+          "name": "Castlefield Recruitment Limited",
+          "normalized_name": "castlefield recruitment",
+          "aliases": [
+            "castlefield recruitment"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment"
+          ]
+        },
+        {
+          "name": "Diamond Medical Limited",
+          "normalized_name": "diamond medical",
+          "aliases": [
+            "diamond medical"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment"
+          ]
+        },
+        {
+          "name": "Huntress Search Ltd",
+          "normalized_name": "huntress search",
+          "aliases": [
+            "huntress search"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment"
+          ]
+        },
+        {
+          "name": "Morson Human Resources Limited (T/A Morson Talent)",
+          "normalized_name": "morson human resources",
+          "aliases": [
+            "morson human resources",
+            "morson talent"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment"
+          ]
+        },
+        {
+          "name": "Step Ahead Social Enterprise Community Interest Company",
+          "normalized_name": "step ahead social enterprise community interest",
+          "aliases": [
+            "step ahead social enterprise community interest"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment"
+          ]
+        },
+        {
+          "name": "Venn Group Limited",
+          "normalized_name": "venn group",
+          "aliases": [
+            "venn group"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment"
+          ]
+        },
+        {
+          "name": "Venesky Brown Recruitment Ltd",
+          "normalized_name": "venesky brown recruitment",
+          "aliases": [
+            "venesky brown recruitment"
+          ],
+          "lots": [
+            "LOT 1 - Permanent and Contract Recruitment",
+            "LOT 2 - Temporary, Interim and Contract Recruitment"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y25012",
+      "name": "Education Management Systems",
+      "source_status": "active",
+      "expiry_date": "2029-06-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/education/education-management-systems",
+      "start_date": "2025-07-01",
+      "suppliers": [
+        {
+          "name": "Arbor Education Ltd",
+          "normalized_name": "arbor education",
+          "aliases": [
+            "arbor education"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Bromcom Computers Plc",
+          "normalized_name": "bromcom computers",
+          "aliases": [
+            "bromcom computers"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Compass Education",
+          "normalized_name": "compass education",
+          "aliases": [
+            "compass education"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Education Software Solutions Ltd",
+          "normalized_name": "education software solutions",
+          "aliases": [
+            "education software solutions"
+          ],
+          "lots": []
+        },
+        {
+          "name": "EIS the trading arm of Cantium",
+          "normalized_name": "eis trading arm of cantium",
+          "aliases": [
+            "eis trading arm of cantium"
+          ],
+          "lots": []
+        },
+        {
+          "name": "IRIS Ltd",
+          "normalized_name": "iris",
+          "aliases": [
+            "iris"
+          ],
+          "lots": []
+        },
+        {
+          "name": "Skills Forge Ltd",
+          "normalized_name": "skills forge",
+          "aliases": [
+            "skills forge"
+          ],
+          "lots": []
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y26005",
+      "name": "IT Hardware, ITAD & Associated Services",
+      "source_status": "active",
+      "expiry_date": "2029-11-13",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/technology/it-hardware-itad-associated-services",
+      "start_date": "2025-11-14",
+      "suppliers": [
+        {
+          "name": "Academia LTD",
+          "normalized_name": "academia",
+          "aliases": [
+            "academia"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition",
+            "LOT 4 – One-Stop Shop"
+          ]
+        },
+        {
+          "name": "Ayoo Services LTD",
+          "normalized_name": "ayoo services",
+          "aliases": [
+            "ayoo services"
+          ],
+          "lots": [
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "BornGood",
+          "normalized_name": "borngood",
+          "aliases": [
+            "borngood"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition",
+            "LOT 4 – One-Stop Shop"
+          ]
+        },
+        {
+          "name": "CDW Ltd",
+          "normalized_name": "cdw",
+          "aliases": [
+            "cdw"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "Centerprise International Ltd",
+          "normalized_name": "centerprise international",
+          "aliases": [
+            "centerprise international"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition",
+            "LOT 4 – One-Stop Shop"
+          ]
+        },
+        {
+          "name": "Econocom",
+          "normalized_name": "econocom",
+          "aliases": [
+            "econocom"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "Insight Direct (UK) LTD",
+          "normalized_name": "insight direct",
+          "aliases": [
+            "insight direct"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "Medhurst Communications LTD",
+          "normalized_name": "medhurst communications",
+          "aliases": [
+            "medhurst communications"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "MTI Technology",
+          "normalized_name": "mti technology",
+          "aliases": [
+            "mti technology"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition",
+            "LOT 4 – One-Stop Shop"
+          ]
+        },
+        {
+          "name": "Phoenix Software Ltd",
+          "normalized_name": "phoenix software",
+          "aliases": [
+            "phoenix software"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition",
+            "LOT 4 – One-Stop Shop"
+          ]
+        },
+        {
+          "name": "Pure IT Refurbished",
+          "normalized_name": "pure it refurbished",
+          "aliases": [
+            "pure it refurbished"
+          ],
+          "lots": [
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "Reconome",
+          "normalized_name": "reconome",
+          "aliases": [
+            "reconome"
+          ],
+          "lots": [
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition"
+          ]
+        },
+        {
+          "name": "Softcat PLC",
+          "normalized_name": "softcat",
+          "aliases": [
+            "softcat"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "Storm Technologies",
+          "normalized_name": "storm technologies",
+          "aliases": [
+            "storm technologies"
+          ],
+          "lots": [
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition"
+          ]
+        },
+        {
+          "name": "Sync (A Trading Name of GBM Digital Technologies Ltd)",
+          "normalized_name": "sync a trading name of gbm digital technologies",
+          "aliases": [
+            "sync a trading name of gbm digital technologies",
+            "sync"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition",
+            "LOT 4 – One-Stop Shop"
+          ]
+        },
+        {
+          "name": "Teqex Ltd",
+          "normalized_name": "teqex",
+          "aliases": [
+            "teqex"
+          ],
+          "lots": [
+            "LOT 2 – Remanufactured and Refurbished IT Hardware",
+            "LOT 3 – IT Asset Disposition"
+          ]
+        },
+        {
+          "name": "The DMS Digital Group",
+          "normalized_name": "dms digital group",
+          "aliases": [
+            "dms digital group"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "Tier 1 Assessment Management",
+          "normalized_name": "tier 1 assessment management",
+          "aliases": [
+            "tier 1 assessment management"
+          ],
+          "lots": [
+            "LOT 2 – Remanufactured and Refurbished IT Hardware"
+          ]
+        },
+        {
+          "name": "Boxxe Ltd",
+          "normalized_name": "boxxe",
+          "aliases": [
+            "boxxe"
+          ],
+          "lots": [
+            "LOT 3 – IT Asset Disposition"
+          ]
+        },
+        {
+          "name": "Digital Devices",
+          "normalized_name": "digital devices",
+          "aliases": [
+            "digital devices"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 3 – IT Asset Disposition"
+          ]
+        },
+        {
+          "name": "Specialist Computer Centres PLC",
+          "normalized_name": "specialist computer centres",
+          "aliases": [
+            "specialist computer centres"
+          ],
+          "lots": [
+            "LOT 3 – IT Asset Disposition"
+          ]
+        },
+        {
+          "name": "Stone Technologies Ltd, trading as Converge Technology Solutions",
+          "normalized_name": "stone technologies",
+          "aliases": [
+            "stone technologies",
+            "converge technology solutions"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware",
+            "LOT 3 – IT Asset Disposition"
+          ]
+        },
+        {
+          "name": "Bytes Software Services",
+          "normalized_name": "bytes software services",
+          "aliases": [
+            "bytes software services"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware"
+          ]
+        },
+        {
+          "name": "IDNS LTD",
+          "normalized_name": "idns",
+          "aliases": [
+            "idns"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware"
+          ]
+        },
+        {
+          "name": "Ultima Business Solutions",
+          "normalized_name": "ultima business solutions",
+          "aliases": [
+            "ultima business solutions"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware"
+          ]
+        },
+        {
+          "name": "XMA LTD",
+          "normalized_name": "xma",
+          "aliases": [
+            "xma"
+          ],
+          "lots": [
+            "LOT 1 – New IT Hardware"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y26006",
+      "name": "Digital Transformation Solutions and Enterprise Services",
+      "source_status": "active",
+      "expiry_date": "2030-04-30",
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/office/digital-transformation-solutions-and-enterprise-services",
+      "start_date": "2026-05-01",
+      "suppliers": [
+        {
+          "name": "Hitachi Solutions Europe Ltd",
+          "normalized_name": "hitachi solutions europe",
+          "aliases": [
+            "hitachi solutions europe"
+          ],
+          "lots": [
+            "LOT 1 - Digital and Service Transformation",
+            "LOT 2 - IT, Cloud, and Cyber Services",
+            "LOT 3 - People, Payroll, Pensions and Financial Operations",
+            "LOT 5 - Strategic Consultancy and Public Sector Reform"
+          ]
+        },
+        {
+          "name": "Infosys Limited",
+          "normalized_name": "infosys",
+          "aliases": [
+            "infosys"
+          ],
+          "lots": [
+            "LOT 1 - Digital and Service Transformation"
+          ]
+        },
+        {
+          "name": "KCL Digital",
+          "normalized_name": "kcl digital",
+          "aliases": [
+            "kcl digital"
+          ],
+          "lots": [
+            "LOT 1 - Digital and Service Transformation"
+          ]
+        },
+        {
+          "name": "Softcat PLC",
+          "normalized_name": "softcat",
+          "aliases": [
+            "softcat"
+          ],
+          "lots": [
+            "LOT 1 - Digital and Service Transformation",
+            "LOT 2 - IT, Cloud, and Cyber Services",
+            "LOT 5 - Strategic Consultancy and Public Sector Reform"
+          ]
+        },
+        {
+          "name": "Telefónica Tech Northern Ireland Ltd",
+          "normalized_name": "telefo nica tech northern ireland",
+          "aliases": [
+            "telefo nica tech northern ireland"
+          ],
+          "lots": [
+            "LOT 1 - Digital and Service Transformation",
+            "LOT 4 - Estates, Facilities and Asset Management Technology",
+            "LOT 5 - Strategic Consultancy and Public Sector Reform"
+          ]
+        },
+        {
+          "name": "Version 1 Solutions Limited",
+          "normalized_name": "version 1 solutions",
+          "aliases": [
+            "version 1 solutions"
+          ],
+          "lots": [
+            "LOT 1 - Digital and Service Transformation",
+            "LOT 3 - People, Payroll, Pensions and Financial Operations"
+          ]
+        },
+        {
+          "name": "Goaco Group Ltd",
+          "normalized_name": "goaco group",
+          "aliases": [
+            "goaco group"
+          ],
+          "lots": [
+            "LOT 2 - IT, Cloud, and Cyber Services"
+          ]
+        },
+        {
+          "name": "Ricoh UK Limited",
+          "normalized_name": "ricoh",
+          "aliases": [
+            "ricoh"
+          ],
+          "lots": [
+            "LOT 2 - IT, Cloud, and Cyber Services",
+            "LOT 4 - Estates, Facilities and Asset Management Technology"
+          ]
+        },
+        {
+          "name": "Roc Technologies Limited",
+          "normalized_name": "roc technologies",
+          "aliases": [
+            "roc technologies"
+          ],
+          "lots": [
+            "LOT 2 - IT, Cloud, and Cyber Services"
+          ]
+        },
+        {
+          "name": "The DMS Digital Group",
+          "normalized_name": "dms digital group",
+          "aliases": [
+            "dms digital group"
+          ],
+          "lots": [
+            "LOT 2 - IT, Cloud, and Cyber Services"
+          ]
+        },
+        {
+          "name": "Access Paysuite Ltd",
+          "normalized_name": "access paysuite",
+          "aliases": [
+            "access paysuite"
+          ],
+          "lots": [
+            "LOT 3 - People, Payroll, Pensions and Financial Operations"
+          ]
+        },
+        {
+          "name": "DIG X",
+          "normalized_name": "dig x",
+          "aliases": [
+            "dig x"
+          ],
+          "lots": [
+            "LOT 3 - People, Payroll, Pensions and Financial Operations"
+          ]
+        },
+        {
+          "name": "Investigo Limited",
+          "normalized_name": "investigo",
+          "aliases": [
+            "investigo"
+          ],
+          "lots": [
+            "LOT 3 - People, Payroll, Pensions and Financial Operations",
+            "LOT 4 - Estates, Facilities and Asset Management Technology"
+          ]
+        },
+        {
+          "name": "VE3 Global Ltd",
+          "normalized_name": "ve3 global",
+          "aliases": [
+            "ve3 global"
+          ],
+          "lots": [
+            "LOT 3 - People, Payroll, Pensions and Financial Operations",
+            "LOT 5 - Strategic Consultancy and Public Sector Reform"
+          ]
+        },
+        {
+          "name": "Better Group Limited",
+          "normalized_name": "better group",
+          "aliases": [
+            "better group"
+          ],
+          "lots": [
+            "LOT 4 - Estates, Facilities and Asset Management Technology"
+          ]
+        },
+        {
+          "name": "Capita Business Services Ltd",
+          "normalized_name": "capita business services",
+          "aliases": [
+            "capita business services"
+          ],
+          "lots": [
+            "LOT 4 - Estates, Facilities and Asset Management Technology"
+          ]
+        },
+        {
+          "name": "Neo Technology Ltd",
+          "normalized_name": "neo technology",
+          "aliases": [
+            "neo technology"
+          ],
+          "lots": [
+            "LOT 4 - Estates, Facilities and Asset Management Technology"
+          ]
+        },
+        {
+          "name": "Inner Circle Consulting",
+          "normalized_name": "inner circle consulting",
+          "aliases": [
+            "inner circle consulting"
+          ],
+          "lots": [
+            "LOT 5 - Strategic Consultancy and Public Sector Reform"
+          ]
+        },
+        {
+          "name": "WM5G Ltd",
+          "normalized_name": "wm5g",
+          "aliases": [
+            "wm5g"
+          ],
+          "lots": [
+            "LOT 5 - Strategic Consultancy and Public Sector Reform"
+          ]
+        }
+      ],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y26007",
+      "name": "Employee Benefits and Services",
+      "source_status": "coming_soon",
+      "expiry_date": null,
+      "url": "https://www-v17.procurementservices.co.uk/our-solutions/frameworks/people-professional/employee-benefits-and-services",
+      "start_date": null,
+      "suppliers": [],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    },
+    {
+      "id": "Y26009",
+      "name": "Multi-Functional Devices and Digital Solutions",
+      "source_status": "coming_soon",
+      "expiry_date": null,
+      "url": null,
+      "start_date": null,
+      "suppliers": [],
+      "last_seen_at": "2026-07-01T17:28:16.143Z"
+    }
+  ]
+}
