@@ -6,6 +6,7 @@ import { OpportunityReviewStatus, ReconciliationFindingRecord } from '@/componen
 import {
   readLatestReconciliationFindingsForMonth,
   readReconciliationFindings,
+  resolveDefaultDashboardMonth,
   resolveReconciliationRun,
 } from '@/lib/reconciliation/findingsStore';
 
@@ -149,16 +150,16 @@ async function loadReportData(request: NextRequest): Promise<{ runLabel: string;
   const requestedRunId = request.nextUrl.searchParams.get('run_id') || process.env.RECONCILIATION_DASHBOARD_RUN_ID;
   const run = await resolveReconciliationRun(requestedRunId || undefined);
   if (!run) return { runLabel: 'No run', findings: [] };
-  const previousCompleteMonth = new Date();
-  previousCompleteMonth.setUTCMonth(previousCompleteMonth.getUTCMonth() - 1, 1);
+  const defaultMonth = await resolveDefaultDashboardMonth();
+  const monthDate = new Date(Date.UTC(defaultMonth.year, defaultMonth.month - 1, 1));
   const result = requestedRunId
     ? await readReconciliationFindings(run.id, { limit: 1000, offset: 0 })
     : await readLatestReconciliationFindingsForMonth(
-      previousCompleteMonth.getUTCFullYear(),
-      previousCompleteMonth.getUTCMonth() + 1,
+      defaultMonth.year,
+      defaultMonth.month,
     );
   return {
-    runLabel: `${run.id.slice(0, 8)} / ${previousCompleteMonth.toLocaleString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' })}`,
+    runLabel: `${run.id.slice(0, 8)} / ${monthDate.toLocaleString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' })}`,
     findings: JSON.parse(JSON.stringify(result.findings)) as ReconciliationFindingRecord[],
   };
 }

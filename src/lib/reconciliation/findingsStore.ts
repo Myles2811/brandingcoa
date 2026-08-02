@@ -215,3 +215,34 @@ export async function readLatestReconciliationFindingsForMonth(
     total: findingsResult.rows.length,
   };
 }
+
+export async function resolveDefaultDashboardMonth(
+  anchor = new Date(),
+  minimumFindingCount = 10,
+): Promise<{ year: number; month: number }> {
+  const previousCompleteMonth = new Date(Date.UTC(anchor.getUTCFullYear(), anchor.getUTCMonth() - 1, 1));
+  const result = await getPool().query<{ search_year: number; search_month: number; findings: string }>(`
+    SELECT c.search_year, c.search_month, COUNT(DISTINCT f.id)::text AS findings
+    FROM reconciliation_findings f
+    CROSS JOIN LATERAL jsonb_array_elements_text(f.external_award_ids) linked_awards(candidate_id)
+    JOIN contracts c ON c.candidate_id = linked_awards.candidate_id
+    WHERE make_date(c.search_year, c.search_month, 1) <= make_date($1, $2, 1)
+    GROUP BY c.search_year, c.search_month
+    ORDER BY
+      CASE WHEN COUNT(DISTINCT f.id) >= $3 THEN 0 ELSE 1 END,
+      c.search_year DESC,
+      c.search_month DESC
+    LIMIT 1
+  `, [
+    previousCompleteMonth.getUTCFullYear(),
+    previousCompleteMonth.getUTCMonth() + 1,
+    minimumFindingCount,
+  ]);
+
+  const row = result.rows[0];
+  if (row) return { year: row.search_year, month: row.search_month };
+  return {
+    year: previousCompleteMonth.getUTCFullYear(),
+    month: previousCompleteMonth.getUTCMonth() + 1,
+  };
+}
