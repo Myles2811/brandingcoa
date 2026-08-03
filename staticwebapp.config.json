@@ -1,0 +1,14 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/_next/*", "/*.{png,jpg,jpeg,svg,ico,webp,txt,json}"]
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html"
+    }
+  },
+  "globalHeaders": {
+    "cache-control": "no-cache"
+  }
+}

@@ -1,6 +1,8 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { demoDefaultMonth, demoHeadlineRun, demoRunById } from '@/lib/demo/demoData';
+import { downloadReport } from '@/lib/reconciliation/reportBuilder';
 import DataState from './DataState';
 import { confirmedFrameworkFindings, frameworkDisplay, money, organisationName, primaryAward, supplierName } from './format';
 import { dueNowRebate, issueForFinding, lifetimeRebate, type OpportunityIssue, opportunityIssueMeta, reviewStatusVisuals } from './opportunityModel';
@@ -301,17 +303,33 @@ function ReportExportPanel({ findings, runId }: { findings: ReconciliationFindin
       lifetime: rows.reduce((sum, finding) => sum + lifetimeRebate(finding), 0),
     };
   }, [filters, findings]);
-  const reportHref = (format: 'pdf' | 'xlsx') => {
-    const params = new URLSearchParams({ format });
-    if (runId) params.set('run_id', runId);
-    if (filters.buyer !== 'all') params.set('buyer', filters.buyer);
-    if (filters.supplier !== 'all') params.set('supplier', filters.supplier);
-    if (filters.framework !== 'all') params.set('framework', filters.framework);
-    if (filters.issue !== 'all') params.set('issue', filters.issue);
-    if (filters.status !== 'all') params.set('status', filters.status);
-    if (filters.dateFrom) params.set('date_from', filters.dateFrom);
-    if (filters.dateTo) params.set('date_to', filters.dateTo);
-    return `/api/reconciliation/report?${params.toString()}`;
+  // Static demo build: the pack is generated in the browser from the loaded findings
+  // instead of being streamed from /api/reconciliation/report.
+  const [building, setBuilding] = useState<'pdf' | 'xlsx' | null>(null);
+  const runLabel = useMemo(() => {
+    const run = demoRunById(runId) ?? demoHeadlineRun;
+    const month = new Date(Date.UTC(demoDefaultMonth.year, demoDefaultMonth.month - 1, 1));
+    const period = month.toLocaleString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+    return run ? `${run.id.slice(0, 8)} / ${period}` : `No run / ${period}`;
+  }, [runId]);
+
+  const buildReport = (format: 'pdf' | 'xlsx') => {
+    setBuilding(format);
+    const scoped = findings.filter(finding => findingMatchesReportFilters(finding, filters));
+    const notAll = (value: string) => (value === 'all' ? null : value);
+    try {
+      downloadReport(format, scoped, runLabel, {
+        buyer: notAll(filters.buyer),
+        supplier: notAll(filters.supplier),
+        framework: notAll(filters.framework),
+        issue: filters.issue === 'all' ? null : filters.issue,
+        status: filters.status === 'all' ? null : filters.status,
+        dateFrom: filters.dateFrom || null,
+        dateTo: filters.dateTo || null,
+      });
+    } finally {
+      setBuilding(null);
+    }
   };
   return (
     <section className="rounded-xl border border-[#E1E7F0] bg-white p-4 shadow-[0_12px_34px_rgba(15,23,42,0.06)]">
@@ -351,8 +369,8 @@ function ReportExportPanel({ findings, runId }: { findings: ReconciliationFindin
         <input aria-label="Report published to" type="date" value={filters.dateTo} onChange={event => setFilters({ ...filters, dateTo: event.target.value })} className="h-9 rounded-md border border-[#D0D5DD] bg-white px-3 text-xs text-[#101828] outline-none focus:border-[#2A64FF]" />
         <div className="flex gap-2">
           <button type="button" onClick={() => setFilters(defaultReportFilters)} className="inline-flex h-9 flex-1 items-center justify-center rounded-md border border-[#D0D5DD] bg-white px-3 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC]">Reset</button>
-          <a href={reportHref('pdf')} className="inline-flex h-9 flex-1 items-center justify-center rounded-md border border-[#D0D5DD] bg-white px-3 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC]">PDF</a>
-          <a href={reportHref('xlsx')} className="inline-flex h-9 flex-1 items-center justify-center rounded-md border border-[#B8C7FF] bg-[#EEF3FF] px-3 text-xs font-semibold text-[#0B1F4D] shadow-sm transition hover:bg-[#E0E8FF]">Excel</a>
+          <button type="button" onClick={() => buildReport('pdf')} disabled={building !== null} className="inline-flex h-9 flex-1 items-center justify-center rounded-md border border-[#D0D5DD] bg-white px-3 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC] disabled:opacity-45">{building === 'pdf' ? 'Building' : 'PDF'}</button>
+          <button type="button" onClick={() => buildReport('xlsx')} disabled={building !== null} className="inline-flex h-9 flex-1 items-center justify-center rounded-md border border-[#B8C7FF] bg-[#EEF3FF] px-3 text-xs font-semibold text-[#0B1F4D] shadow-sm transition hover:bg-[#E0E8FF] disabled:opacity-45">{building === 'xlsx' ? 'Building' : 'Excel'}</button>
         </div>
       </div>
     </section>

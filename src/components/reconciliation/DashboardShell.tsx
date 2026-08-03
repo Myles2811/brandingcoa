@@ -1,14 +1,22 @@
 'use client';
 
-import { useMemo, useState, useTransition } from 'react';
-import { useRouter } from 'next/navigation';
+import { useCallback, useMemo, useState, useSyncExternalStore } from 'react';
+import { demoDataForMonth, demoDataForRun } from '@/lib/demo/demoData';
+import {
+  applyDemoReviews,
+  nextDemoReview,
+  validateDemoReviewSave,
+  type DemoReviewOverrides,
+  type DemoReviewSave,
+  type DemoReviewSaveResult,
+} from '@/lib/demo/demoReviews';
 import CaseDrawer from './CaseDrawer';
 import KpiRow from './KpiRow';
 import MonthlyExposureCard from './MonthlyExposureCard';
 import PipelineTab, { defaultPipelineFilters, PipelineFilters } from './PipelineTab';
 import ReportsTab, { AnalyticsDrillDown } from './ReportsTab';
 import SettingsTab from './SettingsTab';
-import { dueNowRebate, isActionableOpportunity, issueForFinding, type OpportunityIssue } from './opportunityModel';
+import { dueNowRebate, isActionableOpportunity, issueForFinding, opportunityKey, type OpportunityIssue } from './opportunityModel';
 import { DashboardData, ReconciliationFindingRecord } from './types';
 
 type View = 'analytics' | 'opportunities' | 'settings';
@@ -50,6 +58,15 @@ function stableDateTimeLabel(value: string | null | undefined): string {
   }).format(date);
 }
 
+function subscribeToLocation(onChange: () => void): () => void {
+  window.addEventListener('popstate', onChange);
+  return () => window.removeEventListener('popstate', onChange);
+}
+
+function readRunIdParam(): string {
+  return new URLSearchParams(window.location.search).get('run_id') ?? '';
+}
+
 function dashboardMonthOptions(anchor: { year: number; month: number }) {
   return Array.from({ length: 18 }, (_, index) => {
     const date = new Date(Date.UTC(anchor.year, anchor.month - 1 - index, 1));
@@ -60,22 +77,35 @@ function dashboardMonthOptions(anchor: { year: number; month: number }) {
   });
 }
 
-export default function DashboardShell({ initialData, initialMonth, reportRunId }: {
+export default function DashboardShell({ initialData, initialMonth }: {
   initialData: DashboardData;
   initialMonth: { year: number; month: number };
-  reportRunId?: string;
 }) {
   const [activeView, setActiveView] = useState<View>('analytics');
-  const [opportunitiesData, setOpportunitiesData] = useState<DashboardData>(initialData);
-  const [selectedCase, setSelectedCase] = useState<ReconciliationFindingRecord | null>(null);
+  const [monthOverride, setMonthOverride] = useState<DashboardData | null>(null);
+  const [selectedCaseKey, setSelectedCaseKey] = useState<string | null>(null);
   const [pipelineFilters, setPipelineFilters] = useState<PipelineFilters>(defaultPipelineFilters);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [opportunitiesLoading, setOpportunitiesLoading] = useState(false);
-  const [isRefreshing, startRefresh] = useTransition();
-  const router = useRouter();
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [reviewOverrides, setReviewOverrides] = useState<DemoReviewOverrides>({});
   const availableMonths = useMemo(() => dashboardMonthOptions(initialMonth), [initialMonth]);
 
-  const refresh = () => startRefresh(() => router.refresh());
+  // Static demo build: ?run_id= deep links are resolved on the client from the captured
+  // snapshot, because a static page has no server to read search params at request time.
+  const requestedRunId = useSyncExternalStore(subscribeToLocation, readRunIdParam, () => '');
+  const reportRunId = requestedRunId || undefined;
+  const baseData = useMemo<DashboardData>(
+    () => (requestedRunId ? demoDataForRun(requestedRunId) : initialData),
+    [requestedRunId, initialData],
+  );
+
+  // No server to revalidate against — pulse the control so it still reads as a live refresh.
+  const refresh = () => {
+    setIsRefreshing(true);
+    window.setTimeout(() => setIsRefreshing(false), 450);
+  };
+
   const loadOpportunitiesMonth = (monthValue: string) => {
     if (monthValue === 'all') {
       setOpportunitiesLoading(false);
@@ -84,23 +114,39 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
     const [year, month] = monthValue.split('-').map(Number);
     if (!year || !month) return;
     setOpportunitiesLoading(true);
-    fetch(`/api/reconciliation/dashboard?year=${year}&month=${month}`, { cache: 'no-store' })
-      .then(async response => {
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error ?? `HTTP ${response.status}`);
-        setOpportunitiesData(data as DashboardData);
-      })
-      .catch(error => {
-        setOpportunitiesData({ run: null, findings: [], error: error instanceof Error ? error.message : String(error) });
-      })
-      .finally(() => setOpportunitiesLoading(false));
+    setMonthOverride(demoDataForMonth(year, month));
+    window.setTimeout(() => setOpportunitiesLoading(false), 220);
   };
+
+  const saveReview = useCallback((input: DemoReviewSave): DemoReviewSaveResult => {
+    const errors = validateDemoReviewSave(input);
+    if (errors.length > 0) return { ok: false, errors };
+    setReviewOverrides(current => ({
+      ...current,
+      [input.opportunityKey]: nextDemoReview(input, current[input.opportunityKey]),
+    }));
+    return { ok: true, errors: [] };
+  }, []);
   const updatePipelineFilters = (nextFilters: PipelineFilters) => {
     const monthChanged = nextFilters.month !== pipelineFilters.month;
     setPipelineFilters(nextFilters);
     if (monthChanged) loadOpportunitiesMonth(nextFilters.month);
   };
-  const displayedOpportunitiesData = pipelineFilters.month === 'all' ? initialData : opportunitiesData;
+  // Session review edits are layered over the snapshot so saved outcomes show everywhere.
+  const analyticsData = useMemo<DashboardData>(
+    () => ({ ...baseData, findings: applyDemoReviews(baseData.findings, reviewOverrides) }),
+    [baseData, reviewOverrides],
+  );
+  const monthData = useMemo<DashboardData>(() => {
+    const source = monthOverride ?? baseData;
+    return { ...source, findings: applyDemoReviews(source.findings, reviewOverrides) };
+  }, [monthOverride, baseData, reviewOverrides]);
+  const displayedOpportunitiesData = pipelineFilters.month === 'all' ? analyticsData : monthData;
+  const selectedCase = useMemo<ReconciliationFindingRecord | null>(() => {
+    if (!selectedCaseKey) return null;
+    const match = (finding: ReconciliationFindingRecord) => opportunityKey(finding) === selectedCaseKey;
+    return displayedOpportunitiesData.findings.find(match) ?? analyticsData.findings.find(match) ?? null;
+  }, [selectedCaseKey, displayedOpportunitiesData.findings, analyticsData.findings]);
   const drillIntoOpportunities = (drillDown: AnalyticsDrillDown) => {
     setPipelineFilters({
       ...defaultPipelineFilters,
@@ -116,13 +162,13 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
     setActiveView('opportunities');
   };
   const pulse = useMemo(() => {
-    const actionable = initialData.findings.filter(isActionableOpportunity);
+    const actionable = analyticsData.findings.filter(isActionableOpportunity);
     const dueNow = actionable.reduce((sum, finding) => sum + dueNowRebate(finding), 0);
     const supplier = actionable.filter(finding => issueForFinding(finding) === 'supplier_side_issue').length;
     const buyer = actionable.filter(finding => issueForFinding(finding) === 'buyer_side_issue').length;
     const both = actionable.filter(finding => issueForFinding(finding) === 'both_sides_missing').length;
     return { actionable: actionable.length, dueNow, supplier, buyer, both };
-  }, [initialData.findings]);
+  }, [analyticsData.findings]);
 
   return (
     <div className="min-h-screen bg-[#F4F7FB] text-[#101828]">
@@ -193,10 +239,10 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
           {!sidebarCollapsed && (
             <div className="rounded-xl border border-[#E1E7F0] bg-white p-3">
               <div className="flex items-center gap-2 text-xs text-[#667085]">
-                <span className={`h-2 w-2 rounded-full ${initialData.error ? 'bg-red-500' : 'bg-emerald-500'}`} />
-                {initialData.run ? `Run ${initialData.run.id.slice(0, 8)}` : 'Data unavailable'}
+                <span className={`h-2 w-2 rounded-full ${analyticsData.error ? 'bg-red-500' : 'bg-emerald-500'}`} />
+                {analyticsData.run ? `Run ${analyticsData.run.id.slice(0, 8)}` : 'Data unavailable'}
               </div>
-              {initialData.run && <p className="mt-2 text-xs text-[#98A2B3]">Completed {stableDateTimeLabel(initialData.run.completed_at ?? initialData.run.created_at)}</p>}
+              {analyticsData.run && <p className="mt-2 text-xs text-[#98A2B3]">Completed {stableDateTimeLabel(analyticsData.run.completed_at ?? analyticsData.run.created_at)}</p>}
             </div>
           )}
           <button
@@ -259,9 +305,9 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
 
         {activeView === 'analytics' && (
           <>
-            <KpiRow findings={initialData.findings} loading={isRefreshing} error={initialData.error} />
+            <KpiRow findings={analyticsData.findings} loading={isRefreshing} error={analyticsData.error} />
             <MonthlyExposureCard initialMonth={initialMonth} />
-            <ReportsTab findings={initialData.findings} loading={isRefreshing} error={initialData.error} reportRunId={reportRunId} onDrillDown={drillIntoOpportunities} />
+            <ReportsTab findings={analyticsData.findings} loading={isRefreshing} error={analyticsData.error} reportRunId={reportRunId} onDrillDown={drillIntoOpportunities} />
           </>
         )}
 
@@ -272,7 +318,7 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
               findings={displayedOpportunitiesData.findings}
               loading={isRefreshing || opportunitiesLoading}
               error={displayedOpportunitiesData.error}
-              onOpenCase={setSelectedCase}
+              onOpenCase={finding => setSelectedCaseKey(opportunityKey(finding))}
               filters={pipelineFilters}
               onFiltersChange={updatePipelineFilters}
               monthOptions={availableMonths}
@@ -282,7 +328,7 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
 
         {activeView === 'settings' && <SettingsTab />}
       </main>
-      {selectedCase && <CaseDrawer finding={selectedCase} onClose={() => setSelectedCase(null)} />}
+      {selectedCase && <CaseDrawer finding={selectedCase} onClose={() => setSelectedCaseKey(null)} onSaveReview={saveReview} />}
     </div>
   );
 }

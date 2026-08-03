@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "NODE_EXTRA_CA_CERTS=certs/isrg-root-yr-cross-signed.pem next start",
     "lint": "eslint",
+    "snapshot:demo": "node --env-file=.env.local scripts/snapshot-demo-data.mjs",
     "setup-dataset": "npx tsx --env-file=.env.local scripts/setup-langfuse-dataset.ts",
     "migrate:remove-legacy": "npx tsx --env-file=.env.local scripts/migrations/001-drop-retired-tables.ts",
     "migrate:reconciliation-audit": "npx tsx --env-file=.env.local scripts/migrations/002-add-reconciliation-audit.ts",

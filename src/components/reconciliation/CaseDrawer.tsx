@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useState, useTransition } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useRouter } from 'next/navigation';
-import { updateOpportunityReviewAction } from '@/app/actions/operations';
+import type { DemoReviewSave, DemoReviewSaveResult } from '@/lib/demo/demoReviews';
 import {
   AwardMatchConfidenceBadge,
   EvidenceChip,
@@ -247,13 +246,16 @@ function SupplierEvidencePanel({ evidence }: { evidence: SupplierEvidence | null
   </EvidencePanel>;
 }
 
-export default function CaseDrawer({ finding, onClose }: { finding: ReconciliationFindingRecord; onClose: () => void }) {
-  const router = useRouter();
+export default function CaseDrawer({ finding, onClose, onSaveReview }: {
+  finding: ReconciliationFindingRecord;
+  onClose: () => void;
+  onSaveReview: (input: DemoReviewSave) => DemoReviewSaveResult;
+}) {
   const [status, setStatus] = useState<OpportunityReviewStatus>(finding.opportunity_review?.status ?? 'new');
   const [note, setNote] = useState('');
   const [dueNow, setDueNow] = useState(String(dueNowRebate(finding)));
   const [saveError, setSaveError] = useState<string | null>(null);
-  const [isSaving, startSaving] = useTransition();
+  const [isSaving, setIsSaving] = useState(false);
   const parsedDueNow = useMemo(() => {
     const value = Number(dueNow);
     return Number.isFinite(value) && value >= 0 ? value : null;
@@ -276,24 +278,25 @@ export default function CaseDrawer({ finding, onClose }: { finding: Reconciliati
   const notes = finding.opportunity_review?.notes ?? [];
   if (typeof document === 'undefined') return null;
 
+  // Static demo build: the review is recorded in session state rather than the database.
   const save = (nextStatus = status) => {
     setSaveError(null);
-    startSaving(async () => {
-      const result = await updateOpportunityReviewAction({
-        opportunityKey: key,
-        status: nextStatus,
-        note,
-        dueNowRebate: parsedDueNow,
-        updatedBy: 'dashboard',
-      });
-      if (!result.ok) {
-        setSaveError(result.errors.join(' '));
-        return;
-      }
-      setStatus(nextStatus);
-      setNote('');
-      router.refresh();
+    setIsSaving(true);
+    const result = onSaveReview({
+      opportunityKey: key,
+      status: nextStatus,
+      note,
+      dueNowRebate: parsedDueNow,
+      updatedBy: 'dashboard',
     });
+    if (!result.ok) {
+      setSaveError(result.errors.join(' '));
+      setIsSaving(false);
+      return;
+    }
+    setStatus(nextStatus);
+    setNote('');
+    window.setTimeout(() => setIsSaving(false), 320);
   };
 
   return createPortal(

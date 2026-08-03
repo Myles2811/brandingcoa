@@ -1,21 +1,19 @@
-import { NextRequest, NextResponse } from 'next/server';
+/**
+ * Report generation, ported from the former GET /api/reconciliation/report route so it
+ * runs in the browser. The static demo build has no server, so the Report builder's
+ * PDF and Excel packs are produced client-side from the snapshot findings.
+ *
+ * The layout, brand palette, sheet structure and rollups are unchanged; only the byte
+ * plumbing differs — Node Buffers became Uint8Array/TextEncoder so it works in a browser.
+ */
 import * as XLSX from 'xlsx';
 import { dateLabel, frameworkDisplay, money, organisationName, primaryAward, supplierName } from '@/components/reconciliation/format';
 import { dueNowRebate, issueForFinding, lifetimeRebate, type OpportunityIssue, opportunityIssueMeta, reviewStatusLabels } from '@/components/reconciliation/opportunityModel';
 import { OpportunityReviewStatus, ReconciliationFindingRecord } from '@/components/reconciliation/types';
-import {
-  readLatestReconciliationFindingsForMonth,
-  readReconciliationFindings,
-  resolveDefaultDashboardMonth,
-  resolveReconciliationRun,
-} from '@/lib/reconciliation/findingsStore';
-
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
 
 type RollupKey = 'issue' | 'status' | 'buyer' | 'supplier' | 'framework';
 
-interface ReportFilters {
+export interface ReportFilters {
   buyer: string | null;
   supplier: string | null;
   framework: string | null;
@@ -35,7 +33,6 @@ interface ReportRollup {
 }
 
 const statusOrder: OpportunityReviewStatus[] = ['new', 'acknowledged', 'in_review', 'outreach_sent', 'resolved', 'not_relevant'];
-const issueValues = Object.keys(opportunityIssueMeta) as OpportunityIssue[];
 const brand = {
   darkBlue: [0, 0, 70] as const,
   blue: [15, 53, 184] as const,
@@ -48,25 +45,10 @@ const brand = {
   white: [255, 255, 255] as const,
 };
 
-function oneOf<T extends string>(value: string | null, allowed: readonly T[]): T | null {
-  return value && allowed.includes(value as T) ? value as T : null;
-}
+const encoder = new TextEncoder();
 
-function filterValue(request: NextRequest, key: string): string | null {
-  const value = request.nextUrl.searchParams.get(key)?.trim();
-  return value && value !== 'all' ? value : null;
-}
-
-function reportFilters(request: NextRequest): ReportFilters {
-  return {
-    buyer: filterValue(request, 'buyer'),
-    supplier: filterValue(request, 'supplier'),
-    framework: filterValue(request, 'framework'),
-    issue: oneOf(filterValue(request, 'issue'), issueValues),
-    status: oneOf(filterValue(request, 'status'), statusOrder),
-    dateFrom: filterValue(request, 'date_from'),
-    dateTo: filterValue(request, 'date_to'),
-  };
+function utf8Length(value: string): number {
+  return encoder.encode(value).length;
 }
 
 function dateValue(value: string | null | undefined, endOfDay = false): number | null {
@@ -77,7 +59,7 @@ function dateValue(value: string | null | undefined, endOfDay = false): number |
   return date.getTime();
 }
 
-function findingMatchesFilters(finding: ReconciliationFindingRecord, filters: ReportFilters): boolean {
+export function findingMatchesReportFilters(finding: ReconciliationFindingRecord, filters: ReportFilters): boolean {
   const framework = frameworkDisplay(finding);
   const frameworkKey = framework.reference ?? framework.name ?? 'Unresolved';
   const status = finding.opportunity_review?.status ?? 'new';
@@ -146,24 +128,6 @@ function buildRollup(findings: ReconciliationFindingRecord[], key: RollupKey): R
   });
 }
 
-async function loadReportData(request: NextRequest): Promise<{ runLabel: string; findings: ReconciliationFindingRecord[] }> {
-  const requestedRunId = request.nextUrl.searchParams.get('run_id') || process.env.RECONCILIATION_DASHBOARD_RUN_ID;
-  const run = await resolveReconciliationRun(requestedRunId || undefined);
-  if (!run) return { runLabel: 'No run', findings: [] };
-  const defaultMonth = await resolveDefaultDashboardMonth();
-  const monthDate = new Date(Date.UTC(defaultMonth.year, defaultMonth.month - 1, 1));
-  const result = requestedRunId
-    ? await readReconciliationFindings(run.id, { limit: 1000, offset: 0 })
-    : await readLatestReconciliationFindingsForMonth(
-      defaultMonth.year,
-      defaultMonth.month,
-    );
-  return {
-    runLabel: `${run.id.slice(0, 8)} / ${monthDate.toLocaleString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' })}`,
-    findings: JSON.parse(JSON.stringify(result.findings)) as ReconciliationFindingRecord[],
-  };
-}
-
 function opportunityRows(findings: ReconciliationFindingRecord[]) {
   return findings.map(finding => {
     const award = finding.external_awards[0] ?? null;
@@ -190,17 +154,13 @@ function opportunityRows(findings: ReconciliationFindingRecord[]) {
   });
 }
 
-function setSheetWidths(sheet: XLSX.WorkSheet, widths: number[]) {
-  sheet['!cols'] = widths.map(width => ({ wch: width }));
-}
-
 function sheetFromJson<T extends object>(rows: T[], widths: number[]): XLSX.WorkSheet {
   const sheet = XLSX.utils.json_to_sheet(rows);
-  setSheetWidths(sheet, widths);
+  sheet['!cols'] = widths.map(width => ({ wch: width }));
   return sheet;
 }
 
-function workbookBuffer(findings: ReconciliationFindingRecord[], runLabel: string, filters: ReportFilters): Buffer {
+export function reportWorkbook(findings: ReconciliationFindingRecord[], runLabel: string, filters: ReportFilters): Uint8Array {
   const dueNow = findings.reduce((sum, finding) => sum + dueNowRebate(finding), 0);
   const lifetime = findings.reduce((sum, finding) => sum + lifetimeRebate(finding), 0);
   const awardValue = findings.reduce((sum, finding) => sum + (finding.award_contract_value ?? 0), 0);
@@ -230,7 +190,7 @@ function workbookBuffer(findings: ReconciliationFindingRecord[], runLabel: strin
   XLSX.utils.book_append_sheet(workbook, sheetFromJson(buildRollup(findings, 'buyer'), [42, 42, 14, 16, 18, 18]), 'Customers');
   XLSX.utils.book_append_sheet(workbook, sheetFromJson(buildRollup(findings, 'supplier'), [42, 42, 14, 16, 18, 18]), 'Suppliers');
   XLSX.utils.book_append_sheet(workbook, sheetFromJson(buildRollup(findings, 'framework'), [22, 48, 14, 16, 18, 18]), 'Frameworks');
-  return XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' }) as Buffer;
+  return new Uint8Array(XLSX.write(workbook, { type: 'array', bookType: 'xlsx' }) as ArrayBuffer);
 }
 
 function pdfEscape(value: string): string {
@@ -423,13 +383,13 @@ class BrandedPdf {
     }
   }
 
-  finish(): Buffer {
+  finish(): Uint8Array {
     if (this.commands) this.commitPage();
     return pdfObjects(this.pages, this.pageWidth, this.pageHeight);
   }
 }
 
-function pdfObjects(pages: string[], pageWidth: number, pageHeight: number): Buffer {
+function pdfObjects(pages: string[], pageWidth: number, pageHeight: number): Uint8Array {
   if (!pages.length) pages.push('');
 
   const objects: string[] = [];
@@ -444,26 +404,26 @@ function pdfObjects(pages: string[], pageWidth: number, pageHeight: number): Buf
     const contentObject = nextObject++;
     pageRefs.push(pageObject);
     objects[pageObject - 1] = `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageWidth} ${pageHeight}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${contentObject} 0 R >>`;
-    objects[contentObject - 1] = `<< /Length ${Buffer.byteLength(content)} >>\nstream\n${content}endstream`;
+    objects[contentObject - 1] = `<< /Length ${utf8Length(content)} >>\nstream\n${content}endstream`;
   }
   objects[1] = `<< /Type /Pages /Kids [${pageRefs.map(ref => `${ref} 0 R`).join(' ')}] /Count ${pageRefs.length} >>`;
 
   let pdf = '%PDF-1.4\n';
   const offsets = [0];
   objects.forEach((object, index) => {
-    offsets[index + 1] = Buffer.byteLength(pdf);
+    offsets[index + 1] = utf8Length(pdf);
     pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
   });
-  const xref = Buffer.byteLength(pdf);
+  const xref = utf8Length(pdf);
   pdf += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`;
   for (let index = 1; index <= objects.length; index += 1) {
     pdf += `${String(offsets[index]).padStart(10, '0')} 00000 n \n`;
   }
   pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
-  return Buffer.from(pdf);
+  return encoder.encode(pdf);
 }
 
-function reportPdf(runLabel: string, findings: ReconciliationFindingRecord[], filters: ReportFilters): Buffer {
+export function reportPdf(runLabel: string, findings: ReconciliationFindingRecord[], filters: ReportFilters): Uint8Array {
   const dueNow = findings.reduce((sum, finding) => sum + dueNowRebate(finding), 0);
   const lifetime = findings.reduce((sum, finding) => sum + lifetimeRebate(finding), 0);
   const awardValue = findings.reduce((sum, finding) => sum + (finding.award_contract_value ?? 0), 0);
@@ -483,29 +443,26 @@ function reportPdf(runLabel: string, findings: ReconciliationFindingRecord[], fi
   return pdf.finish();
 }
 
-function responseBody(buffer: Buffer): Uint8Array<ArrayBuffer> {
-  const bytes = new Uint8Array(buffer.byteLength);
-  bytes.set(buffer);
-  return bytes;
-}
-
-export async function GET(request: NextRequest) {
-  const format = request.nextUrl.searchParams.get('format') ?? 'xlsx';
-  const filters = reportFilters(request);
-  const { runLabel, findings } = await loadReportData(request);
-  const scopedFindings = findings.filter(finding => findingMatchesFilters(finding, filters));
-  if (format === 'pdf') {
-    return new NextResponse(responseBody(reportPdf(runLabel, scopedFindings, filters)), {
-      headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="rebate-intelligence-report.pdf"',
-      },
-    });
-  }
-  return new NextResponse(responseBody(workbookBuffer(scopedFindings, runLabel, filters)), {
-    headers: {
-      'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      'Content-Disposition': 'attachment; filename="rebate-intelligence-report.xlsx"',
-    },
-  });
+/** Builds the requested pack and triggers a browser download. */
+export function downloadReport(
+  format: 'pdf' | 'xlsx',
+  findings: ReconciliationFindingRecord[],
+  runLabel: string,
+  filters: ReportFilters,
+): void {
+  const bytes = format === 'pdf'
+    ? reportPdf(runLabel, findings, filters)
+    : reportWorkbook(findings, runLabel, filters);
+  const type = format === 'pdf'
+    ? 'application/pdf'
+    : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  const blob = new Blob([bytes as BlobPart], { type });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `rebate-intelligence-report.${format}`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
 }

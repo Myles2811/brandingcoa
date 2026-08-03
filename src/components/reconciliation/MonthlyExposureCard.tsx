@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useState, useTransition } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { demoDataForMonth } from '@/lib/demo/demoData';
 import DataState from './DataState';
 import { money } from './format';
 import { dueNowRebate, issueForFinding, lifetimeRebate, opportunityIssueMeta, type OpportunityIssue } from './opportunityModel';
@@ -83,27 +84,27 @@ export default function MonthlyExposureCard({ initialMonth }: {
   initialMonth: { year: number; month: number };
 }) {
   const [selectedMonth, setSelectedMonth] = useState(initialMonth);
-  const [data, setData] = useState<DashboardData | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, startLoading] = useTransition();
+  const [isLoading, setIsLoading] = useState(false);
   const options = useMemo(() => monthOptions(initialMonth), [initialMonth]);
   const selectedValue = `${selectedMonth.year}-${String(selectedMonth.month).padStart(2, '0')}`;
+  // Static demo build: months resolve synchronously from the captured snapshot
+  // instead of an API call, so the month view is derived rather than fetched.
+  const data = useMemo<DashboardData>(
+    () => demoDataForMonth(selectedMonth.year, selectedMonth.month),
+    [selectedMonth],
+  );
+  const error = null;
 
+  // Keeps the brief loading affordance the fetching version had when switching months.
+  const selectMonth = (year: number, month: number) => {
+    setSelectedMonth({ year, month });
+    setIsLoading(true);
+  };
   useEffect(() => {
-    startLoading(async () => {
-      setError(null);
-      try {
-        const params = new URLSearchParams({ year: String(selectedMonth.year), month: String(selectedMonth.month) });
-        const response = await fetch(`/api/reconciliation/dashboard?${params.toString()}`, { cache: 'no-store' });
-        const result = await response.json();
-        if (!response.ok) throw new Error(result.error ?? `HTTP ${response.status}`);
-        setData(result as DashboardData);
-      } catch (loadError) {
-        setData(null);
-        setError(loadError instanceof Error ? loadError.message : String(loadError));
-      }
-    });
-  }, [selectedMonth]);
+    if (!isLoading) return;
+    const timer = window.setTimeout(() => setIsLoading(false), 220);
+    return () => window.clearTimeout(timer);
+  }, [isLoading]);
 
   const findings = data?.findings ?? [];
   const rows = rollup(findings);
@@ -132,7 +133,7 @@ export default function MonthlyExposureCard({ initialMonth }: {
             disabled={isLoading}
             onChange={event => {
               const [year, month] = event.target.value.split('-').map(Number);
-              setSelectedMonth({ year, month });
+              selectMonth(year, month);
             }}
             className="bg-white font-semibold text-[#101828] outline-none disabled:opacity-50"
           >

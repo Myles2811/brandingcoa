@@ -1,7 +1,5 @@
 export async function register() {
-  // Only run in the Node.js server process, not edge runtime
-  if (process.env.NEXT_RUNTIME === 'nodejs') {
-    const { startScheduler } = await import('./lib/cron');
-    startScheduler();
-  }
+  // liveDemoTue: the hourly scheduler is disabled for the static demo build. It reaches
+  // Postgres and the Anthropic API, so leaving it running would throw
+  // "DATABASE_URL is not configured" on the hour in a demo with no credentials.
 }
