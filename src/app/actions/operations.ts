@@ -1,13 +1,8 @@
 'use server';
 
-import { headers } from 'next/headers';
 import { revalidatePath } from 'next/cache';
-import {
-  isOpportunityReviewStatus,
-  upsertOpportunityReview,
-  type OpportunityReviewStatus,
-} from '@/lib/reconciliation/opportunityReviewStore';
-import { SearchResponse } from '@/lib/types';
+import { laravelJson, LaravelApiError } from '@/lib/laravelApi';
+import type { OpportunityReviewStatus } from '@/components/reconciliation/types';
 
 export interface ScanActionResult {
   ok: boolean;
@@ -36,25 +31,28 @@ export interface OpportunityReviewActionResult {
   errors: string[];
 }
 
-async function localOrigin(): Promise<string> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get('x-forwarded-host') ?? requestHeaders.get('host');
-  if (!host) throw new Error('Unable to determine the application host.');
-  const protocol = requestHeaders.get('x-forwarded-proto') ?? (host.startsWith('localhost') ? 'http' : 'https');
-  return `${protocol}://${host}`;
+interface SearchActionResponse {
+  results?: { candidate_id: string }[];
+  raw_count?: number;
+  qualified_count?: number;
+  persisted_count?: number;
+  excluded_count?: number;
+  complete?: boolean;
+  issues?: unknown[];
+  error?: string;
 }
 
-async function postInternal(path: string, body: unknown): Promise<{ response: Response; data: Record<string, unknown> }> {
-  const apiKey = process.env.RECONCILIATION_API_KEY?.trim();
-  if (!apiKey) throw new Error('RECONCILIATION_API_KEY is not configured.');
-  const response = await fetch(`${await localOrigin()}${path}`, {
-    method: 'POST',
-    headers: { authorization: `Bearer ${apiKey}`, 'content-type': 'application/json' },
-    body: JSON.stringify(body),
-    cache: 'no-store',
-  });
-  const data = await response.json().catch(() => ({ error: `Request failed with HTTP ${response.status}` })) as Record<string, unknown>;
-  return { response, data };
+const opportunityReviewStatuses = new Set<OpportunityReviewStatus>([
+  'new',
+  'acknowledged',
+  'in_review',
+  'outreach_sent',
+  'resolved',
+  'not_relevant',
+]);
+
+function isOpportunityReviewStatus(value: unknown): value is OpportunityReviewStatus {
+  return typeof value === 'string' && opportunityReviewStatuses.has(value as OpportunityReviewStatus);
 }
 
 function issueMessages(value: unknown): string[] {
@@ -75,16 +73,23 @@ export async function runExternalScanAction(input: { year: number; month: number
       excludedCount: 0, newAwardIds: [], errors: ['Select a valid month and year.'] };
   }
   try {
-    const { response, data } = await postInternal('/api/search', {
-      year, month, useContractsFinderCrossCheck: true, allowFallbackScrape: true,
-      strictMode: false, exclusionListText: '',
+    const data = await laravelJson<SearchActionResponse>('/search', {
+      method: 'POST',
+      body: JSON.stringify({
+        year,
+        month,
+        useContractsFinderCrossCheck: true,
+        allowFallbackScrape: true,
+        strictMode: false,
+        exclusionListText: '',
+      }),
     });
-    const result = data as unknown as Partial<SearchResponse> & { error?: string };
+    const result = data;
     const errors = [...issueMessages(result.issues), ...(result.error ? [result.error] : [])];
     const persisted = Array.isArray(result.results) ? result.results : [];
     return {
-      ok: response.ok || response.status === 206,
-      complete: result.complete === true,
+      ok: true,
+      complete: result.complete === true || result.complete === undefined,
       year, month,
       rawCount: Number(result.raw_count ?? 0),
       awardsFound: Number(result.qualified_count ?? persisted.length),
@@ -103,12 +108,15 @@ export async function runReconciliationAction(externalAwardIds: string[]): Promi
   const ids = [...new Set(externalAwardIds.filter(value => typeof value === 'string' && value.length > 0))];
   if (ids.length === 0) return { ok: false, complete: false, runId: null, findings: 0, summary: {}, errors: ['No newly persisted awards are available to reconcile.'] };
   try {
-    const { response, data } = await postInternal('/api/reconciliation/run', { external_award_ids: ids });
+    const data = await laravelJson<Record<string, unknown>>('/reconciliation/run', {
+      method: 'POST',
+      body: JSON.stringify({ external_award_ids: ids }),
+    });
     const summary = data.summary && typeof data.summary === 'object' ? data.summary as Record<string, number> : {};
     return {
-      ok: response.ok || response.status === 206,
-      complete: data.complete === true,
-      runId: typeof data.runId === 'string' ? data.runId : null,
+      ok: true,
+      complete: data.complete === true || data.status === 'completed',
+      runId: typeof data.runId === 'string' ? data.runId : typeof data.run_id === 'string' ? data.run_id : null,
       findings: Object.values(summary).reduce((total, count) => total + Number(count), 0),
       summary,
       errors: issueMessages(data.issues).concat(typeof data.error === 'string' ? [data.error] : []),
@@ -133,16 +141,20 @@ export async function updateOpportunityReviewAction(input: {
     return { ok: false, errors: ['Due-now rebate must be zero or more.'] };
   }
   try {
-    await upsertOpportunityReview({
-      opportunityKey,
-      status: input.status,
-      note: input.note,
-      dueNowRebate,
-      updatedBy: input.updatedBy,
+    await laravelJson('/reconciliation/opportunity-review', {
+      method: 'POST',
+      body: JSON.stringify({
+        opportunity_key: opportunityKey,
+        status: input.status,
+        note: input.note,
+        due_now_rebate: dueNowRebate,
+        updated_by: input.updatedBy,
+      }),
     });
     revalidatePath('/');
     return { ok: true, errors: [] };
   } catch (error) {
-    return { ok: false, errors: [error instanceof Error ? error.message : String(error)] };
+    const message = error instanceof LaravelApiError || error instanceof Error ? error.message : String(error);
+    return { ok: false, errors: [message] };
   }
 }

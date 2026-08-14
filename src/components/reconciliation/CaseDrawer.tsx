@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, useTransition } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
-import { updateOpportunityReviewAction } from '@/app/actions/operations';
+import { authenticatedFetch } from '@/lib/auth/authenticated-fetch';
 import {
   AwardMatchConfidenceBadge,
   EvidenceChip,
@@ -279,17 +279,26 @@ export default function CaseDrawer({ finding, onClose }: { finding: Reconciliati
   const save = (nextStatus = status) => {
     setSaveError(null);
     startSaving(async () => {
-      const result = await updateOpportunityReviewAction({
-        opportunityKey: key,
-        status: nextStatus,
-        note,
-        dueNowRebate: parsedDueNow,
-        updatedBy: 'dashboard',
+      const response = await authenticatedFetch('/api/reconciliation/opportunity-review', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          opportunity_key: key,
+          status: nextStatus,
+          note,
+          due_now_rebate: parsedDueNow,
+          updated_by: 'dashboard',
+        }),
       });
-      if (!result.ok) {
-        setSaveError(result.errors.join(' '));
+      const result = await response.json().catch(() => null) as { error?: string; errors?: string[]; message?: string } | null;
+
+      if (!response.ok) {
+        setSaveError(result?.errors?.join(' ') || result?.error || result?.message || `HTTP ${response.status}`);
         return;
       }
+
       setStatus(nextStatus);
       setNote('');
       router.refresh();

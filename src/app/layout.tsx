@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { AuthGate } from "@/components/auth/auth-gate";
+import { ClientAuthProvider } from "@/components/auth/client-auth-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <ClientAuthProvider>
+          <AuthGate>{children}</AuthGate>
+        </ClientAuthProvider>
+      </body>
     </html>
   );
 }

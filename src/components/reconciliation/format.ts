@@ -1,5 +1,4 @@
 import { ReconciliationFindingRecord } from './types';
-import { frameworkStatusAt, getFramework } from '@/lib/frameworkCatalogue';
 
 export function money(value: number | null | undefined, currency = 'GBP'): string {
   if (value === null || value === undefined || !Number.isFinite(value)) return '—';
@@ -56,10 +55,9 @@ export function frameworkDisplay(finding: ReconciliationFindingRecord): { refere
   const award = primaryAward(finding);
   const hints = award?.framework_hints ?? [];
   const reference = finding.framework_reference ?? hints[0] ?? null;
-  const catalogueName = reference ? getFramework(reference)?.name ?? null : null;
   return {
     reference,
-    name: frameworkRateName(finding) ?? catalogueName ?? frameworkNameFromEvidence(reference, award?.evidence_excerpt),
+    name: frameworkRateName(finding) ?? frameworkNameFromEvidence(reference, award?.evidence_excerpt),
     hints,
   };
 }
@@ -75,44 +73,30 @@ export function frameworkRegisterStatusForAward(input: {
     ...(input.framework_hints ?? []),
   ].filter((value): value is string => typeof value === 'string' && value.trim().length > 0);
   const unique = [...new Set(candidates.map(value => value.trim().toUpperCase()))];
-  const evidenceDate = input.award_date || input.publication_date || new Date().toISOString();
-  for (const reference of unique) {
-    const framework = getFramework(reference);
-    if (!framework) continue;
-    const status = frameworkStatusAt(framework, evidenceDate);
-    if (status === 'active' || status === 'expiring') {
-      return {
-        confirmed: true,
-        reference: framework.id,
-        name: framework.name,
-        label: 'Framework confirmed',
-        reason: `${framework.id} is present in the framework register and was ${status.replace('_', ' ')} at the award/publication date.`,
-        tone: 'confirmed',
-      };
-    }
-    return {
-      confirmed: false,
-      reference: framework.id,
-      name: framework.name,
-      label: 'Framework timing review',
-      reason: `${framework.id} is in the framework register, but its status at the award/publication date is ${status.replace('_', ' ')}.`,
-      tone: 'review',
-    };
-  }
   return {
-    confirmed: false,
+    confirmed: unique.length > 0,
     reference: unique[0] ?? null,
     name: null,
-    label: unique.length ? 'Framework not confirmed' : 'Framework unresolved',
+    label: unique.length ? 'Framework resolved' : 'Framework unresolved',
     reason: unique.length
-      ? `${unique.join(', ')} was not found in the current framework register, so this award should not count as a confirmed matched opportunity yet.`
+      ? `${unique.join(', ')} was resolved by the Laravel API response. Lifecycle/register validation is owned by csg-api.`
       : 'No framework reference was resolved from the source award evidence, so this award needs manual review before it counts as a confirmed matched opportunity.',
-    tone: 'unconfirmed',
+    tone: unique.length ? 'confirmed' : 'unconfirmed',
   };
 }
 
 export function frameworkRegisterStatus(finding: ReconciliationFindingRecord): FrameworkRegisterStatus {
   const award = primaryAward(finding);
+  if (finding.identity_confirmed === false) {
+    return {
+      confirmed: false,
+      reference: finding.framework_reference ?? award?.framework_hints[0] ?? null,
+      name: frameworkDisplay(finding).name,
+      label: 'Framework not confirmed',
+      reason: 'Laravel returned this finding without confirmed award/framework identity.',
+      tone: 'unconfirmed',
+    };
+  }
   return frameworkRegisterStatusForAward({
     framework_reference: finding.framework_reference,
     framework_hints: award?.framework_hints ?? [],

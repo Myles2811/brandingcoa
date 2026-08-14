@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState, useTransition } from 'react';
+import { authenticatedFetch } from '@/lib/auth/authenticated-fetch';
 import DataState from './DataState';
 import { money } from './format';
 import { dueNowRebate, issueForFinding, lifetimeRebate, opportunityIssueMeta, type OpportunityIssue } from './opportunityModel';
@@ -94,7 +95,7 @@ export default function MonthlyExposureCard({ initialMonth }: {
       setError(null);
       try {
         const params = new URLSearchParams({ year: String(selectedMonth.year), month: String(selectedMonth.month) });
-        const response = await fetch(`/api/reconciliation/dashboard?${params.toString()}`, { cache: 'no-store' });
+        const response = await authenticatedFetch(`/api/reconciliation/dashboard?${params.toString()}`, { cache: 'no-store' });
         const result = await response.json();
         if (!response.ok) throw new Error(result.error ?? `HTTP ${response.status}`);
         setData(result as DashboardData);

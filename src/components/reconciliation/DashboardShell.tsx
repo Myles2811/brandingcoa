@@ -1,7 +1,8 @@
 'use client';
 
-import { useMemo, useState, useTransition } from 'react';
-import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useMemo, useState, useTransition } from 'react';
+import { useAuth } from '@/components/auth/client-auth-provider';
+import { authenticatedFetch } from '@/lib/auth/authenticated-fetch';
 import CaseDrawer from './CaseDrawer';
 import KpiRow from './KpiRow';
 import MonthlyExposureCard from './MonthlyExposureCard';
@@ -67,40 +68,67 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
 }) {
   const [activeView, setActiveView] = useState<View>('analytics');
   const [opportunitiesData, setOpportunitiesData] = useState<DashboardData>(initialData);
+  const [dashboardData, setDashboardData] = useState<DashboardData>(initialData);
   const [selectedCase, setSelectedCase] = useState<ReconciliationFindingRecord | null>(null);
   const [pipelineFilters, setPipelineFilters] = useState<PipelineFilters>(defaultPipelineFilters);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [opportunitiesLoading, setOpportunitiesLoading] = useState(false);
+  const [dashboardLoading, setDashboardLoading] = useState(false);
   const [isRefreshing, startRefresh] = useTransition();
-  const router = useRouter();
+  const { logout, user } = useAuth();
   const availableMonths = useMemo(() => dashboardMonthOptions(initialMonth), [initialMonth]);
 
-  const refresh = () => startRefresh(() => router.refresh());
-  const loadOpportunitiesMonth = (monthValue: string) => {
+  const loadDashboard = useCallback(async () => {
+    setDashboardLoading(true);
+    try {
+      const configuredRunId = reportRunId;
+      const params = new URLSearchParams();
+      if (configuredRunId) params.set('run_id', configuredRunId);
+      const response = await authenticatedFetch(`/api/reconciliation/dashboard${params.size ? `?${params.toString()}` : ''}`, { cache: 'no-store' });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error ?? `HTTP ${response.status}`);
+      setDashboardData(data as DashboardData);
+    } catch (error) {
+      const fallback = { run: null, findings: [], error: error instanceof Error ? error.message : String(error) };
+      setDashboardData(fallback);
+    } finally {
+      setDashboardLoading(false);
+    }
+  }, [reportRunId]);
+
+  useEffect(() => {
+    void loadDashboard();
+  }, [loadDashboard]);
+
+  const refresh = () => startRefresh(() => {
+    void loadDashboard();
+  });
+  const loadOpportunitiesMonth = async (monthValue: string) => {
     if (monthValue === 'all') {
       setOpportunitiesLoading(false);
+      setOpportunitiesData(dashboardData);
       return;
     }
     const [year, month] = monthValue.split('-').map(Number);
     if (!year || !month) return;
     setOpportunitiesLoading(true);
-    fetch(`/api/reconciliation/dashboard?year=${year}&month=${month}`, { cache: 'no-store' })
-      .then(async response => {
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error ?? `HTTP ${response.status}`);
-        setOpportunitiesData(data as DashboardData);
-      })
-      .catch(error => {
-        setOpportunitiesData({ run: null, findings: [], error: error instanceof Error ? error.message : String(error) });
-      })
-      .finally(() => setOpportunitiesLoading(false));
+    try {
+      const response = await authenticatedFetch(`/api/reconciliation/dashboard?year=${year}&month=${month}`, { cache: 'no-store' });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error ?? `HTTP ${response.status}`);
+      setOpportunitiesData(data as DashboardData);
+    } catch (error) {
+      setOpportunitiesData({ run: null, findings: [], error: error instanceof Error ? error.message : String(error) });
+    } finally {
+      setOpportunitiesLoading(false);
+    }
   };
   const updatePipelineFilters = (nextFilters: PipelineFilters) => {
     const monthChanged = nextFilters.month !== pipelineFilters.month;
     setPipelineFilters(nextFilters);
-    if (monthChanged) loadOpportunitiesMonth(nextFilters.month);
+    if (monthChanged) void loadOpportunitiesMonth(nextFilters.month);
   };
-  const displayedOpportunitiesData = pipelineFilters.month === 'all' ? initialData : opportunitiesData;
+  const displayedOpportunitiesData = pipelineFilters.month === 'all' ? dashboardData : opportunitiesData;
   const drillIntoOpportunities = (drillDown: AnalyticsDrillDown) => {
     setPipelineFilters({
       ...defaultPipelineFilters,
@@ -116,13 +144,13 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
     setActiveView('opportunities');
   };
   const pulse = useMemo(() => {
-    const actionable = initialData.findings.filter(isActionableOpportunity);
+    const actionable = dashboardData.findings.filter(isActionableOpportunity);
     const dueNow = actionable.reduce((sum, finding) => sum + dueNowRebate(finding), 0);
     const supplier = actionable.filter(finding => issueForFinding(finding) === 'supplier_side_issue').length;
     const buyer = actionable.filter(finding => issueForFinding(finding) === 'buyer_side_issue').length;
     const both = actionable.filter(finding => issueForFinding(finding) === 'both_sides_missing').length;
     return { actionable: actionable.length, dueNow, supplier, buyer, both };
-  }, [initialData.findings]);
+  }, [dashboardData.findings]);
 
   return (
     <div className="min-h-screen bg-[#F4F7FB] text-[#101828]">
@@ -194,9 +222,9 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
             <div className="rounded-xl border border-[#E1E7F0] bg-white p-3">
               <div className="flex items-center gap-2 text-xs text-[#667085]">
                 <span className={`h-2 w-2 rounded-full ${initialData.error ? 'bg-red-500' : 'bg-emerald-500'}`} />
-                {initialData.run ? `Run ${initialData.run.id.slice(0, 8)}` : 'Data unavailable'}
+                {dashboardData.run ? `Run ${dashboardData.run.id.slice(0, 8)}` : 'Data unavailable'}
               </div>
-              {initialData.run && <p className="mt-2 text-xs text-[#98A2B3]">Completed {stableDateTimeLabel(initialData.run.completed_at ?? initialData.run.created_at)}</p>}
+              {dashboardData.run && <p className="mt-2 text-xs text-[#98A2B3]">Completed {stableDateTimeLabel(dashboardData.run.completed_at ?? dashboardData.run.created_at)}</p>}
             </div>
           )}
           <button
@@ -230,9 +258,14 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
               <p className="text-xs text-[#667085]">Award-to-rebate control</p>
             </div>
           </div>
-          <button onClick={refresh} disabled={isRefreshing} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-1.5 text-xs font-semibold text-[#344054] disabled:opacity-50">
-            {isRefreshing ? 'Refreshing' : 'Refresh'}
-          </button>
+          <div className="flex items-center gap-2">
+            <button onClick={refresh} disabled={isRefreshing} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-1.5 text-xs font-semibold text-[#344054] disabled:opacity-50">
+              {isRefreshing ? 'Refreshing' : 'Refresh'}
+            </button>
+            <button onClick={() => void logout()} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-1.5 text-xs font-semibold text-[#344054]">
+              Logout
+            </button>
+          </div>
         </div>
         <div className="flex gap-2 pb-3">
           {views.map(view => <button key={view.id} onClick={() => setActiveView(view.id)} className={`rounded-md px-3 py-1.5 text-xs font-semibold ${activeView === view.id ? 'bg-[#0B1F4D] text-white' : 'bg-[#EEF2F7] text-[#475467]'}`}>{view.label}</button>)}
@@ -252,16 +285,27 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
                   : 'Manage user invitations, roles and platform access.'}
             </p>
           </div>
-          <button onClick={refresh} disabled={isRefreshing} className="hidden rounded-md border border-[#D0D5DD] bg-white px-3 py-2 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC] disabled:opacity-50 lg:inline-flex">
-            {isRefreshing ? 'Refreshing' : 'Refresh data'}
-          </button>
+          <div className="hidden items-center gap-3 lg:flex">
+            {user && (
+              <div className="rounded-xl border border-[#E1E7F0] bg-white px-3 py-2 text-right shadow-sm">
+                <p className="text-xs font-semibold text-[#101828]">{user.name}</p>
+                <p className="text-[11px] text-[#667085]">{user.role}</p>
+              </div>
+            )}
+            <button onClick={refresh} disabled={isRefreshing} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-2 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC] disabled:opacity-50">
+              {isRefreshing ? 'Refreshing' : 'Refresh data'}
+            </button>
+            <button onClick={() => void logout()} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-2 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC]">
+              Logout
+            </button>
+          </div>
         </div>
 
         {activeView === 'analytics' && (
           <>
-            <KpiRow findings={initialData.findings} loading={isRefreshing} error={initialData.error} />
+            <KpiRow findings={dashboardData.findings} loading={isRefreshing || dashboardLoading} error={dashboardData.error} />
             <MonthlyExposureCard initialMonth={initialMonth} />
-            <ReportsTab findings={initialData.findings} loading={isRefreshing} error={initialData.error} reportRunId={reportRunId} onDrillDown={drillIntoOpportunities} />
+            <ReportsTab findings={dashboardData.findings} loading={isRefreshing || dashboardLoading} error={dashboardData.error} reportRunId={reportRunId} onDrillDown={drillIntoOpportunities} />
           </>
         )}
 
