@@ -1,31 +1,30 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState, useTransition } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useMemo, useState } from 'react';
 import { useAuth } from '@/components/auth/client-auth-provider';
-import { authenticatedFetch } from '@/lib/auth/authenticated-fetch';
-import CaseDrawer from './CaseDrawer';
-import KpiRow from './KpiRow';
-import MonthlyExposureCard from './MonthlyExposureCard';
-import PipelineTab, { defaultPipelineFilters, PipelineFilters } from './PipelineTab';
-import ReportsTab, { AnalyticsDrillDown } from './ReportsTab';
-import SettingsTab from './SettingsTab';
-import { dueNowRebate, isActionableOpportunity, issueForFinding, type OpportunityIssue } from './opportunityModel';
-import { DashboardData, ReconciliationFindingRecord } from './types';
+import { dueNowRebate, isActionableOpportunity, issueForFinding } from './opportunityModel';
+import { useReconciliationData } from './ReconciliationDataProvider';
 
-type View = 'analytics' | 'opportunities' | 'settings';
+interface NavigationItem {
+  href: string;
+  label: string;
+  description: string;
+}
 
-const mainViews: { id: Exclude<View, 'settings'>; label: string; description: string }[] = [
-  { id: 'analytics', label: 'Analytics', description: 'Exposure, trends and prioritisation' },
-  { id: 'opportunities', label: 'Opportunities', description: 'Evidence queue and follow-up' },
+const mainNavigation: NavigationItem[] = [
+  { href: '/analytics', label: 'Analytics', description: 'Exposure, trends and prioritisation' },
+  { href: '/opportunities', label: 'Opportunities', description: 'Evidence queue and follow-up' },
 ];
 
-const views: { id: View; label: string }[] = [
-  { id: 'analytics', label: 'Analytics' },
-  { id: 'opportunities', label: 'Opportunities' },
-  { id: 'settings', label: 'Settings' },
-];
+const settingsNavigation: NavigationItem = {
+  href: '/settings',
+  label: 'Settings',
+  description: 'Users and access control',
+};
 
-const settingsView = { id: 'settings' as const, label: 'Settings', description: 'Users and access control' };
+const allNavigation = [...mainNavigation, settingsNavigation];
 
 function compactMoney(value: number): string {
   return new Intl.NumberFormat('en-GB', {
@@ -51,98 +50,16 @@ function stableDateTimeLabel(value: string | null | undefined): string {
   }).format(date);
 }
 
-function dashboardMonthOptions(anchor: { year: number; month: number }) {
-  return Array.from({ length: 18 }, (_, index) => {
-    const date = new Date(Date.UTC(anchor.year, anchor.month - 1 - index, 1));
-    return {
-      value: `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`,
-      label: new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date),
-    };
-  });
+function isActivePath(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export default function DashboardShell({ initialData, initialMonth, reportRunId }: {
-  initialData: DashboardData;
-  initialMonth: { year: number; month: number };
-  reportRunId?: string;
-}) {
-  const [activeView, setActiveView] = useState<View>('analytics');
-  const [opportunitiesData, setOpportunitiesData] = useState<DashboardData>(initialData);
-  const [dashboardData, setDashboardData] = useState<DashboardData>(initialData);
-  const [selectedCase, setSelectedCase] = useState<ReconciliationFindingRecord | null>(null);
-  const [pipelineFilters, setPipelineFilters] = useState<PipelineFilters>(defaultPipelineFilters);
+export default function DashboardShell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [opportunitiesLoading, setOpportunitiesLoading] = useState(false);
-  const [dashboardLoading, setDashboardLoading] = useState(false);
-  const [isRefreshing, startRefresh] = useTransition();
   const { logout, user } = useAuth();
-  const availableMonths = useMemo(() => dashboardMonthOptions(initialMonth), [initialMonth]);
-
-  const loadDashboard = useCallback(async () => {
-    setDashboardLoading(true);
-    try {
-      const configuredRunId = reportRunId;
-      const params = new URLSearchParams();
-      if (configuredRunId) params.set('run_id', configuredRunId);
-      const response = await authenticatedFetch(`/api/reconciliation/dashboard${params.size ? `?${params.toString()}` : ''}`, { cache: 'no-store' });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error ?? `HTTP ${response.status}`);
-      setDashboardData(data as DashboardData);
-    } catch (error) {
-      const fallback = { run: null, findings: [], error: error instanceof Error ? error.message : String(error) };
-      setDashboardData(fallback);
-    } finally {
-      setDashboardLoading(false);
-    }
-  }, [reportRunId]);
-
-  useEffect(() => {
-    void loadDashboard();
-  }, [loadDashboard]);
-
-  const refresh = () => startRefresh(() => {
-    void loadDashboard();
-  });
-  const loadOpportunitiesMonth = async (monthValue: string) => {
-    if (monthValue === 'all') {
-      setOpportunitiesLoading(false);
-      setOpportunitiesData(dashboardData);
-      return;
-    }
-    const [year, month] = monthValue.split('-').map(Number);
-    if (!year || !month) return;
-    setOpportunitiesLoading(true);
-    try {
-      const response = await authenticatedFetch(`/api/reconciliation/dashboard?year=${year}&month=${month}`, { cache: 'no-store' });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error ?? `HTTP ${response.status}`);
-      setOpportunitiesData(data as DashboardData);
-    } catch (error) {
-      setOpportunitiesData({ run: null, findings: [], error: error instanceof Error ? error.message : String(error) });
-    } finally {
-      setOpportunitiesLoading(false);
-    }
-  };
-  const updatePipelineFilters = (nextFilters: PipelineFilters) => {
-    const monthChanged = nextFilters.month !== pipelineFilters.month;
-    setPipelineFilters(nextFilters);
-    if (monthChanged) void loadOpportunitiesMonth(nextFilters.month);
-  };
-  const displayedOpportunitiesData = pipelineFilters.month === 'all' ? dashboardData : opportunitiesData;
-  const drillIntoOpportunities = (drillDown: AnalyticsDrillDown) => {
-    setPipelineFilters({
-      ...defaultPipelineFilters,
-      query: drillDown.query ?? defaultPipelineFilters.query,
-      buyer: drillDown.buyer ?? defaultPipelineFilters.buyer,
-      supplier: drillDown.supplier ?? defaultPipelineFilters.supplier,
-      framework: drillDown.framework ?? defaultPipelineFilters.framework,
-      issue: (drillDown.issue as OpportunityIssue | undefined) ?? defaultPipelineFilters.issue,
-      status: drillDown.status ?? defaultPipelineFilters.status,
-      dateFrom: drillDown.dateFrom ?? defaultPipelineFilters.dateFrom,
-      dateTo: drillDown.dateTo ?? defaultPipelineFilters.dateTo,
-    });
-    setActiveView('opportunities');
-  };
+  const { dashboardData, isRefreshing, refreshDashboard } = useReconciliationData();
+  const currentView = allNavigation.find(item => isActivePath(pathname, item.href)) ?? mainNavigation[0];
   const pulse = useMemo(() => {
     const actionable = dashboardData.findings.filter(isActionableOpportunity);
     const dueNow = actionable.reduce((sum, finding) => sum + dueNowRebate(finding), 0);
@@ -176,26 +93,8 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
         </button>
 
         <nav className="mt-8 space-y-2" aria-label="Primary">
-          {mainViews.map(view => (
-            <button
-              key={view.id}
-              onClick={() => setActiveView(view.id)}
-              title={sidebarCollapsed ? view.label : undefined}
-              className={`w-full rounded-xl border text-left transition ${
-                activeView === view.id
-                  ? 'border-[#B8C7FF] bg-[#EEF3FF] text-[#0B1F4D] shadow-[0_10px_26px_rgba(42,100,255,0.10)]'
-                  : 'border-transparent text-[#475467] hover:border-[#E1E7F0] hover:bg-[#F7F9FC]'
-              } ${sidebarCollapsed ? 'flex h-11 items-center justify-center px-0 py-0 text-center' : 'px-3 py-3'}`}
-            >
-              {sidebarCollapsed ? (
-                <span className="text-sm font-semibold">{view.label.slice(0, 1)}</span>
-              ) : (
-                <>
-                  <span className="block text-sm font-semibold">{view.label}</span>
-                  <span className="mt-0.5 block text-xs text-[#667085]">{view.description}</span>
-                </>
-              )}
-            </button>
+          {mainNavigation.map(item => (
+            <NavigationLink key={item.href} item={item} active={isActivePath(pathname, item.href)} collapsed={sidebarCollapsed} />
           ))}
         </nav>
 
@@ -221,36 +120,18 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
           {!sidebarCollapsed && (
             <div className="rounded-xl border border-[#E1E7F0] bg-white p-3">
               <div className="flex items-center gap-2 text-xs text-[#667085]">
-                <span className={`h-2 w-2 rounded-full ${initialData.error ? 'bg-red-500' : 'bg-emerald-500'}`} />
+                <span className={`h-2 w-2 rounded-full ${dashboardData.error ? 'bg-red-500' : 'bg-emerald-500'}`} />
                 {dashboardData.run ? `Run ${dashboardData.run.id.slice(0, 8)}` : 'Data unavailable'}
               </div>
               {dashboardData.run && <p className="mt-2 text-xs text-[#98A2B3]">Completed {stableDateTimeLabel(dashboardData.run.completed_at ?? dashboardData.run.created_at)}</p>}
             </div>
           )}
-          <button
-            type="button"
-            onClick={() => setActiveView('settings')}
-            title={sidebarCollapsed ? settingsView.label : undefined}
-            className={`w-full rounded-xl border text-left transition ${
-              activeView === 'settings'
-                ? 'border-[#B8C7FF] bg-[#EEF3FF] text-[#0B1F4D] shadow-[0_10px_26px_rgba(42,100,255,0.10)]'
-                : 'border-[#E1E7F0] bg-white text-[#475467] hover:border-[#B8C7FF] hover:bg-[#F7F9FC]'
-            } ${sidebarCollapsed ? 'flex h-11 items-center justify-center px-0 py-0 text-center' : 'px-3 py-3'}`}
-          >
-            {sidebarCollapsed ? (
-              <span className="text-sm font-semibold">S</span>
-            ) : (
-              <>
-                <span className="block text-sm font-semibold">{settingsView.label}</span>
-                <span className="mt-0.5 block text-xs text-[#667085]">{settingsView.description}</span>
-              </>
-            )}
-          </button>
+          <NavigationLink item={settingsNavigation} active={isActivePath(pathname, settingsNavigation.href)} collapsed={sidebarCollapsed} bordered />
         </div>
       </aside>
 
       <header className="sticky top-0 z-30 border-b border-[#D9E2EF] bg-white/88 px-4 backdrop-blur-xl lg:hidden">
-        <div className="flex h-14 items-center justify-between">
+        <div className="flex min-h-14 flex-wrap items-center justify-between gap-2 py-2">
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0B1F4D] text-xs font-bold text-white">R</div>
             <div>
@@ -259,7 +140,7 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button onClick={refresh} disabled={isRefreshing} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-1.5 text-xs font-semibold text-[#344054] disabled:opacity-50">
+            <button onClick={refreshDashboard} disabled={isRefreshing} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-1.5 text-xs font-semibold text-[#344054] disabled:opacity-50">
               {isRefreshing ? 'Refreshing' : 'Refresh'}
             </button>
             <button onClick={() => void logout()} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-1.5 text-xs font-semibold text-[#344054]">
@@ -267,23 +148,21 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
             </button>
           </div>
         </div>
-        <div className="flex gap-2 pb-3">
-          {views.map(view => <button key={view.id} onClick={() => setActiveView(view.id)} className={`rounded-md px-3 py-1.5 text-xs font-semibold ${activeView === view.id ? 'bg-[#0B1F4D] text-white' : 'bg-[#EEF2F7] text-[#475467]'}`}>{view.label}</button>)}
-        </div>
+        <nav className="flex gap-2 overflow-x-auto pb-3" aria-label="Mobile primary">
+          {allNavigation.map(item => (
+            <Link key={item.href} href={item.href} className={`whitespace-nowrap rounded-md px-3 py-1.5 text-xs font-semibold ${isActivePath(pathname, item.href) ? 'bg-[#0B1F4D] text-white' : 'bg-[#EEF2F7] text-[#475467]'}`}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </header>
 
       <main className={`w-full max-w-none space-y-4 px-4 py-4 transition-all duration-200 sm:px-6 lg:px-6 lg:py-5 2xl:px-10 ${sidebarCollapsed ? 'lg:ml-20 lg:w-[calc(100%-5rem)]' : 'lg:ml-72 lg:w-[calc(100%-18rem)]'}`}>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-xs font-semibold uppercase text-[#2A64FF]">Rebate recovery cockpit</p>
-            <h2 className="mt-1 text-lg font-semibold text-[#101828]">{views.find(view => view.id === activeView)?.label}</h2>
-            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-[#667085]">
-              {activeView === 'analytics'
-                ? 'Prioritise missing rebate exposure by issue, framework, supplier and buyer.'
-                : activeView === 'opportunities'
-                  ? 'Review surfaced awards, confirm evidence and record the follow-up outcome.'
-                  : 'Manage user invitations, roles and platform access.'}
-            </p>
+            <h2 className="mt-1 text-lg font-semibold text-[#101828]">{currentView.label}</h2>
+            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-[#667085]">{currentView.description}</p>
           </div>
           <div className="hidden items-center gap-3 lg:flex">
             {user && (
@@ -292,7 +171,7 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
                 <p className="text-[11px] text-[#667085]">{user.role}</p>
               </div>
             )}
-            <button onClick={refresh} disabled={isRefreshing} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-2 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC] disabled:opacity-50">
+            <button onClick={refreshDashboard} disabled={isRefreshing} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-2 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC] disabled:opacity-50">
               {isRefreshing ? 'Refreshing' : 'Refresh data'}
             </button>
             <button onClick={() => void logout()} className="rounded-md border border-[#D0D5DD] bg-white px-3 py-2 text-xs font-semibold text-[#344054] shadow-sm transition hover:bg-[#F8FAFC]">
@@ -300,33 +179,37 @@ export default function DashboardShell({ initialData, initialMonth, reportRunId 
             </button>
           </div>
         </div>
-
-        {activeView === 'analytics' && (
-          <>
-            <KpiRow findings={dashboardData.findings} loading={isRefreshing || dashboardLoading} error={dashboardData.error} />
-            <MonthlyExposureCard initialMonth={initialMonth} />
-            <ReportsTab findings={dashboardData.findings} loading={isRefreshing || dashboardLoading} error={dashboardData.error} reportRunId={reportRunId} onDrillDown={drillIntoOpportunities} />
-          </>
-        )}
-
-        {activeView === 'opportunities' && (
-          <>
-            <KpiRow findings={displayedOpportunitiesData.findings} loading={isRefreshing || opportunitiesLoading} error={displayedOpportunitiesData.error} />
-            <PipelineTab
-              findings={displayedOpportunitiesData.findings}
-              loading={isRefreshing || opportunitiesLoading}
-              error={displayedOpportunitiesData.error}
-              onOpenCase={setSelectedCase}
-              filters={pipelineFilters}
-              onFiltersChange={updatePipelineFilters}
-              monthOptions={availableMonths}
-            />
-          </>
-        )}
-
-        {activeView === 'settings' && <SettingsTab />}
+        {children}
       </main>
-      {selectedCase && <CaseDrawer finding={selectedCase} onClose={() => setSelectedCase(null)} />}
     </div>
+  );
+}
+
+function NavigationLink({ item, active, collapsed, bordered = false }: {
+  item: NavigationItem;
+  active: boolean;
+  collapsed: boolean;
+  bordered?: boolean;
+}) {
+  return (
+    <Link
+      href={item.href}
+      title={collapsed ? item.label : undefined}
+      aria-current={active ? 'page' : undefined}
+      className={`block w-full rounded-xl border text-left transition ${
+        active
+          ? 'border-[#B8C7FF] bg-[#EEF3FF] text-[#0B1F4D] shadow-[0_10px_26px_rgba(42,100,255,0.10)]'
+          : `${bordered ? 'border-[#E1E7F0] bg-white' : 'border-transparent'} text-[#475467] hover:border-[#B8C7FF] hover:bg-[#F7F9FC]`
+      } ${collapsed ? 'flex h-11 items-center justify-center p-0 text-center' : 'px-3 py-3'}`}
+    >
+      {collapsed ? (
+        <span className="text-sm font-semibold">{item.label.slice(0, 1)}</span>
+      ) : (
+        <>
+          <span className="block text-sm font-semibold">{item.label}</span>
+          <span className="mt-0.5 block text-xs text-[#667085]">{item.description}</span>
+        </>
+      )}
+    </Link>
   );
 }

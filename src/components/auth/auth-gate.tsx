@@ -5,16 +5,13 @@ import { usePathname, useRouter } from "next/navigation";
 
 import { useAuth } from "./client-auth-provider";
 
-const PUBLIC_PATHS = ["/login"];
-
 export function AuthGate({ children }: { children: React.ReactNode }) {
   const { error, isAuthenticated, isReady, status } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
-  const isPublicPath = PUBLIC_PATHS.some((path) => pathname === path || pathname.startsWith(`${path}/`));
 
   useEffect(() => {
-    if (isPublicPath || !isReady || isAuthenticated || status === "unauthorized") {
+    if (!isReady || isAuthenticated || status === "unauthorized" || status === "error") {
       return;
     }
 
@@ -24,14 +21,14 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
     startTransition(() => {
       router.replace(`/login?returnTo=${encodeURIComponent(returnTo)}`);
     });
-  }, [isAuthenticated, isPublicPath, isReady, pathname, router, status]);
-
-  if (isPublicPath) {
-    return <>{children}</>;
-  }
+  }, [isAuthenticated, isReady, pathname, router, status]);
 
   if (status === "unauthorized") {
     return <AuthMessage title="Access not available" message={error ?? "Your account is not authorized for this application."} />;
+  }
+
+  if (status === "error") {
+    return <AuthMessage title="Unable to verify access" message={error ?? "Your Microsoft session could not be verified."} />;
   }
 
   if (!isReady || !isAuthenticated) {

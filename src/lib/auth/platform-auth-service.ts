@@ -113,7 +113,7 @@ export class AuthReturnToStore {
     window.sessionStorage.removeItem(this.storageKey);
   }
 
-  resolve(queryReturnTo?: string | null, fallback = "/") {
+  resolve(queryReturnTo?: string | null, fallback = "/analytics") {
     return queryReturnTo || this.get() || fallback;
   }
 }
