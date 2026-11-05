@@ -2,7 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { NormalizedNotice, PSAwardResult, RejectedCandidate, RunIssue, RunUsage } from './types';
 import { PS_FRAMEWORK_IDS } from './noticeNormalizer';
 import { findSupplierFrameworkSupport, frameworkStatusAt, getFramework } from './frameworkCatalogue';
-import { createModelClient, isPermanentModelError, resolveModel } from './modelClient';
+import { createModelClient, isPermanentModelError, modelCostUsd, resolveModel, usingAzure } from './modelClient';
 
 export const PS_AWARDS_MODEL = resolveModel(process.env.PS_AWARDS_MODEL || 'claude-sonnet-5');
 const BATCH_SIZE = 30;
@@ -51,7 +51,7 @@ interface Decision {
   evidence_excerpt: string;
 }
 
-export type ClassifyUsage = RunUsage;
+export type ClassifyUsage = RunUsage & { estimated_cost_usd?: number };
 
 export interface ClassificationOutcome {
   results: PSAwardResult[];
@@ -62,7 +62,8 @@ export interface ClassificationOutcome {
 }
 
 function emptyUsage(): ClassifyUsage {
-  return { input: 0, output: 0, cache_creation_input: 0, cache_read_input: 0, total: 0 };
+  return { input: 0, output: 0, cache_creation_input: 0, cache_read_input: 0, total: 0,
+    ...(usingAzure() ? { estimated_cost_usd: 0 } : {}) };
 }
 
 function addUsage(total: ClassifyUsage, usage: Anthropic.Messages.Usage): void {
@@ -71,6 +72,15 @@ function addUsage(total: ClassifyUsage, usage: Anthropic.Messages.Usage): void {
   total.cache_creation_input += usage.cache_creation_input_tokens ?? 0;
   total.cache_read_input += usage.cache_read_input_tokens ?? 0;
   total.total = total.input + total.output + total.cache_creation_input + total.cache_read_input;
+  // Context surcharges apply to each paid request, including failed attempts,
+  // rather than to the accumulated token count of a monthly scan.
+  if (total.estimated_cost_usd !== undefined) {
+    total.estimated_cost_usd += modelCostUsd(PS_AWARDS_MODEL, {
+      input_tokens: usage.input_tokens, output_tokens: usage.output_tokens,
+      cache_creation_input_tokens: usage.cache_creation_input_tokens ?? 0,
+      cache_read_input_tokens: usage.cache_read_input_tokens ?? 0,
+    });
+  }
 }
 
 function isInMonth(dateStr: string, year: number, month: number): boolean {

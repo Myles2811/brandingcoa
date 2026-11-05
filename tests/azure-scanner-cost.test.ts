@@ -128,3 +128,40 @@ test('scanner includes charged incomplete responses in token usage when a retry 
   assert.equal(outcome.usage.output, 40);
   assert.equal(outcome.usage.total, 340);
 });
+
+test('monthly scanner telemetry sums short requests without applying a whole-run context surcharge', async t => {
+  const originalFetch = globalThis.fetch;
+  const previous = Object.fromEntries(['AI_PROVIDER', 'AZURE_OPENAI_BASE_URL', 'AZURE_OPENAI_API_KEY']
+    .map(key => [key, process.env[key]]));
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    for (const [key, value] of Object.entries(previous)) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  });
+  process.env.AI_PROVIDER = 'azure_openai';
+  process.env.AZURE_OPENAI_BASE_URL = 'https://azure-scanner.example.invalid/openai/v1/';
+  process.env.AZURE_OPENAI_API_KEY = 'synthetic-azure-key';
+  let requests = 0;
+  globalThis.fetch = async () => {
+    requests++;
+    return new Response(JSON.stringify({ id: `short-${requests}`, model: 'gpt-6.1-sol', status: 'completed',
+      usage: { input_tokens: 200_000, output_tokens: 10 },
+      output: [{ type: 'function_call', name: 'record_qualifying_awards', call_id: `call-${requests}`,
+        arguments: JSON.stringify({ matches: [] }) }],
+    }), { status: 200 });
+  };
+  const { classifyNotices } = await import('../src/lib/psAwardClassifier');
+  const notices: NormalizedNotice[] = Array.from({ length: 31 }, (_, index) => ({
+    source: 'find_tender', candidate_id: `unrelated:${index}`, notice_id: `unrelated:${index}`,
+    release_id: 'release', award_id: 'award', lot_ids: [], contract_ids: [], ocid: 'ocid',
+    buyer_name: 'Example Council', supplier_name: 'Example Supplier', contract_description: 'Services',
+    award_date: '2026-03-10', publication_date: '2026-03-20', award_value: 100, currency: 'GBP',
+    notice_url: 'https://example.invalid/notice', evidence_text: 'An unrelated services award.', framework_hints: [],
+  }));
+  const outcome = await classifyNotices(notices, 2026, 3, '', 'synthetic-azure-key');
+  assert.equal(requests, 2);
+  assert.equal(outcome.usage.input, 400_000);
+  assert.equal(outcome.usage.estimated_cost_usd, 0.8002);
+});

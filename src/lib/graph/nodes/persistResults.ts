@@ -41,7 +41,7 @@ export async function persistResults(
   // Langfuse evaluation ────────────────────────────────────────────────────────
   if (traceId) {
     const elapsedSeconds = (Date.now() - searchStartTime) / 1000;
-    const costUsd = calcCostUsd(usage.input, usage.output, {
+    const costUsd = usage.estimated_cost_usd ?? calcCostUsd(usage.input, usage.output, {
       model: PS_AWARDS_MODEL,
       cacheCreationInputTokens: usage.cache_creation_input,
       cacheReadInputTokens: usage.cache_read_input,
