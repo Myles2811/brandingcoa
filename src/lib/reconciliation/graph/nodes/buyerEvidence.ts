@@ -1,13 +1,13 @@
 import { BuyerEvidence } from '../../types';
 import { ReconciliationGraphState } from '../state';
 import {
-  callForcedTool, enumValue, nullableString, objectValue, RECONCILIATION_MODELS, reconciliationAnthropicApiKey,
+  callForcedTool, enumValue, nullableString, objectValue, RECONCILIATION_MODELS, reconciliationApiKey,
   requiredString, ToolSchema,
 } from '../modelCall';
 import { BUYER_EVIDENCE_SYSTEM_PROMPT } from './buyerEvidence.prompt';
 import { loadReconciliationSources } from '../../sourceStore';
 
-const TOOL: ToolSchema = {
+export const BUYER_EVIDENCE_TOOL: ToolSchema = {
   name: 'record_buyer_evidence', description: 'Record buyer-side COA/CAA evidence.',
   input_schema: {
     type: 'object', properties: {
@@ -40,8 +40,8 @@ export async function buyerEvidenceNode(state: ReconciliationGraphState): Promis
     !framework || record.frameworkReference === framework
   );
   const evidence = await callForcedTool({
-    apiKey: reconciliationAnthropicApiKey(), model: RECONCILIATION_MODELS.buyerEvidence,
-    system: BUYER_EVIDENCE_SYSTEM_PROMPT, tool: TOOL,
+    apiKey: reconciliationApiKey(), model: RECONCILIATION_MODELS.buyerEvidence,
+    system: BUYER_EVIDENCE_SYSTEM_PROMPT, tool: BUYER_EVIDENCE_TOOL,
     audit: { runId: state.runId, awardId: state.award.id, node: 'buyer_evidence' },
     input: { organisation: state.award.customerRaw, organisation_canonical: organisation, framework,
       supplier: state.award.supplierRaw, candidate_rows: candidates },

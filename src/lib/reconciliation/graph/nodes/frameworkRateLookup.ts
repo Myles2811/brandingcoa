@@ -3,7 +3,7 @@ import { calculateRebate } from '../../matching/rebateCalculator';
 import { ReconciliationGraphState } from '../state';
 import {
   callForcedTool, enumValue, nullableNumber, nullableString, objectValue,
-  RECONCILIATION_MODELS, reconciliationAnthropicApiKey, requiredString, ToolSchema,
+  RECONCILIATION_MODELS, reconciliationApiKey, requiredString, ToolSchema,
 } from '../modelCall';
 import { FRAMEWORK_RATE_LOOKUP_SYSTEM_PROMPT } from './frameworkRateLookup.prompt';
 import { loadReconciliationSources } from '../../sourceStore';
@@ -72,7 +72,7 @@ export async function frameworkRateLookupNode(state: ReconciliationGraphState): 
     const awardValue = Number(state.award.awardValue);
     const rate = Number(usable.rebateRate);
     const args = await callForcedTool({
-      apiKey: reconciliationAnthropicApiKey(), model: RECONCILIATION_MODELS.frameworkRateLookup,
+      apiKey: reconciliationApiKey(), model: RECONCILIATION_MODELS.frameworkRateLookup,
       system: FRAMEWORK_RATE_LOOKUP_SYSTEM_PROMPT, tool: CALCULATE_REBATE_TOOL,
       audit: { runId: state.runId, awardId: state.award.id, node: 'framework_rate_lookup.calculate_rebate' },
       input: { award_framework_references: state.award.frameworkReferences, award_title: state.award.title,
@@ -89,7 +89,7 @@ export async function frameworkRateLookupNode(state: ReconciliationGraphState): 
     calculationToolInvoked = true;
   }
   const parsed = await callForcedTool({
-    apiKey: reconciliationAnthropicApiKey(), model: RECONCILIATION_MODELS.frameworkRateLookup,
+    apiKey: reconciliationApiKey(), model: RECONCILIATION_MODELS.frameworkRateLookup,
     system: FRAMEWORK_RATE_LOOKUP_SYSTEM_PROMPT, tool: RECORD_RATE_TOOL,
     audit: { runId: state.runId, awardId: state.award.id, node: 'framework_rate_lookup' },
     input: { award_framework_references: state.award.frameworkReferences, candidate_rows: candidates, award: state.award,

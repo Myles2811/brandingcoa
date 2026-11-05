@@ -1,6 +1,7 @@
 import cron from 'node-cron';
 import { getAllSchedules, updateScheduleRun } from './schedulerStore';
 import { graph } from './graph';
+import { modelApiKey } from './modelClient';
 
 let started = false;
 
@@ -45,9 +46,11 @@ export async function runScheduledJob(
     useContractsFinderCrossCheck?: boolean;
   }
 ): Promise<number> {
-  const apiKey = process.env.ANTHROPIC_API_KEY ?? '';
-  if (!apiKey) {
-    console.error('[Scheduler] No ANTHROPIC_API_KEY configured — skipping job');
+  let apiKey: string;
+  try {
+    apiKey = modelApiKey();
+  } catch {
+    console.error('[Scheduler] Model provider configuration is unavailable — skipping job');
     return 0;
   }
 

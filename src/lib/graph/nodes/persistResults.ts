@@ -13,6 +13,7 @@ import { deduplicateResults } from '../../dedupeEngine';
 import { saveContracts } from '../../contractsStore';
 import { addRunToDataset, calcCostUsd } from '../../langfuseEval';
 import { saveSearchRun } from '../../searchRunStore';
+import { PS_AWARDS_MODEL } from '../../psAwardClassifier';
 
 export async function persistResults(
   state: PSAwardsState
@@ -40,7 +41,11 @@ export async function persistResults(
   // Langfuse evaluation ────────────────────────────────────────────────────────
   if (traceId) {
     const elapsedSeconds = (Date.now() - searchStartTime) / 1000;
-    const costUsd = calcCostUsd(usage.input, usage.output);
+    const costUsd = calcCostUsd(usage.input, usage.output, {
+      model: PS_AWARDS_MODEL,
+      cacheCreationInputTokens: usage.cache_creation_input,
+      cacheReadInputTokens: usage.cache_read_input,
+    });
 
     addRunToDataset(
       { year, month, frameworkId: frameworkId ?? null, useContractsFinderCrossCheck },

@@ -1,13 +1,19 @@
 import { getLangfuse, isLangfuseEnabled } from './langfuseClient';
 import { PSAwardResult } from './types';
+import { modelCostUsd, resolveModel } from './modelClient';
 
-// ─── Pricing constants for claude-haiku-4-5-20251001 ──────────────────────────
-// Update these if Anthropic changes their pricing.
-export const HAIKU_INPUT_USD_PER_TOKEN = 0.80 / 1_000_000;
-export const HAIKU_OUTPUT_USD_PER_TOKEN = 4.00 / 1_000_000;
-
-export function calcCostUsd(inputTokens: number, outputTokens: number): number {
-  return inputTokens * HAIKU_INPUT_USD_PER_TOKEN + outputTokens * HAIKU_OUTPUT_USD_PER_TOKEN;
+/** Estimate the selected scanner model's token charge; cache categories are separate. */
+export function calcCostUsd(inputTokens: number, outputTokens: number, options: {
+  model?: string;
+  cacheCreationInputTokens?: number;
+  cacheReadInputTokens?: number;
+} = {}): number {
+  return modelCostUsd(options.model ?? resolveModel(process.env.PS_AWARDS_MODEL || 'claude-sonnet-5'), {
+    input_tokens: inputTokens,
+    output_tokens: outputTokens,
+    cache_creation_input_tokens: options.cacheCreationInputTokens ?? 0,
+    cache_read_input_tokens: options.cacheReadInputTokens ?? 0,
+  });
 }
 
 // ─── Structural validation rules (used as expected_output in dataset items) ───

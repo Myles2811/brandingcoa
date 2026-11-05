@@ -28,6 +28,8 @@
     "eval:ps-awards": "npx tsx --env-file=.env.local scripts/evaluate-ps-awards.ts",
     "test:sources": "npx tsx --env-file=.env.local scripts/test-award-sources.ts",
     "test:march-crosscheck": "npx tsx --env-file=.env.local scripts/run-march-2026-crosscheck.ts",
+    "trial:azure-month": "npx tsx scripts/run-azure-month.ts",
+    "test:azure": "npx tsx --test tests/model-client.test.ts tests/azure-scanner-cost.test.ts tests/azure-reconciliation.test.ts tests/azure-scheduler.test.ts",
     "refresh:frameworks": "npx tsx scripts/refresh-framework-catalogue.ts",
     "audit:frameworks": "npm run refresh:frameworks"
   },

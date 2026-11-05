@@ -2,8 +2,9 @@ import Anthropic from '@anthropic-ai/sdk';
 import { NormalizedNotice, PSAwardResult, RejectedCandidate, RunIssue, RunUsage } from './types';
 import { PS_FRAMEWORK_IDS } from './noticeNormalizer';
 import { findSupplierFrameworkSupport, frameworkStatusAt, getFramework } from './frameworkCatalogue';
+import { createModelClient, isPermanentModelError, resolveModel } from './modelClient';
 
-export const PS_AWARDS_MODEL = process.env.PS_AWARDS_MODEL || 'claude-sonnet-5';
+export const PS_AWARDS_MODEL = resolveModel(process.env.PS_AWARDS_MODEL || 'claude-sonnet-5');
 const BATCH_SIZE = 30;
 const MAX_ATTEMPTS = 3;
 
@@ -147,13 +148,13 @@ function parseDecisions(response: Anthropic.Messages.Message, validIds: Set<stri
   return decisions;
 }
 
-function isCreditError(error: unknown): boolean {
+function isPermanentClassificationError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
-  return /credit balance is too low|billing|purchase credits/i.test(message);
+  return isPermanentModelError(error) || /credit balance is too low|billing|purchase credits/i.test(message);
 }
 
 async function classifyBatch(
-  client: Anthropic,
+  client: ReturnType<typeof createModelClient>,
   batch: NormalizedNotice[],
   year: number,
   month: number,
@@ -178,7 +179,11 @@ async function classifyBatch(
       return parseDecisions(response, new Set(batch.map(notice => notice.candidate_id)));
     } catch (error) {
       lastError = error;
-      if (isCreditError(error)) throw error;
+      // Azure may charge an incomplete or malformed response before the provider
+      // boundary rejects it. Keep those tokens when a validation retry is needed.
+      const failedUsage = (error as { usage?: Anthropic.Messages.Usage } | null)?.usage;
+      if (failedUsage) addUsage(usage, failedUsage);
+      if (isPermanentClassificationError(error)) throw error;
       if (attempt < MAX_ATTEMPTS) await new Promise(resolve => setTimeout(resolve, attempt * 1000));
     }
   }
@@ -224,7 +229,7 @@ export async function classifyNotices(
 ): Promise<ClassificationOutcome> {
   const usage = emptyUsage();
   if (notices.length === 0) return { results: [], rejected: [], usage, issues: [], complete: true };
-  const client = new Anthropic({ apiKey });
+  const client = createModelClient({ apiKey });
   const decisions = new Map<string, Decision>();
   const issues: RunIssue[] = [];
 
@@ -236,8 +241,8 @@ export async function classifyNotices(
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      issues.push({ stage: 'model_classification', message: `batch ${index / BATCH_SIZE + 1}: ${message}`, recoverable: !isCreditError(error) });
-      if (isCreditError(error)) break;
+      issues.push({ stage: 'model_classification', message: `batch ${index / BATCH_SIZE + 1}: ${message}`, recoverable: !isPermanentClassificationError(error) });
+      if (isPermanentClassificationError(error)) break;
     }
   }
 
@@ -251,8 +256,8 @@ export async function classifyNotices(
           decisions.set(decision.candidate_id, decision);
         }
       } catch (error) {
-        issues.push({ stage: 'model_recall_review', message: error instanceof Error ? error.message : String(error), recoverable: !isCreditError(error) });
-        if (isCreditError(error)) break;
+        issues.push({ stage: 'model_recall_review', message: error instanceof Error ? error.message : String(error), recoverable: !isPermanentClassificationError(error) });
+        if (isPermanentClassificationError(error)) break;
       }
     }
   }

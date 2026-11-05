@@ -1,12 +1,12 @@
 import { EvidenceJudgeResult } from '../../types';
 import { ReconciliationGraphState } from '../state';
 import {
-  callForcedTool, nullableString, objectValue, RECONCILIATION_MODELS, reconciliationAnthropicApiKey,
+  callForcedTool, nullableString, objectValue, RECONCILIATION_MODELS, reconciliationApiKey,
   requiredBoolean, ToolSchema,
 } from '../modelCall';
 import { EVIDENCE_JUDGE_SYSTEM_PROMPT } from './evidenceJudge.prompt';
 
-const TOOL: ToolSchema = {
+export const EVIDENCE_JUDGE_TOOL: ToolSchema = {
   name: 'record_judgement', description: 'Record the evidence quality judgement.',
   input_schema: {
     type: 'object', properties: {
@@ -34,8 +34,8 @@ function parse(value: unknown): EvidenceJudgeResult {
 export async function evidenceJudgeNode(state: ReconciliationGraphState): Promise<Partial<ReconciliationGraphState>> {
   if (!state.buyerEvidence || !state.supplierEvidence) throw new Error('both evidence branches must complete before judging');
   const judgement = await callForcedTool({
-    apiKey: reconciliationAnthropicApiKey(), model: RECONCILIATION_MODELS.evidenceJudge,
-    system: EVIDENCE_JUDGE_SYSTEM_PROMPT, tool: TOOL,
+    apiKey: reconciliationApiKey(), model: RECONCILIATION_MODELS.evidenceJudge,
+    system: EVIDENCE_JUDGE_SYSTEM_PROMPT, tool: EVIDENCE_JUDGE_TOOL,
     audit: { runId: state.runId, awardId: state.award.id, node: 'evidence_judge' },
     input: { buyer_evidence: state.buyerEvidence, supplier_evidence: state.supplierEvidence },
     validate: parse,

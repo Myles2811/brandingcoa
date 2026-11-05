@@ -2,12 +2,12 @@ import { SupplierEvidence } from '../../types';
 import { ReconciliationGraphState } from '../state';
 import {
   callForcedTool, enumValue, nullableNumber, nullableString, objectValue,
-  RECONCILIATION_MODELS, reconciliationAnthropicApiKey, requiredString, ToolSchema,
+  RECONCILIATION_MODELS, reconciliationApiKey, requiredString, ToolSchema,
 } from '../modelCall';
 import { SUPPLIER_EVIDENCE_SYSTEM_PROMPT } from './supplierEvidence.prompt';
 import { loadReconciliationSources } from '../../sourceStore';
 
-const TOOL: ToolSchema = {
+export const SUPPLIER_EVIDENCE_TOOL: ToolSchema = {
   name: 'record_supplier_evidence', description: 'Record supplier-side spend-cycle evidence.',
   input_schema: {
     type: 'object', properties: {
@@ -41,8 +41,8 @@ export async function supplierEvidenceNode(state: ReconciliationGraphState): Pro
   );
   const rules = frameworkRules.filter(rule => !framework || rule.frameworkReference === framework);
   const evidence = await callForcedTool({
-    apiKey: reconciliationAnthropicApiKey(), model: RECONCILIATION_MODELS.supplierEvidence,
-    system: SUPPLIER_EVIDENCE_SYSTEM_PROMPT, tool: TOOL,
+    apiKey: reconciliationApiKey(), model: RECONCILIATION_MODELS.supplierEvidence,
+    system: SUPPLIER_EVIDENCE_SYSTEM_PROMPT, tool: SUPPLIER_EVIDENCE_TOOL,
     audit: { runId: state.runId, awardId: state.award.id, node: 'supplier_evidence' },
     input: { supplier: state.award.supplierRaw, supplier_canonical: supplier, framework,
       organisation: state.award.customerRaw, as_of: state.asOf, spend_rows: candidates, framework_rules: rules },

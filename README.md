@@ -95,6 +95,44 @@ sync and reconciliation endpoints. No administrator access token is copied into 
 
 ## Getting Started
 
+### Azure model trial of the original branding pipeline
+
+The retained scanner and reconciliation libraries support Azure OpenAI Responses function
+calling when `AI_PROVIDER=azure_openai`. Award classification and buyer evidence use
+`gpt-6.1-sol`; routine reconciliation steps use `gpt-6-luna`; the evidence judge uses
+`gpt-6-astra`. The three `AZURE_OPENAI_*_MODEL` variables can select deployment names.
+Existing Anthropic configuration remains available when `AI_PROVIDER=anthropic` or unset.
+The static demo dashboard does not become a live backend by running this command.
+
+Load your existing branding Graph environment and Azure resource environment locally, and
+set `DATABASE_URL` explicitly to a separate trial PostgreSQL database. Initialize that
+database with `scripts/setup-postgres.ts`. Never initialize a database without verifying its
+target. The runner downloads current SharePoint workbook snapshots and applies the requested
+publication month; a retrospective March run therefore does not recreate the workbooks as
+they existed in March.
+
+```bash
+npx tsx --env-file=/path/to/branding.env --env-file=/path/to/azure.env \
+  scripts/run-azure-month.ts --year 2026 --month 3 --budget-usd 15
+```
+
+Run `--fetch-only` to save the public-source fetch before paying for classification, then
+use `--reuse-fetch` to classify that exact saved month and reconcile the resulting awards.
+`--resume-reconciliation` uses the trial database's already persisted awards for that month.
+The ignored `data/azure-<month>-<year>/` directory (for example,
+`data/azure-march-2026/`) holds private source snapshots, findings, model
+audit and a summary. The content-free model ledger retains observed tokens, failed paid
+attempts and configured-rate estimates across resumes. Unknown billing outcomes stop the
+trial and retain an explicitly labelled upper bound. A model spending cap is not an Azure
+invoice reconciliation or a production multi-worker budget service.
+
+Find a Tender, Public Contracts Scotland, Sell2Wales and Contracts Finder are requested;
+the optional Northern Ireland scraper is excluded. Source failures and pagination caps
+remain visible as incomplete coverage. Finishing the available cases does not establish
+complete UK coverage. The command does not create or enable a schedule.
+
+Run `npm run test:azure` for mocked provider, cost, error-accounting and schema regressions.
+
 ```bash
 npm run dev
 ```

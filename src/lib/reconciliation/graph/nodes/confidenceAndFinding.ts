@@ -1,7 +1,7 @@
 import { ConfidenceFinding } from '../../types';
 import { ReconciliationGraphState } from '../state';
 import {
-  callForcedTool, enumValue, nullableNumber, objectValue, RECONCILIATION_MODELS, reconciliationAnthropicApiKey,
+  callForcedTool, enumValue, nullableNumber, objectValue, RECONCILIATION_MODELS, reconciliationApiKey,
   requiredString, ToolSchema,
 } from '../modelCall';
 import { CONFIDENCE_AND_FINDING_SYSTEM_PROMPT } from './confidenceAndFinding.prompt';
@@ -32,7 +32,7 @@ export async function confidenceAndFindingNode(state: ReconciliationGraphState):
   if (!state.buyerEvidence || !state.supplierEvidence || !state.judgeResult) throw new Error('verified evidence is missing');
   const expectedPotential = state.frameworkRate?.potential_rebate_lifetime_max ?? null;
   const finding = await callForcedTool({
-    apiKey: reconciliationAnthropicApiKey(), model: RECONCILIATION_MODELS.confidenceAndFinding,
+    apiKey: reconciliationApiKey(), model: RECONCILIATION_MODELS.confidenceAndFinding,
     system: CONFIDENCE_AND_FINDING_SYSTEM_PROMPT, tool: TOOL,
     audit: { runId: state.runId, awardId: state.award.id, node: 'confidence_and_finding' },
     input: { buyer_evidence: state.buyerEvidence, supplier_evidence: state.supplierEvidence,

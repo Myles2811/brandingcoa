@@ -2,11 +2,14 @@ import { ReconciliationCaseOutput } from '../../types';
 import { ReconciliationGraphState } from '../state';
 import {
   callForcedTool, enumValue, nullableNumber, nullableString, objectValue,
-  RECONCILIATION_MODELS, reconciliationAnthropicApiKey, requiredBoolean, ToolSchema,
+  RECONCILIATION_MODELS, reconciliationApiKey, requiredBoolean, ToolSchema,
 } from '../modelCall';
 import { STRUCTURED_OUTPUT_SYSTEM_PROMPT } from './structuredOutput.prompt';
+import { BUYER_EVIDENCE_TOOL } from './buyerEvidence';
+import { SUPPLIER_EVIDENCE_TOOL } from './supplierEvidence';
+import { EVIDENCE_JUDGE_TOOL } from './evidenceJudge';
 
-const TOOL: ToolSchema = {
+export const CASE_OUTPUT_TOOL: ToolSchema = {
   name: 'record_case_output', description: 'Record the final strict reconciliation case output.',
   input_schema: {
     type: 'object', properties: {
@@ -15,8 +18,9 @@ const TOOL: ToolSchema = {
       award_contract_value: { type: ['number', 'null'] }, potential_rebate_lifetime_max: { type: ['number', 'null'] },
       finding_code: { type: 'string', enum: ['MATCHED', 'COA_NO_SUPPLIER_SPEND', 'EXTERNAL_AWARD_MISSING_REBATE_LOG', 'SUPPLIER_SPEND_UNMATCHED', 'AMBIGUOUS_MATCH', 'NEEDS_MANUAL_REVIEW', 'PENDING_RATE'] },
       confidence_tier: { type: 'string', enum: ['HIGH', 'MEDIUM', 'LOW'] },
-      buyer_evidence: { type: ['object', 'null'] }, supplier_evidence: { type: ['object', 'null'] },
-      judge_result: { type: ['object', 'null'] }, evidence_source_references: { type: 'array', items: { type: 'string' } },
+      buyer_evidence: { ...BUYER_EVIDENCE_TOOL.input_schema, type: ['object', 'null'] },
+      supplier_evidence: { ...SUPPLIER_EVIDENCE_TOOL.input_schema, type: ['object', 'null'] },
+      judge_result: { ...EVIDENCE_JUDGE_TOOL.input_schema, type: ['object', 'null'] }, evidence_source_references: { type: 'array', items: { type: 'string' } },
       schema_complete: { type: 'boolean' }, missing_fields: { type: 'array', items: { type: 'string' } },
       identity_confirmed: { type: 'boolean' },
     }, required: ['organisation', 'supplier', 'framework_ref', 'award_type', 'award_contract_value',
@@ -29,8 +33,8 @@ export async function structuredOutputNode(state: ReconciliationGraphState): Pro
   if (!state.finding) throw new Error('finding is missing');
   const authoritative = authoritativeCaseInput(state);
   const output = await callForcedTool({
-    apiKey: reconciliationAnthropicApiKey(), model: RECONCILIATION_MODELS.structuredOutput,
-    system: STRUCTURED_OUTPUT_SYSTEM_PROMPT, tool: TOOL, input: authoritative,
+    apiKey: reconciliationApiKey(), model: RECONCILIATION_MODELS.structuredOutput,
+    system: STRUCTURED_OUTPUT_SYSTEM_PROMPT, tool: CASE_OUTPUT_TOOL, input: authoritative,
     audit: { runId: state.runId, awardId: state.award.id, node: 'structured_output' },
     validate(value) {
       const record = objectValue(value, 'case output');
